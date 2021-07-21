@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =4
+let g:netrw_dirhist_4='/Users/ullorent/Desktop/BSQ/BSQ'
+let g:netrw_dirhist_3='/Users/ullorent/Desktop/Rushes/rush-02/ex00/.git'
+let g:netrw_dirhist_2='/Users/ullorent/Desktop/proC02/ex04'
+let g:netrw_dirhist_1='/Users/ullorent/Desktop/Correcciones/2/ex07'
