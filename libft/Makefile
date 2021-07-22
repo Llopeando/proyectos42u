@@ -6,23 +6,28 @@
 #    By: ullorent <ullorent@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/19 10:41:19 by ullorent          #+#    #+#              #
-#    Updated: 2021/07/21 13:22:42 by ullorent         ###   ########.fr        #
+#    Updated: 2021/07/22 12:42:17 by ullorent         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
-SRC = ft_isalpha.c ft_isdigit.c ft_isalnum.c
-FLAGS = -Werror -Wall -Wextra
+SRC = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_strlen.c ft_strlcpy.c
+
+CSRC = ft_isalpha.o ft_isdigit.o ft_isalnum.o ft_isascii.o ft_isprint.o ft_strlen.o ft_strlcpy.o
+CFLAGS = -Werror -Wall -Wextra
+
+ARCMD = ar rc
+GCCCMD = gcc
 
 all: $(NAME)
 
-$(NAME): ft_isalpha.o
-	ar rc $(NAME) ft_isalpha.o
+$(NAME): $(CSRC)
+	$(ARCMD) $(NAME) $(CSRC)
 
-ft_isalpha.o: ft_isalpha.c 
-	gcc $(FLAGS) -c ft_isalpha.c
+$(CSRC): $(SRC) 
+	$(GCCCMD) $(CFLAGS) -c $(SRC)
 clean:
-	rm -f *.o
+	rm -f $(CSRC)
 
 fclean: clean
 	rm -f $(NAME)
