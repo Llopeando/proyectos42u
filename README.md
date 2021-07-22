@@ -1,4 +1,7 @@
 # proyectos42u
+
+[![CodeFactor](https://www.codefactor.io/repository/github/allplayed/proyectos42u/badge?s=78de944f4586421d1953b3a1ca590ed1e74c1c01)](https://www.codefactor.io/repository/github/allplayed/proyectos42u)
+
 Repositorio para trabajar en los proyectos de 42 Urduliz (privado)
 
 -------
