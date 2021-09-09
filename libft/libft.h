@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 11:54:48 by ullorent          #+#    #+#             */
-/*   Updated: 2021/09/07 11:35:19 by ullorent         ###   ########.fr       */
+/*   Updated: 2021/09/08 11:02:55 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int				ft_atoi(const char *str);
 
 char			*ft_strchr(const char *str, int c);
 char			*ft_strrchr(const char *str, int c);
+char			*ft_strdup(const char *s1);
 
 void			*ft_memset(void *b, int c, size_t len);
 void			*ft_memcpy(void *dst, const void *src, size_t n);

@@ -6,7 +6,7 @@
 #    By: ullorent <ullorent@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/19 10:41:19 by ullorent          #+#    #+#              #
-#    Updated: 2021/09/07 11:18:51 by ullorent         ###   ########.fr        #
+#    Updated: 2021/09/08 11:02:52 by ullorent         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,10 +19,12 @@ ft_isprint.c \
 ft_strlen.c \
 ft_strlcpy.c \
 ft_strlcat.c \
+ft_strrchr.c \
 ft_toupper.c \
 ft_tolower.c \
 ft_strchr.c \
 ft_strncmp.c \
+ft_strdup.c \
 ft_atoi.c \
 ft_memset.c \
 ft_memcpy.c \
@@ -41,10 +43,12 @@ ft_isprint.o \
 ft_strlen.o \
 ft_strlcpy.o \
 ft_strlcat.o \
+ft_strrchr.o \
 ft_toupper.o \
 ft_tolower.o \
 ft_strchr.o \
 ft_strncmp.o \
+ft_strdup.o \
 ft_atoi.o \
 ft_memset.o \
 ft_memcpy.o \
