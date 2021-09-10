@@ -6,7 +6,7 @@
 #    By: ullorent <ullorent@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/19 10:41:19 by ullorent          #+#    #+#              #
-#    Updated: 2021/09/08 11:02:52 by ullorent         ###   ########.fr        #
+#    Updated: 2021/09/10 11:47:48 by ullorent         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ ft_tolower.c \
 ft_strchr.c \
 ft_strncmp.c \
 ft_strdup.c \
+ft_strnstr.c \
 ft_atoi.c \
 ft_memset.c \
 ft_memcpy.c \
@@ -44,6 +45,7 @@ ft_strlen.o \
 ft_strlcpy.o \
 ft_strlcat.o \
 ft_strrchr.o \
+ft_strnstr.o \
 ft_toupper.o \
 ft_tolower.o \
 ft_strchr.o \
