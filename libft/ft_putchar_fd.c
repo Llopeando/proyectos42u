@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ullorent <ullorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/03 12:12:09 by ullorent          #+#    #+#             */
-/*   Updated: 2021/09/13 11:49:21 by ullorent         ###   ########.fr       */
+/*   Created: 2021/09/13 12:18:31 by ullorent          #+#    #+#             */
+/*   Updated: 2021/09/13 12:29:30 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *str, int c)
+void	ft_putchar_fd(char c, int fd)
 {
-	while (*str != '\0')
-	{
-		if (*str == (unsigned char)c)
-		{
-			return ((char *) str);
-		}
-		str++;
-	}
-	if (*str == (unsigned char)c)
-	{
-		return ((char *) str);
-	}
-	return (NULL);
+	write(fd, &c, 1);
 }

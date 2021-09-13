@@ -6,7 +6,7 @@
 #    By: ullorent <ullorent@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/19 10:41:19 by ullorent          #+#    #+#              #
-#    Updated: 2021/09/10 11:47:48 by ullorent         ###   ########.fr        #
+#    Updated: 2021/09/13 12:43:41 by ullorent         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,12 @@ ft_memmove.c \
 ft_memchr.c \
 ft_memcmp.c \
 ft_calloc.c \
+ft_substr.c \
+ft_strjoin.c \
+ft_putchar_fd.c \
+ft_putstr_fd.c \
+ft_putendl_fd.c \
+ft_putnbr_fd.c \
 ft_bzero.c
 
 CSRC = ft_isalpha.o \
@@ -59,6 +65,12 @@ ft_memmove.o \
 ft_memchr.o \
 ft_memcmp.o \
 ft_calloc.o \
+ft_substr.o \
+ft_strjoin.o \
+ft_putchar_fd.o \
+ft_putstr_fd.o \
+ft_putendl_fd.o \
+ft_putnbr_fd.o \
 ft_bzero.o
 
 CFLAGS = -Werror -Wall -Wextra
