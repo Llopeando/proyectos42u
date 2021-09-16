@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ullorent <ullorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/30 11:05:39 by ullorent          #+#    #+#             */
-/*   Updated: 2021/08/30 11:07:10 by ullorent         ###   ########.fr       */
+/*   Created: 2021/09/14 12:52:07 by ullorent          #+#    #+#             */
+/*   Updated: 2021/09/14 12:59:30 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	size_t			co;
-	unsigned char	*new;
+	int		c;
 
-	new = (unsigned char *)s;
-	co = 0;
-	while (co < n)
+	c = 0;
+	if (!s || !f)
+		return ;
+	while (s[c] != '\0')
 	{
-		new[co] = 0;
-		co++;
+		f(c, &s[c]);
+		c++;
 	}
-	s = new;
 }

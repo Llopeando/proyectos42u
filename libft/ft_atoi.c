@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/05 11:34:58 by ullorent          #+#    #+#             */
-/*   Updated: 2021/08/05 12:00:59 by ullorent         ###   ########.fr       */
+/*   Updated: 2021/09/08 13:19:40 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,29 @@
 
 int	ft_atoi(const char *str)
 {
-	int	c;
-	int	pm;
-	int	absol;
-	int	current;
+	unsigned int		c;
+	int					j;
+	unsigned long int	lint;
 
 	c = 0;
-	pm = -1;
-	if (str[0] == '-')
+	j = 1;
+	lint = 0;
+	while ((str[c] == ' ') || (str[c] >= 9 && str[c] <= 13))
+		c++;
+	if (str[c] == '+' || str[c] == '-')
 	{
-		pm = '-';
+		if (str[c] == '-')
+			j = -1;
 		c++;
 	}
-	if (str[0] == '+')
+	while (str[c] <= '9' && str[c] >= '0')
 	{
+		lint = (lint * 10) + (str[c] - '0');
 		c++;
 	}
-	while (str[c] != '\0')
-	{
-		current = (int) str[c] - '0';
-		if (current < 0 || current > 9)
-			return (absol);
-		absol = absol * 10 + current;
-		c++;
-	}
-	return (pm * absol);
+	if (lint > 9223372036854775807 && j == -1)
+		return (0);
+	if (lint > 9223372036854775807 && j == 1)
+		return (-1);
+	return (lint * j);
 }

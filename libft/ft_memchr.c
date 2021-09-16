@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 12:41:51 by ullorent          #+#    #+#             */
-/*   Updated: 2021/08/30 12:57:47 by ullorent         ###   ########.fr       */
+/*   Updated: 2021/09/08 13:31:56 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	i = 0;
 	while (i < n)
 	{
-		if (c == ((const char *)s)[i])
+		if ((unsigned char)c == ((unsigned char *)s)[i])
 		{
-			return ((void *)s + i);
+			return ((char *)s + i);
 		}
 		i++;
 	}

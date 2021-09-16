@@ -6,13 +6,11 @@
 /*   By: ullorent <ullorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/03 11:10:39 by ullorent          #+#    #+#             */
-/*   Updated: 2021/08/03 11:57:45 by ullorent         ###   ########.fr       */
+/*   Updated: 2021/09/16 12:57:52 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "libft.h"
-
-#include <stdio.h>
+#include "libft.h"
 
 int	ft_toupper(int c)
 {
