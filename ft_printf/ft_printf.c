@@ -6,26 +6,34 @@
 /*   By: ullorent <ullorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 11:26:35 by ullorent          #+#    #+#             */
-/*   Updated: 2021/09/29 16:38:47 by ullorent         ###   ########.fr       */
+/*   Updated: 2021/10/01 12:45:50 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
+#include "libft/libft.h"
 
 void	ft_va(char let, va_list args, int *num)
 {
 	if (let == 'c')
-		ft_putchar((va_arg(args, int)), num);
+		ft_putchar_c(va_arg(args, int), num);
 	if (let == 's')
-		ft_putstr((va_arg(args, char *)), num);
-	/*if (let == 'p')
-	if (let == 'd')
-	if (let == 'i')
+		ft_putstr_s(va_arg(args, char *), num);
+	if (let == 'p')
+	{
+		*num += write(1, "0x", 2);
+		ft_hexa_x(va_arg(args, unsigned long int), 0, num);
+	}
+	if (let == 'd' || let == 'i')
+		ft_putnbr_di(va_arg(args, int), num);
 	if (let == 'u')
+		ft_putnbr_u(va_arg(args, unsigned int), num);
 	if (let == 'x')
+		ft_hexa_x(va_arg(args, unsigned int), 0, num);
 	if (let == 'X')
-	if (let == '%')*/
+		ft_hexa_x(va_arg(args, unsigned int), 1, num);
+	if (let == '%')
+		ft_putchar_c('%', num);
 }
 
 int	ft_printf(const char *str, ...)
@@ -45,21 +53,9 @@ int	ft_printf(const char *str, ...)
 			i += 2;
 			continue ;
 		}
-		ft_putchar(str[i], &num);
+		ft_putchar_c(str[i], &num);
 		i++;
 	}
 	va_end (args);
 	return (num);
 }
-
-/*int	main(void)
-{
-	char	*str;
-	int		i;
-
-	str = NULL;
-	i = ft_printf("%s\n", str);
-	printf("i == %d\n", i);
-	i = printf("%s\n", str);
-	printf("i == %d\n", i);
-}*/
