@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 12:48:50 by ullorent          #+#    #+#             */
-/*   Updated: 2021/10/08 13:03:57 by ullorent         ###   ########.fr       */
+/*   Updated: 2021/10/19 12:39:56 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,15 @@
 # include <stdlib.h>
 
 size_t	ft_strlen(const char *str);
+size_t	ft_strn(const char *str);
+int		ft_strnboo(const char *str);
 
-char	*ft_substr(const char *s, unsigned int start, size_t len);
-char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_substr(char **s, unsigned int start, size_t len, int boo);
+char	*ft_strjoin(char **s1, char **s2);
 
-void	get_next_line(int fd);
+char	*get_next_line(int fd);
+char	*ft_readline(int fd, char *temp);
+
+void	ft_freejoinmem(char **s1, char **s2);
 
 #endif

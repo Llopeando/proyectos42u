@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 12:48:25 by ullorent          #+#    #+#             */
-/*   Updated: 2021/10/08 12:49:50 by ullorent         ###   ########.fr       */
+/*   Updated: 2021/10/19 12:39:30 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,60 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
-void	get_next_line(int fd)
+size_t	ft_strlen(const char *str)
 {
-	char	*buf;
-	int		reading;
-	int		c;
+	size_t	c;
 
 	c = 0;
-	buf = malloc(BUFFER_SIZE + 1);
-	if (!buf)
-		return ;
-	printf("BUF = %s\n", buf);
-	reading = read(fd, buf, BUFFER_SIZE);
-	printf("Reading = %d\n", reading);
-	while (buf[c] != '\0')
+	if (!str)
+		return (0);
+	while (str[c] != '\0')
 	{
 		c++;
-		if (c == '\n')
-			printf("Ha encontrado el salto de línea");
 	}
-	buf[reading] = '\n';
-	printf("Buf-text = %s\n", buf);
-	return ;
+	return (c);
 }
 
-int	main(void)
+char	*ft_readline(int fd, char *temp)
 {
-	int	fd;
+	char		*buf;
+	int			reading;
 
-	fd = open("file.txt", O_RDONLY);
-	printf("FD = %d\n", fd);
-	get_next_line(fd);
+	reading = 1;
+	buf = NULL;
+	while (ft_strnboo(temp))
+	{
+		buf = malloc(BUFFER_SIZE + 1);
+		reading = read(fd, buf, BUFFER_SIZE);
+		buf[reading] = '\0';
+		if (reading == 0 || !*buf)
+		{
+			free (buf);
+			free (temp);
+			return (NULL);
+		}
+		temp = ft_strjoin(&temp, &buf);
+	}
+	return (temp);
 }
+
+char	*get_next_line(int fd)
+{
+	static char	*temp;
+	char		*final;
+
+	temp = ft_readline(fd, temp);
+	final = ft_substr(&temp, 0, ft_strn(temp) + 1, 0);
+	temp = ft_substr(&temp, ft_strlen(final), ft_strlen(temp)
+			- ft_strlen(final), 1);
+	return (final);
+}
+
+// int	main(void)
+// {
+// 	int	fd;
+
+// 	fd = open("file.txt", O_RDONLY);
+// 	printf("FD = %d\n", fd);
+// 	printf("First final = %s\n", get_next_line(fd));
+// }
