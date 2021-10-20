@@ -6,13 +6,22 @@
 /*   By: ullorent <ullorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 12:48:25 by ullorent          #+#    #+#             */
-/*   Updated: 2021/10/19 18:50:34 by ullorent         ###   ########.fr       */
+/*   Updated: 2021/10/20 12:59:01 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include <sys/stat.h>
 #include <fcntl.h>
+
+void	ft_linefreemem(char **str)
+{
+	if (str != NULL && *str != NULL)
+	{
+		free (*str);
+		*str = NULL;
+	}
+}
 
 size_t	ft_strlen(const char *str)
 {
@@ -28,27 +37,31 @@ size_t	ft_strlen(const char *str)
 	return (c);
 }
 
-char	*ft_readline(int fd, char *temp)
+char	*ft_readline(int fd, char **temp)
 {
 	char		*buf;
 	int			reading;
 
 	reading = 1;
 	buf = NULL;
-	while (ft_strnboo(temp))
+	while (ft_strnboo(*temp))
 	{
 		buf = malloc(BUFFER_SIZE + 1);
 		reading = read(fd, buf, BUFFER_SIZE);
 		buf[reading] = '\0';
 		if (reading == 0 || !*buf)
 		{
-			free (buf);
-			free (temp);
+			ft_linefreemem(&buf);
+			ft_linefreemem(temp);
 			return (NULL);
 		}
-		temp = ft_strjoin(&temp, &buf);
+		*temp = ft_strjoin(temp, &buf);
 	}
-	return (temp);
+	if (ft_strnboo(*temp) == 1)
+	{
+		printf("sí\n");
+	}
+	return (*temp);
 }
 
 char	*get_next_line(int fd)
@@ -56,7 +69,7 @@ char	*get_next_line(int fd)
 	static char	*temp;
 	char		*final;
 
-	temp = ft_readline(fd, temp);
+	temp = ft_readline(fd, &temp);
 	final = ft_substr(&temp, 0, ft_strn(temp) + 1, 0);
 	temp = ft_substr(&temp, ft_strlen(final), ft_strlen(temp)
 			- ft_strlen(final), 1);

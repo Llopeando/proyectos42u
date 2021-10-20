@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 12:48:54 by ullorent          #+#    #+#             */
-/*   Updated: 2021/10/19 18:46:29 by ullorent         ###   ########.fr       */
+/*   Updated: 2021/10/20 12:52:52 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,14 @@ int	ft_strnboo(const char *str)
 	{
 		if (str[c] == '\n')
 			return (0);
-		if (str[c] != '\n' && str[c] == '\0')
-			return (0);
 		c++;
 	}
+	// while (str[c] != '\0' || str[c] == '\0')
+	// {
+	// 	c++;
+	// 	if (str[c] == '\0')
+	// 		return (0);
+	// }
 	return (1);
 }
 
@@ -64,18 +68,18 @@ char	*ft_substr(char **s, unsigned int start, size_t len, int boo)
 	}
 	mem[c - start] = '\0';
 	if (boo)
-		free (*s);
+		ft_linefreemem(s);
 	return (mem);
 }
 
-void	ft_freejoinmem(char **s1, char **s2)
-{
-	if (s1 && *s1)
-		free (*s1);
-	if (s2 && *s2)
-		free (*s2);
-	return ;
-}
+// void	ft_freejoinmem(char **s1, char **s2)
+// {
+// 	if (s1 && *s1)
+// 		free (*s1);
+// 	if (s2 && *s2)
+// 		free (*s2);
+// 	return ;
+// }
 
 char	*ft_strjoin(char **s1, char **s2)
 {
@@ -91,10 +95,19 @@ char	*ft_strjoin(char **s1, char **s2)
 	if (!mem)
 		return (NULL);
 	while (((size_t)c) < ft_strlen(*s1))
-		*mem++ = (*s1)[c++];
+	{
+		*mem = (*s1)[c];
+		c++;
+		mem++;
+	}
 	while ((*s2)[i] != '\0')
-		*mem++ = (*s2)[i++];
+	{
+		*mem = (*s2)[i];
+		i++;
+		mem++;
+	}
 	*mem = '\0';
-	ft_freejoinmem(((char **)s1), ((char **)s2));
+	ft_linefreemem(s1);
+	ft_linefreemem(s2);
 	return (mem - c - i);
 }

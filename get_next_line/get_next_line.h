@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 12:48:50 by ullorent          #+#    #+#             */
-/*   Updated: 2021/10/19 17:03:20 by ullorent         ###   ########.fr       */
+/*   Updated: 2021/10/20 10:19:49 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ char	*ft_substr(char **s, unsigned int start, size_t len, int boo);
 char	*ft_strjoin(char **s1, char **s2);
 
 char	*get_next_line(int fd);
-char	*ft_readline(int fd, char *temp);
+char	*ft_readline(int fd, char **temp);
 
-void	ft_freejoinmem(char **s1, char **s2);
+void	ft_linefreemem(char **str);
 
 #endif
