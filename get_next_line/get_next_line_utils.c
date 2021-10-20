@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 12:48:54 by ullorent          #+#    #+#             */
-/*   Updated: 2021/10/19 12:39:51 by ullorent         ###   ########.fr       */
+/*   Updated: 2021/10/19 18:46:29 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ int	ft_strnboo(const char *str)
 	while (str[c] != '\0')
 	{
 		if (str[c] == '\n')
+			return (0);
+		if (str[c] != '\n' && str[c] == '\0')
 			return (0);
 		c++;
 	}
