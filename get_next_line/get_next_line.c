@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 12:48:25 by ullorent          #+#    #+#             */
-/*   Updated: 2021/10/20 12:59:01 by ullorent         ###   ########.fr       */
+/*   Updated: 2021/10/20 16:31:10 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,26 +40,22 @@ size_t	ft_strlen(const char *str)
 char	*ft_readline(int fd, char **temp)
 {
 	char		*buf;
-	int			reading;
+	static int	reading;
 
 	reading = 1;
 	buf = NULL;
-	while (ft_strnboo(*temp))
+	while ((ft_strnboo(*temp) == 1 && reading > 0) || ft_strnboo(*temp) == 0)
 	{
 		buf = malloc(BUFFER_SIZE + 1);
 		reading = read(fd, buf, BUFFER_SIZE);
 		buf[reading] = '\0';
-		if (reading == 0 || !*buf)
-		{
-			ft_linefreemem(&buf);
-			ft_linefreemem(temp);
-			return (NULL);
-		}
 		*temp = ft_strjoin(temp, &buf);
 	}
-	if (ft_strnboo(*temp) == 1)
+	if (reading == 0 || !*buf)
 	{
-		printf("sí\n");
+		ft_linefreemem(&buf);
+		ft_linefreemem(temp);
+		return (NULL);
 	}
 	return (*temp);
 }
