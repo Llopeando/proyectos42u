@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 12:48:54 by ullorent          #+#    #+#             */
-/*   Updated: 2021/10/20 16:19:35 by ullorent         ###   ########.fr       */
+/*   Updated: 2021/10/21 12:01:30 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ size_t	ft_strn(const char *str)
 	if (!str)
 		return (0);
 	while (str[c] != '\n' && str[c] != '\0')
-	{
 		c++;
-	}
 	return (c);
 }
 
@@ -68,18 +66,20 @@ char	*ft_substr(char **s, unsigned int start, size_t len, int boo)
 
 char	*ft_strjoin(char **s1, char **s2)
 {
-	int		c;
-	int		i;
-	char	*mem;
+	int			c;
+	int			i;
+	char		*mem;
+	size_t		s1c;
 
 	c = 0;
 	i = 0;
 	if (!*s2)
 		return (NULL);
-	mem = malloc(ft_strlen(*s1) + ft_strlen(*s2) + 1);
+	s1c = ft_strlen(*s1);
+	mem = malloc(s1c + ft_strlen(*s2) + 1);
 	if (!mem)
 		return (NULL);
-	while (((size_t)c) < ft_strlen(*s1))
+	while (((size_t)c) < s1c)
 		*mem++ = (*s1)[c++];
 	while ((*s2)[i] != '\0')
 		*mem++ = (*s2)[i++];
