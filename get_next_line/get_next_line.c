@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ullorent <ullorent@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 12:48:25 by ullorent          #+#    #+#             */
-/*   Updated: 2021/10/21 11:58:48 by ullorent         ###   ########.fr       */
+/*   Updated: 2021/10/21 18:23:11 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,12 +70,3 @@ char	*get_next_line(int fd)
 			- ft_strlen(final), 1);
 	return (final);
 }
-
-// int	main(void)
-// {
-// 	int	fd;
-
-// 	fd = open("file.txt", O_RDONLY);
-// 	printf("FD = %d\n", fd);
-// 	printf("First final = %s\n", get_next_line(fd));
-// }
