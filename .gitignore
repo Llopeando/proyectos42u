@@ -1,5 +1,6 @@
 #Other files
 .DS_Store
+./so_long/so_long_map_generator
 
 # Prerequisites
 *.d
