@@ -6,12 +6,11 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 14:09:12 by ullorent          #+#    #+#             */
-/*   Updated: 2021/10/26 15:37:50 by ullorent         ###   ########.fr       */
+/*   Updated: 2021/10/28 13:22:51 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <mlx.h>
-#include <stdio.h>
+#include "so_long.h"
 
 typedef struct s_data {
 	void	*img;
@@ -23,22 +22,22 @@ typedef struct s_data {
 	int		img_height;
 }				t_data;
 
-int main(void)
+int	main(void)
 {
 	void	*mlx;
-	char	*relative_path = "bicho.xpm";
+	char	*relative_path;
 	void	*mlx_win;
+	int		num;
 	t_data	img;
 
+	relative_path = "bicho.xpm";
+	num = 10000;
 	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, 400, 400, "./so_long");
-	//img.img = mlx_new_image(mlx, 1920, 1080);
-	img.addr = mlx_xpm_file_to_image(img.img, relative_path, &img.img_width,
-			&img.img_height);
+	mlx_win = mlx_new_window(mlx, 1920, 1080, "./so_long");
+	img.addr = mlx_xpm_file_to_image(img.img, relative_path, &num,
+			&num);
 	if (img.addr == NULL)
 		printf("no\n");
-	printf("pasa\n");
-	mlx_put_image_to_window(mlx, mlx_win, img.addr, 0, 0);
-	printf("pasa\n");
+	mlx_put_image_to_window(mlx, mlx_win, img.addr, 100, 100);
 	mlx_loop(mlx);
 }

@@ -54,3 +54,4 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+so_long/so_long_map_generator
