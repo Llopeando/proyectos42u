@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 12:55:03 by ullorent          #+#    #+#             */
-/*   Updated: 2021/10/27 16:06:55 by ullorent         ###   ########.fr       */
+/*   Updated: 2021/11/08 12:10:55 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,30 @@
 # include <mlx.h>
 
 /* --- structures --- */
+typedef struct rdmap_data {
+	int		fd;
+	int		map_x;
+	int		map_y;
+	char	*map;
+	char	**fmap;
+}				t_mdata;
 
-/* --- keyboard functions --- */
+typedef struct win_data {
+	void	*img;
+	char	*addr;
+	int		endian;
+	int		img_width;
+	int		img_height;
+}				t_wdata;
 
 /* --- map reading function(s) --- */
+void	ft_readmap(t_mdata	*cmap);
+void	ft_cpy_map(t_mdata *cmap);
 
 /* --- map image replace and render functions --- */
+void	ft_createwin(t_mdata cmap);
+
+/* --- keyboard functions --- */
 
 /* --- game mechanics functions --- */
 

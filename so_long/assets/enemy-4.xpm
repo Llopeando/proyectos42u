@@ -1,0 +1,36 @@
+/* XPM */
+static char *result[] = {
+/* columns rows colors chars-per-pixel */
+"25 25 5 1 ",
+"  c black",
+". c #010101",
+"X c #020202",
+"o c gray1",
+"O c #040404",
+/* pixels */
+".XXXXXXXXXX.XXX...X.O.XXX",
+"XXXX.XXX....X..X.XX.XXXX.",
+".XXXX.XXX..XXXX.XX.X.XXXX",
+"XXXXXXXXXX...XXXX.XX.XXXX",
+"XXXXXXXXXX.oXXX.X.XX .XXX",
+"XXXo.XXXX...XX.XXoXX.XXX.",
+"X.XX...XX..X.XX.XXXX...Xo",
+"..XXXX.X... ..X....XX.X .",
+"XXX.oXX..XX .XXXXX.XX .XX",
+".XX.X..X...XX.X.XXXXX.X.o",
+".XX.X.XX.X. o.X.XX...XX.X",
+"XX.X.XX..X.....XX.XX.XXXX",
+"XXX.XXX.X....XX..XX.XXX.X",
+"X..X..X.XXX.X.XXX....XXXX",
+" .XXX.X...X.X.XX.X.oXoX.o",
+".X...X...XX....oX.XX.XXXX",
+".X.X..X.X.X.XX.X.oXXXXo.X",
+".XXXX..X..XoX..XXXX.oXXXX",
+".XXX .XXXXX.XX.X.X.XXXXXX",
+"X..X.XX.XXX.XXXX oX....XX",
+".XXo..XXXXX.XXX..XXX.XX.X",
+".XXXX.X.X.X.X..XX.XXXXXXX",
+".oXXX..X.XX.X....oXXX.XXo",
+"XX.X.XX.X.XX.XXXX.X.XX.X.",
+".oX. .XX..o.X....XXX..XX "
+};

@@ -6,32 +6,31 @@
 #    By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/25 13:36:53 by ullorent          #+#    #+#              #
-#    Updated: 2021/10/28 13:56:52 by ullorent         ###   ########.fr        #
+#    Updated: 2021/11/03 13:12:15 by ullorent         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
-CSRC = sl_readmap.c \
-sl_otherfunctions.c
+CSRC =	sl_main.c \
+sl_window.c \
+sl_readmap.c \
+sl_otherfunctions.c \
 
 OSRC = $(CSRC:.c=.o)
 
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g
 GCCCMD = gcc
 
 all: $(NAME)
 
-$(OSRC): $(CSRC) ./libft/*.c
+%.o: %.c
 	make -C libft
 	make -C mlx
 	cp libft/libft.a .
-	# mv libft.a $(NAME)
-	# cp mlx/libmlx.a .
-	# mv libmlx.a $(NAME)
-	$(GCCCMD) $(CFLAGS) -Imlx -c $< -o $@
+	$(GCCCMD) $(CFLAGS) -Imlx -c $^ -o $@
 
 $(NAME): $(OSRC)
-	$(GCCCMD) $(CFLAGS) libft.a -Imlx -Lmlx -lmlx -framework OpenGL -framework AppKit $< -o $(NAME)
+	$(GCCCMD) $(CFLAGS) libft.a -Imlx -Iso_long.h -Lmlx -lmlx -framework OpenGL -framework AppKit $^ -o $@
 
 clean:
 	make -C libft/ clean

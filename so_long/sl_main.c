@@ -1,36 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sl_otherfunctions.c                                :+:      :+:    :+:   */
+/*   sl_main.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/27 16:05:25 by ullorent          #+#    #+#             */
-/*   Updated: 2021/11/08 11:45:42 by ullorent         ###   ########.fr       */
+/*   Created: 2021/11/03 12:26:40 by ullorent          #+#    #+#             */
+/*   Updated: 2021/11/08 12:15:06 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-char	*ft_strjoin_sl(char const *s1, char const *s2)
+int	main(void)
 {
-	size_t	c;
-	size_t	i;
-	char	*mem;
+	t_mdata	cmap;
+	int		i;
 
-	c = 0;
+	ft_readmap(&cmap);
+	ft_cpy_map(&cmap);
+	cmap.map_x = ft_strlen(cmap.fmap[0]);
 	i = 0;
-	if (!s1)
-		return (0);
-	if (!s2)
-		return ((char *)s1);
-	mem = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
-	if (!mem)
-		return (NULL);
-	while (s1[c] != '\0')
-		*mem++ = s1[c++];
-	while (s2[i] != '\0')
-		*mem++ = s2[i++];
-	*mem = '\0';
-	return (mem - c - i);
+	while (cmap.fmap[i] != NULL)
+	{
+		printf("%s\n", cmap.fmap[i]);
+		i++;
+	}
+	printf("\nx = %d\n", cmap.map_x);
+	printf("y = %d\n", cmap.map_y);
+	ft_createwin(cmap);
+	printf("Ventana abierta correctamente\n");
+	return (0);
 }
