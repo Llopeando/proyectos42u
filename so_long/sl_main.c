@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 12:26:40 by ullorent          #+#    #+#             */
-/*   Updated: 2021/11/09 13:15:01 by ullorent         ###   ########.fr       */
+/*   Updated: 2021/11/09 17:12:47 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(void)
 	}
 	printf("\nx = %d\n", cmap.map_x);
 	printf("y = %d\n", cmap.map_y);
+	printf("\nVentana abierta correctamente\n");
 	ft_createwin(cmap);
-	printf("Ventana abierta correctamente\n");
 	return (0);
 }
