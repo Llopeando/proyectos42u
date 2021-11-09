@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 12:15:31 by ullorent          #+#    #+#             */
-/*   Updated: 2021/10/21 18:00:38 by ullorent         ###   ########.fr       */
+/*   Updated: 2021/11/08 13:50:33 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ char	*ft_readline(int fd, char **temp)
 
 char	*get_next_line(int fd)
 {
-	static char	*temp[9999999999];
+	static char	*temp[4096];
 	char		*final;
 
 	temp[fd] = ft_readline(fd, &temp[fd]);

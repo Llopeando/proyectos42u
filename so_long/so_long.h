@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 12:55:03 by ullorent          #+#    #+#             */
-/*   Updated: 2021/11/08 12:10:55 by ullorent         ###   ########.fr       */
+/*   Updated: 2021/11/09 17:09:25 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ typedef struct rdmap_data {
 
 typedef struct win_data {
 	void	*img;
+	void	*mlx_win;
+	void	*mlx;
 	char	*addr;
 	int		endian;
 	int		img_width;
@@ -40,6 +42,7 @@ void	ft_cpy_map(t_mdata *cmap);
 
 /* --- map image replace and render functions --- */
 void	ft_createwin(t_mdata cmap);
+void	ft_replaceimg(t_wdata *win_data, t_mdata cmap);
 
 /* --- keyboard functions --- */
 
