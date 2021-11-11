@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 12:26:40 by ullorent          #+#    #+#             */
-/*   Updated: 2021/11/11 16:31:07 by ullorent         ###   ########.fr       */
+/*   Updated: 2021/11/11 16:34:05 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	ft_fread(char *file)
 	if (file == 0)
 	{
 		printf("Error on main (reading file)\n");
-		printf("The file coould not be found or could not be readed.\n");
+		printf("The file could not be found or could not be readed.\n");
 	}
 	if (file_len < 5)
 		return (0);
