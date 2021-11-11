@@ -6,29 +6,39 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 12:26:40 by ullorent          #+#    #+#             */
-/*   Updated: 2021/11/09 17:12:47 by ullorent         ###   ########.fr       */
+/*   Updated: 2021/11/11 13:48:27 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(void)
+int	ft_fread(char *file)
+{
+	int	file_len;
+
+	file_len = ft_strlen(file);
+	printf("File len = %d\n", file_len);
+	return (0);
+}
+
+int	main(int argc, char **argv)
 {
 	t_mdata	cmap;
-	int		i;
 
-	ft_readmap(&cmap);
+	if (argc != 2)
+	{
+		printf("Insufficient arguments\n");
+		exit (1);
+	}
+	// if (ft_fread(argv[1]) == 0)
+	// 	printf("Invalid argument\n");
+	ft_readmap(&cmap, argv);
+	// ft_sl_errors(&cmap);
 	ft_cpy_map(&cmap);
 	cmap.map_x = ft_strlen(cmap.fmap[0]);
-	i = 0;
-	while (cmap.fmap[i] != NULL)
-	{
-		printf("%s\n", cmap.fmap[i]);
-		i++;
-	}
-	printf("\nx = %d\n", cmap.map_x);
-	printf("y = %d\n", cmap.map_y);
-	printf("\nVentana abierta correctamente\n");
-	ft_createwin(cmap);
+	ft_createwin(&cmap);
+	cmap.moves = 0;
+	mlx_hook(cmap.mlx_win, 2, 1L << 0, ft_move, &cmap);
+	mlx_loop(cmap.mlx);
 	return (0);
 }

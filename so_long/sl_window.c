@@ -6,37 +6,84 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 12:04:03 by ullorent          #+#    #+#             */
-/*   Updated: 2021/11/09 17:10:18 by ullorent         ###   ########.fr       */
+/*   Updated: 2021/11/11 13:37:27 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	ft_createwin(t_mdata cmap)
+void	ft_putimage(t_mdata *cmap)
 {
-	char	*relative_path;
-	int		num;
-	t_wdata	win_data;
+	int	num;
 
-	relative_path = "./assets/grass-4.xpm";
-	num = 10000;
-	win_data.mlx = mlx_init();
-	win_data.mlx_win = mlx_new_window(win_data.mlx, (int)cmap.map_x * 50,
-			(int)cmap.map_y * 50, "./so_long");
-	ft_replaceimg(&win_data, cmap);
-	mlx_loop(win_data.mlx);
+	cmap->path = "./assets/grass-3.xpm";
+	if (cmap->fmap[cmap->y][cmap->x] == '1')
+		cmap->path = "./assets/all-4.xpm";
+	else if (cmap->fmap[cmap->y][cmap->x] == 'P')
+	{
+		cmap->path = "./assets/ball.xpm";
+		cmap->pos_x = cmap->x;
+		cmap->pos_y = cmap->y;
+	}
+	else if (cmap->fmap[cmap->y][cmap->x] == 'C')
+	{
+		cmap->path = "./assets/coleccionable.xpm";
+		cmap->col++;
+	}
+	else if (cmap->fmap[cmap->y][cmap->x] == 'E')
+		cmap->path = "./assets/portal-1.xpm";
+	num = 50;
+	cmap->addr = mlx_xpm_file_to_image(cmap->mlx, cmap->path, &num, &num);
+	mlx_put_image_to_window(cmap->mlx, cmap->mlx_win, cmap->addr,
+		cmap->x * 50, cmap->y * 50);
 }
 
-void	ft_replaceimg(t_wdata *win_data, t_mdata cmap)
+void	ft_ground_capem(t_mdata *cmap)
 {
-	char	*ground_file;
-	int		num;
+	int	num;
 
 	num = 50;
-	ground_file = "./assets/grass-3.xpm";
-	win_data->addr = mlx_xpm_file_to_image(win_data->mlx, ground_file, &num,
-			&num);
-	mlx_put_image_to_window(win_data->mlx, win_data->mlx_win, win_data->addr,
-		(char)cmap.fmap[(int)cmap.map_x] * 50,
-		(char)cmap.fmap[(int)cmap.map_y] * 50);
+	cmap->path = "./assets/grass-3.xpm";
+	cmap->addr = mlx_xpm_file_to_image(cmap->mlx, cmap->path,
+			&num, &num);
+	mlx_put_image_to_window(cmap->mlx, cmap->mlx_win, cmap->addr,
+		cmap->x * 50, cmap->y * 50);
+}
+
+void	ft_createwin(t_mdata *cmap)
+{
+	int		num;
+
+	num = 10000;
+	cmap->mlx = mlx_init();
+	cmap->mlx_win = mlx_new_window(cmap->mlx, cmap->map_x * 50,
+			cmap->map_y * 50, "./so_long");
+	ft_replaceimg(cmap);
+}
+
+void	ft_replaceimg(t_mdata *cmap)
+{
+	int	num;
+
+	num = 50;
+	cmap->col = 0;
+	cmap->y = 0;
+	while (cmap->fmap[cmap->y] != NULL)
+	{
+		cmap->x = 0;
+		while (cmap->fmap[cmap->y][cmap->x] != '\0')
+		{
+			ft_ground_capem(cmap);
+			if (cmap->fmap[cmap->y][cmap->x] == '1')
+				ft_putimage(cmap);
+			else if (cmap->fmap[cmap->y][cmap->x] == 'C')
+				ft_putimage(cmap);
+			else if (cmap->fmap[cmap->y][cmap->x] == 'P')
+				ft_putimage(cmap);
+			else if (cmap->fmap[cmap->y][cmap->x] == 'E')
+				ft_putimage(cmap);
+			cmap->x++;
+		}
+		cmap->y++;
+	}
 }

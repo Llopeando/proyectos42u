@@ -6,23 +6,25 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 15:51:52 by ullorent          #+#    #+#             */
-/*   Updated: 2021/11/08 11:42:20 by ullorent         ###   ########.fr       */
+/*   Updated: 2021/11/11 13:49:10 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	ft_readmap(t_mdata	*cmap)
+void	ft_readmap(t_mdata	*cmap, char **argv)
 {
 	int		temp;
 
-	cmap->fd = open("mapa.ber", O_RDONLY);
+	cmap->fd = open(argv[1], O_RDONLY);
+	printf("fd value: %d\n", cmap->fd);
 	if (cmap->fd == -1)
 	{
 		printf("Error\n");
 		printf("The map could not be readed\n");
 		exit(0);
 	}
+	printf("Checker\n");
 	cmap->map = malloc(1);
 	cmap->map[0] = '\0';
 	temp = 1;

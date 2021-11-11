@@ -6,7 +6,7 @@
 #    By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/25 13:36:53 by ullorent          #+#    #+#              #
-#    Updated: 2021/11/03 13:12:15 by ullorent         ###   ########.fr        #
+#    Updated: 2021/11/11 12:49:05 by ullorent         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,9 @@ CSRC =	sl_main.c \
 sl_window.c \
 sl_readmap.c \
 sl_otherfunctions.c \
+sl_keyboard.c \
+sl_keyboard_fct.c \
+sl_error_mng.c
 
 OSRC = $(CSRC:.c=.o)
 
