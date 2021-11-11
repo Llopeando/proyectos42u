@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 12:02:42 by ullorent          #+#    #+#             */
-/*   Updated: 2021/11/11 12:17:16 by ullorent         ###   ########.fr       */
+/*   Updated: 2021/11/11 16:29:38 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ void	ft_w_key(t_mdata *cmap)
 	int		num;
 
 	num = 50;
-	if (cmap->fmap[cmap->pos_y][cmap->pos_x] == 'C')
+	if (cmap->fmap[cmap->pos_y - 1][cmap->pos_x] == 'C')
 	{
 		cmap->col--;
-		cmap->fmap[cmap->pos_y][cmap->pos_x] = '0';
+		cmap->fmap[cmap->pos_y - 1][cmap->pos_x] = '0';
 	}
 	path = "./assets/player-xmas.xpm";
 	cmap->addr = mlx_xpm_file_to_image(cmap->mlx, path, &num, &num);
@@ -41,10 +41,10 @@ void	ft_a_key(t_mdata *cmap)
 	int		num;
 
 	num = 50;
-	if (cmap->fmap[cmap->pos_y][cmap->pos_x] == 'C')
+	if (cmap->fmap[cmap->pos_y][cmap->pos_x - 1] == 'C')
 	{
 		cmap->col--;
-		cmap->fmap[cmap->pos_y][cmap->pos_x] = '0';
+		cmap->fmap[cmap->pos_y][cmap->pos_x - 1] = '0';
 	}
 	path = "./assets/player-xmas.xpm";
 	cmap->addr = mlx_xpm_file_to_image(cmap->mlx, path, &num, &num);
@@ -64,10 +64,10 @@ void	ft_s_key(t_mdata *cmap)
 	int		num;
 
 	num = 50;
-	if (cmap->fmap[cmap->pos_y][cmap->pos_x] == 'C')
+	if (cmap->fmap[cmap->pos_y + 1][cmap->pos_x] == 'C')
 	{
 		cmap->col--;
-		cmap->fmap[cmap->pos_y][cmap->pos_x] = '0';
+		cmap->fmap[cmap->pos_y + 1][cmap->pos_x] = '0';
 	}
 	path = "./assets/player-xmas.xpm";
 	cmap->addr = mlx_xpm_file_to_image(cmap->mlx, path, &num, &num);
@@ -87,10 +87,10 @@ void	ft_d_key(t_mdata *cmap)
 	int		num;
 
 	num = 50;
-	if (cmap->fmap[cmap->pos_y][cmap->pos_x] == 'C')
+	if (cmap->fmap[cmap->pos_y][cmap->pos_x + 1] == 'C')
 	{
 		cmap->col--;
-		cmap->fmap[cmap->pos_y][cmap->pos_x] = '0';
+		cmap->fmap[cmap->pos_y][cmap->pos_x + 1] = '0';
 	}
 	path = "./assets/player-xmas.xpm";
 	cmap->addr = mlx_xpm_file_to_image(cmap->mlx, path, &num, &num);
