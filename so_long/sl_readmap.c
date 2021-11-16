@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 15:51:52 by ullorent          #+#    #+#             */
-/*   Updated: 2021/11/11 16:28:16 by ullorent         ###   ########.fr       */
+/*   Updated: 2021/11/16 17:35:33 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_readmap(t_mdata	*cmap, char **argv)
 	cmap->fd = open(argv[1], O_RDONLY);
 	if (cmap->fd == -1)
 	{
-		printf("Error on reading file (reading map file)\n");
+		printf("Error\n");
 		printf("The map could not be readed\n");
 		exit(0);
 	}
