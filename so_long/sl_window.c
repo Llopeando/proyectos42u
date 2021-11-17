@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 12:04:03 by ullorent          #+#    #+#             */
-/*   Updated: 2021/11/11 16:23:02 by ullorent         ###   ########.fr       */
+/*   Updated: 2021/11/17 15:53:57 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ void	ft_putimage(t_mdata *cmap)
 		cmap->path = "./assets/all-4.xpm";
 	else if (cmap->fmap[cmap->y][cmap->x] == 'P')
 	{
-		cmap->path = "./assets/player-xmas.xpm";
+		cmap->path = "./assets/player-down.xpm";
 		cmap->pos_x = cmap->x;
 		cmap->pos_y = cmap->y;
 	}
 	else if (cmap->fmap[cmap->y][cmap->x] == 'C')
 	{
-		cmap->path = "./assets/coleccionable.xpm";
+		cmap->path = "./assets/coll-coin.xpm";
 		cmap->col++;
 	}
 	else if (cmap->fmap[cmap->y][cmap->x] == 'E')

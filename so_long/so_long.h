@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 12:55:03 by ullorent          #+#    #+#             */
-/*   Updated: 2021/11/16 15:55:00 by ullorent         ###   ########.fr       */
+/*   Updated: 2021/11/17 13:36:09 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,13 @@ typedef struct rdmap_data {
 }				t_mdata;
 
 typedef struct rlmap_data {
+	int		x;
+	int		y;
 	int		e;
 	int		c;
 	int		p;
 	int		one;
-	int		count;
+	int		boo;
 }				t_ldata;
 
 /* --- map reading function(s) --- */
@@ -60,6 +62,7 @@ void	ft_ground_capem(t_mdata *cmap);
 
 /* --- keyboard functions --- */
 int		ft_move(int keyhook, t_mdata *cmap);
+int		ft_close(t_mdata *cmap);
 void	ft_movements_c(t_mdata *cmap);
 
 /* --- keyboard functions (keys) --- */
@@ -68,8 +71,15 @@ void	ft_a_key(t_mdata *cmap);
 void	ft_s_key(t_mdata *cmap);
 void	ft_d_key(t_mdata *cmap);
 
+/* --- error checking functions --- */
+void	ft_sl_errors(t_mdata *cmap, t_ldata *map_l);
+void	ft_pboomerror_lookup(t_ldata *map_l);
+void	ft_ecmerror_lookup(t_ldata *map_l);
+void	ft_sl_merrorcheck(t_ldata *map_l);
+
 /* --- other functions --- */
 char	*ft_strjoin_sl(char const *s1, char const *s2);
-void	ft_sl_errors(t_mdata *cmap);
+void	ft_argcm_check(int argc);
+int		ft_fread(char *file);
 
 #endif

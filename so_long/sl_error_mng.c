@@ -6,113 +6,79 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 12:46:31 by ullorent          #+#    #+#             */
-/*   Updated: 2021/11/16 17:46:33 by ullorent         ###   ########.fr       */
+/*   Updated: 2021/11/17 12:47:45 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	ft_map_lookup(t_mdata *cmap)
+void	ft_pboomerror_lookup(t_ldata *map_l)
 {
-	t_ldata	map_l;
-
-	while (cmap->map[map_l.count] == 'E')
+	if (map_l->p > 1 || map_l->p < 1)
 	{
-		map_l.e++;
-		printf("Pasados\n");
+		printf("Error\n");
+		printf("Map: There may be less than one start position or none\n");
+		exit (0);
+	}
+	if (map_l->boo == 1)
+	{
+		printf("Error\n");
+		printf("Map: The wall may not be complete\n");
+		exit (0);
 	}
 }
 
-void	ft_sl_errors(t_mdata *cmap)
-// gestionar error de mapa contando caracteeres; al menos un portal, al menos un coleccionable, al menos un personaje, que haya muros... etc
+void	ft_ecponem_lookup(t_mdata *cmap, t_ldata *map_l)
 {
-	t_ldata	map_l;
-	int		x;
-	int		y;
+	if (cmap->fmap[map_l->y][map_l->x] == 'E')
+		map_l->e++;
+	if (cmap->fmap[map_l->y][map_l->x] == 'C')
+		map_l->c++;
+	if (cmap->fmap[map_l->y][map_l->x] == 'P')
+		map_l->p++;
+	if (cmap->fmap[map_l->y][map_l->x] != '1' && (map_l->x == 0
+		|| map_l->x == cmap->map_x - 1 || map_l->y == 0
+		|| map_l->y == cmap->map_y - 1))
+		map_l->boo = 1;
+}
 
-	x = 0;
-	y = 0;
-	map_l.count = 0;
-	map_l.e = 0;
-	map_l.c = 0;
-	printf("\n--- GESTIÓN DE ERRORES (checker) ---\n");
-	while (y < cmap->y && x < cmap->x)
+void	ft_ecmerror_lookup(t_ldata *map_l)
+{
+	if (map_l->e != 1 || map_l->e > 1)
 	{
-		while (cmap->fmap[y][x] == 'E' && (map_l.e < 1))
-		{
-			map_l.e++;
-			printf("Tiene una salida: \033[0;32mOK\033[0m\n");
-			printf("\033[0m");
-		}
-		while (cmap->fmap[y][x] == 'C' && (map_l.c <= 0))
-		{
-			map_l.c++;
-			printf("Tiene un coleccionable: \033[0;32mOK\033[0m\n");
-			printf("\033[0m");
-		}
-		if (cmap->fmap[y][x] == 'P')
-		{
-			map_l.p++;
-			printf("Tiene un jugador: \033[0;32mOK\033[0m (%d)\n", map_l.p);
-			printf("\033[0m");
-		}
-		if (cmap->fmap[y][x] == '\n')
-		{
-			y++;
-			printf("y = %d\n", y);
-		}
-		x++;
-		printf("pasa + 1: %d\n", x);
-	}
-	printf("%s\n", cmap->fmap[1]);
-	if (map_l.e != 1 || map_l.e > 1)
-	{
-		printf("Tiene una salida: \033[0;31mKO\n");
-		printf("\033[0m");
-		// printf("Error\n");
-		// printf("There may be more than one exit or none\n");
-		printf("\n\033[0;31mError: \033[0m");
-		printf("\033[0;33mVerifica el mapa que estás intentando cargar\033[0m\n");
-		printf("--- --- --- --- ---- --- --- --- ---\n");
+		printf("Error\n");
+		printf("Map: There may be more than one exit or none\n");
 		exit (0);
 	}
-	if (map_l.c < 1)
+	if (map_l->c < 1)
 	{
-		printf("Tiene menos de un coleccionable: \033[0;31mKO\n");
-		printf("\033[0m");
-		// printf("Error\n");
-		// printf("There may be less than one colectionable or none\n");
-		printf("\n\033[0;31mError: \033[0m");
-		printf("\033[0;33mVerifica el mapa que estás intentando cargar\033[0m\n");
-		printf("\n\033[0;31mCHECKS FAIL\033[0m\n");
-		printf("--- --- --- --- ---- --- --- --- ---\n");
+		printf("Error\n");
+		printf("Map: There may be less than one collectable or none\n");
 		exit (0);
 	}
-	if (map_l.p > 1 || map_l.p < 1)
-	{
-		if (map_l.p > 1)
-		{
-			printf("Tiene más de un jugador: \033[0;31mKO\n");
-			printf("\033[0m");
-			// printf("Error\n");
-			// printf("There may be less than one colectionable or none\n");
-			printf("\n\033[0;31mError: \033[0m");
-			printf("\033[0;33mVerifica el mapa que estás intentando cargar\033[0m\n");
-			printf("\n\033[0;31mCHECKS FAIL\033[0m\n");
-			printf("--- --- --- --- ---- --- --- --- ---\n");
-			exit (0);
-		}
-		printf("No tiene un jugador: \033[0;31mKO\n");
-		printf("\033[0m");
-		// printf("Error\n");
-		// printf("There may be less than one colectionable or none\n");
-		printf("\n\033[0;31mError: \033[0m");
-		printf("\033[0;33mVerifica el mapa que estás intentando cargar\033[0m\n");
-		printf("\n\033[0;31mCHECKS FAIL\033[0m\n");
-		printf("--- --- --- --- ---- --- --- --- ---\n");
-		exit (0);
-	}
-	printf("\n\033[0;32mALL CHECKS OK\033[0m\n");
-	printf("--- --- --- --- ---- --- --- --- ---\n");
 	return ;
+}
+
+void	ft_sl_errors(t_mdata *cmap, t_ldata *map_l)
+{
+	map_l->x = 0;
+	map_l->y = 0;
+	map_l->e = 0;
+	map_l->c = 0;
+	map_l->p = 0;
+	map_l->boo = 0;
+	while (map_l->y < cmap->map_y && map_l->x <= cmap->map_x)
+	{
+		if (cmap->fmap[map_l->y][map_l->x] == '\0')
+		{
+			map_l->x = 0;
+			map_l->y++;
+			if (map_l->y == cmap->map_y)
+				break ;
+		}
+		ft_ecponem_lookup(cmap, map_l);
+		map_l->x++;
+	}
+	ft_ecmerror_lookup(map_l);
+	ft_pboomerror_lookup(map_l);
 }

@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 12:02:42 by ullorent          #+#    #+#             */
-/*   Updated: 2021/11/11 16:29:38 by ullorent         ###   ########.fr       */
+/*   Updated: 2021/11/17 15:47:09 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_w_key(t_mdata *cmap)
 		cmap->col--;
 		cmap->fmap[cmap->pos_y - 1][cmap->pos_x] = '0';
 	}
-	path = "./assets/player-xmas.xpm";
+	path = "./assets/player-up.xpm";
 	cmap->addr = mlx_xpm_file_to_image(cmap->mlx, path, &num, &num);
 	mlx_put_image_to_window(cmap->mlx, cmap->mlx_win, cmap->addr,
 		cmap->pos_x * 50, cmap->pos_y * 50 - 50);
@@ -46,7 +46,7 @@ void	ft_a_key(t_mdata *cmap)
 		cmap->col--;
 		cmap->fmap[cmap->pos_y][cmap->pos_x - 1] = '0';
 	}
-	path = "./assets/player-xmas.xpm";
+	path = "./assets/player-left.xpm";
 	cmap->addr = mlx_xpm_file_to_image(cmap->mlx, path, &num, &num);
 	mlx_put_image_to_window(cmap->mlx, cmap->mlx_win, cmap->addr,
 		cmap->pos_x * 50 - 50, cmap->pos_y * 50);
@@ -69,7 +69,7 @@ void	ft_s_key(t_mdata *cmap)
 		cmap->col--;
 		cmap->fmap[cmap->pos_y + 1][cmap->pos_x] = '0';
 	}
-	path = "./assets/player-xmas.xpm";
+	path = "./assets/player-down.xpm";
 	cmap->addr = mlx_xpm_file_to_image(cmap->mlx, path, &num, &num);
 	mlx_put_image_to_window(cmap->mlx, cmap->mlx_win, cmap->addr,
 		cmap->pos_x * 50, cmap->pos_y * 50 + 50);
@@ -92,7 +92,7 @@ void	ft_d_key(t_mdata *cmap)
 		cmap->col--;
 		cmap->fmap[cmap->pos_y][cmap->pos_x + 1] = '0';
 	}
-	path = "./assets/player-xmas.xpm";
+	path = "./assets/player-right.xpm";
 	cmap->addr = mlx_xpm_file_to_image(cmap->mlx, path, &num, &num);
 	mlx_put_image_to_window(cmap->mlx, cmap->mlx_win, cmap->addr,
 		cmap->pos_x * 50 + 50, cmap->pos_y * 50);

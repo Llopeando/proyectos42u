@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 12:26:40 by ullorent          #+#    #+#             */
-/*   Updated: 2021/11/16 17:35:40 by ullorent         ###   ########.fr       */
+/*   Updated: 2021/11/17 15:59:55 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,31 +37,45 @@ int	ft_fread(char *file)
 	return (1);
 }
 
-int	main(int argc, char **argv)
+void	ft_argcm_check(int argc)
 {
-	t_mdata	cmap;
-
 	if (argc < 2)
 	{
 		printf("Error\n");
 		printf("Insufficient arguments!\n");
 		exit (1);
 	}
-	if (ft_fread(argv[1]) == 0)
-		exit (1);
 	if (argc > 2)
 	{
 		printf("Error\n");
 		printf("Too many arguments!\n");
 		exit (1);
 	}
+}
+
+int	main(int argc, char **argv)
+{
+	t_mdata	cmap;
+	t_ldata	map_l;
+
+	if (argc < 2)
+	{
+		ft_argcm_check(argc);
+	}
+	if (ft_fread(argv[1]) == 0)
+		exit (1);
+	if (argc > 2)
+	{
+		ft_argcm_check(argc);
+	}
 	ft_readmap(&cmap, argv);
 	ft_cpy_map(&cmap);
-	ft_sl_errors(&cmap);
 	cmap.map_x = ft_strlen(cmap.fmap[0]);
+	ft_sl_errors(&cmap, &map_l);
 	ft_createwin(&cmap);
 	cmap.moves = 0;
 	mlx_hook(cmap.mlx_win, 2, 1L << 0, ft_move, &cmap);
+	mlx_hook(cmap.mlx_win, 17, 1L << 5, ft_close, &cmap);
 	mlx_loop(cmap.mlx);
 	return (0);
 }

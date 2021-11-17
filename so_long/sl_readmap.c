@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 15:51:52 by ullorent          #+#    #+#             */
-/*   Updated: 2021/11/16 17:35:33 by ullorent         ###   ########.fr       */
+/*   Updated: 2021/11/17 13:54:35 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	ft_readmap(t_mdata	*cmap, char **argv)
 		exit(0);
 	}
 	cmap->map = malloc(1);
+	if (!cmap->map)
+		exit (0);
 	cmap->map[0] = '\0';
 	temp = 1;
 	while (temp != (int)ft_strlen(cmap->map))
