@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_printf_examed.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/22 12:11:31 by ullorent          #+#    #+#             */
-/*   Updated: 2021/11/23 13:25:37 by ullorent         ###   ########.fr       */
+/*   Created: 2021/11/23 13:09:15 by ullorent          #+#    #+#             */
+/*   Updated: 2021/11/23 17:33:52 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <unistd.h>
 #include <stdarg.h>
+#include <unistd.h>
+#include <stdio.h>
 
 void	ft_putchar_c(char c, int *num)
 {
@@ -43,7 +43,7 @@ void	ft_putnbr_d(long int n, int *num)
 	if (n < 0)
 	{
 		ft_putchar_c('-', num);
-		n = n * -1;
+		n *= -1;
 	}
 	if (n < 10)
 	{
@@ -74,7 +74,7 @@ void	ft_va(char letter, va_list args, int *num)
 	if (letter == 's')
 		ft_putstr_s(va_arg(args, char *), num);
 	if (letter == 'd')
-		ft_putnbr_d(va_arg(args, int), num);
+		ft_putnbr_d(va_arg(args, long int), num);
 	if (letter == 'x')
 		ft_hexa_x(va_arg(args, unsigned int), num);
 }
@@ -105,19 +105,14 @@ int	ft_printf(const char *str, ...)
 
 int	main(void)
 {
-	char	*str;
-	int		num;
-	int		another;
+	char		*str;
+	long int	n;
+	int			num;
 
-	str = "Unai";
-	num = -2147483648;
-	another = 1992492;
-	printf("--- --- Tester --- ---\n");
-	ft_printf("Hola buenas, %s\n", str);
-	printf("Hola buenas, %s\n", str);
-	ft_printf("Número: %d\n", num);
-	printf("Número (bueno): %d\n", num);
-	ft_printf("x: %x\n", another);
-	printf("x (bueno): %x\n", another);
+	num = 1212121;
+	n = 218394983111121212;
+	str = "Alfa";
+	ft_printf("Hola! Tu nombre es %s\n", str);
+	ft_printf("Tienes la culpa\n");
 	return (0);
 }
