@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/18 16:16:19 by ullorent          #+#    #+#             */
-/*   Updated: 2021/11/18 17:10:05 by ullorent         ###   ########.fr       */
+/*   Created: 2021/11/24 16:43:55 by ullorent          #+#    #+#             */
+/*   Updated: 2021/11/24 16:55:35 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_strlen(char *str)
 	return (c);
 }
 
-int	ft_check_repeat(char *str, char str2, int c)
+int	ft_inter_check(char *str, char str2, int c)
 {
 	int	counter;
 
@@ -46,8 +46,8 @@ int	main(int argc, char **argv)
 	{
 		while (argv[1][c])
 		{
-			if (ft_check_repeat(argv[2], argv[1][c], ft_strlen(argv[2]))
-				&& !ft_check_repeat(argv[1], argv[1][c], c))
+			if (ft_inter_check(argv[2], argv[1][c], ft_strlen(argv[2]))
+				&& !ft_inter_check(argv[1], argv[1][c], c))
 				write(1, &argv[1][c], 1);
 			c++;
 		}

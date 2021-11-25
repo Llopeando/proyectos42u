@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_examed.c                                 :+:      :+:    :+:   */
+/*   ft_printf_new.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/23 13:09:15 by ullorent          #+#    #+#             */
-/*   Updated: 2021/11/23 17:33:52 by ullorent         ###   ########.fr       */
+/*   Created: 2021/11/24 18:27:07 by ullorent          #+#    #+#             */
+/*   Updated: 2021/11/24 18:44:40 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <unistd.h>
 #include <stdio.h>
-
-void	ft_putchar_c(char c, int *num)
-{
-	write(1, &c, 1);
-	(*num)++;
-}
+#include <unistd.h>
+#include <stdarg.h>
 
 int	ft_strlen(char *str)
 {
@@ -30,15 +24,21 @@ int	ft_strlen(char *str)
 	return (c);
 }
 
-void	ft_putstr_s(char *str, int *num)
+void	ft_putchar_c(char c, int *num)
 {
-	if (!num)
-		*num += write(1, "(null)", 6);
-	else
-		*num += write(1, str, ft_strlen(str));
+	write(1, &c, 1);
+	(*num)++;
 }
 
-void	ft_putnbr_d(long int n, int *num)
+void	ft_str(char *str, int *num)
+{
+	if (!str)
+		num += write(1, "(null)", 6);
+	else
+		num += write(1, str, ft_strlen(str));
+}
+
+void	ft_dletter(long int n, int *num)
 {
 	if (n < 0)
 	{
@@ -51,39 +51,39 @@ void	ft_putnbr_d(long int n, int *num)
 		return ;
 	}
 	else
-		ft_putnbr_d(n / 10, num);
-	ft_putnbr_d(n % 10, num);
+		ft_dletter(n / 10, num);
+	ft_dletter(n % 10, num);
 }
 
-void	ft_hexa_x(unsigned long int nbr, int *num)
+void	ft_xletter(unsigned long int n, int *num)
 {
 	char	*base;
 
 	base = "0123456789abcdef";
-	if (nbr / 16 > 0)
+	if (n / 16 > 0)
 	{
-		ft_hexa_x(nbr / 16, num);
-		ft_putchar_c(base[nbr % 16], num);
+		ft_xletter(n / 16, num);
+		ft_putchar_c(base[n % 16], num);
 	}
 	else
-		ft_putchar_c(base[nbr], num);
+		ft_putchar_c(base[n], num);
 }
 
 void	ft_va(char letter, va_list args, int *num)
 {
 	if (letter == 's')
-		ft_putstr_s(va_arg(args, char *), num);
+		ft_str(va_arg(args, char *), num);
 	if (letter == 'd')
-		ft_putnbr_d(va_arg(args, long int), num);
+		ft_dletter(va_arg(args, long int), num);
 	if (letter == 'x')
-		ft_hexa_x(va_arg(args, unsigned int), num);
+		ft_xletter(va_arg(args, unsigned int), num);
 }
 
 int	ft_printf(const char *str, ...)
 {
 	va_list	args;
-	int		c;
 	int		num;
+	int		c;
 
 	c = 0;
 	num = 0;
@@ -105,14 +105,16 @@ int	ft_printf(const char *str, ...)
 
 int	main(void)
 {
-	char		*str;
-	long int	n;
-	int			num;
+	char	*str;
+	int		num;
 
-	num = 1212121;
-	n = 218394983111121212;
-	str = "Alfa";
-	ft_printf("Hola! Tu nombre es %s\n", str);
-	ft_printf("Tienes la culpa\n");
+	str = "Unai";
+	num = 25353535;
+	ft_printf("Hola, me llamo %s\n", str);
+	ft_printf("Hola, tu número es el %d\n", num);
+	ft_printf("Hola, tus símbolos de memoria son %x\n", num);
+	printf("Los números de memoria reales son %x\n", num);
+	ft_printf("a\n");
+	ft_printf(" ");
 	return (0);
 }

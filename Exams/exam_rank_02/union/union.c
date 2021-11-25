@@ -5,12 +5,11 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/22 10:56:49 by ullorent          #+#    #+#             */
-/*   Updated: 2021/11/22 11:13:54 by ullorent         ###   ########.fr       */
+/*   Created: 2021/11/24 17:28:16 by ullorent          #+#    #+#             */
+/*   Updated: 2021/11/24 17:48:08 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <unistd.h>
 
 int	ft_strlen(char *str)
@@ -23,7 +22,7 @@ int	ft_strlen(char *str)
 	return (c);
 }
 
-int	ft_check_repeat(char *str, char str2, int c)
+int	ft_union_check(char *str, char str2, int c)
 {
 	int	counter;
 
@@ -46,15 +45,15 @@ int	main(int argc, char **argv)
 	{
 		while (argv[1][c])
 		{
-			if (!ft_check_repeat(argv[1], argv[1][c], c))
+			if (!ft_union_check(argv[1], argv[1][c], c))
 				write(1, &argv[1][c], 1);
 			c++;
 		}
 		c = 0;
 		while (argv[2][c])
 		{
-			if (!ft_check_repeat(argv[1], argv[2][c], ft_strlen(argv[1]))
-			&& !ft_check_repeat(argv[2], argv[2][c], c))
+			if (!ft_union_check(argv[1], argv[2][c], ft_strlen(argv[1]))
+				&& !ft_union_check(argv[2], argv[2][c], c))
 				write(1, &argv[2][c], 1);
 			c++;
 		}
