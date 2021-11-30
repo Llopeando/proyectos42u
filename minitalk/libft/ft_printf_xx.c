@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   ft_printf_xx.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/30 14:12:18 by ullorent          #+#    #+#             */
-/*   Updated: 2021/11/30 18:11:18 by ullorent         ###   ########.fr       */
+/*   Created: 2021/10/01 12:04:24 by ullorent          #+#    #+#             */
+/*   Updated: 2021/11/30 13:58:28 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include "libft/libft.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+void	ft_hexa_x(unsigned long int nbr, int boo, int *num)
 {
-	int	pid_server;
-	int	ret;
+	char	*base;
 
-	if (argc == 3)
+	if (boo == 0)
+		base = "0123456789abcdef";
+	else
+		base = "0123456789ABCDEF";
+	if (nbr / 16 > 0)
 	{
-		pid_server = ft_atoi(argv[1]);
-		ret = -1;
-		if (1)
-		{
-			kill(pid_server, SIGUSR1);
-			kill(pid_server, SIGUSR2);
-			ft_printf("Test\n");
-		}
+		ft_hexa_x(nbr / 16, boo, num);
+		ft_putchar_c(base[nbr % 16], num);
 	}
 	else
-		ft_printf("Use the command like this: ./client [PID] [String]\n");
-	return (0);
+		ft_putchar_c(base[nbr], num);
 }

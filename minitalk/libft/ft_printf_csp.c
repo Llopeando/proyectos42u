@@ -1,37 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   ft_printf_csp.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/30 14:12:18 by ullorent          #+#    #+#             */
-/*   Updated: 2021/11/30 18:11:18 by ullorent         ###   ########.fr       */
+/*   Created: 2021/09/29 16:13:59 by ullorent          #+#    #+#             */
+/*   Updated: 2021/11/30 13:58:41 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include "libft/libft.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+void	ft_putchar_c(char c, int *num)
 {
-	int	pid_server;
-	int	ret;
+	write(1, &c, 1);
+	(*num)++;
+}
 
-	if (argc == 3)
-	{
-		pid_server = ft_atoi(argv[1]);
-		ret = -1;
-		if (1)
-		{
-			kill(pid_server, SIGUSR1);
-			kill(pid_server, SIGUSR2);
-			ft_printf("Test\n");
-		}
-	}
+void	ft_putstr_s(char *str, int *num)
+{
+	if (!str)
+		*num += write(1, "(null)", 6);
 	else
-		ft_printf("Use the command like this: ./client [PID] [String]\n");
-	return (0);
+		*num += write(1, str, ft_strlen(str));
 }
