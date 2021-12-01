@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/24 16:43:55 by ullorent          #+#    #+#             */
-/*   Updated: 2021/11/24 16:55:35 by ullorent         ###   ########.fr       */
+/*   Created: 2021/12/01 18:29:53 by ullorent          #+#    #+#             */
+/*   Updated: 2021/12/01 18:39:01 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,15 @@ int	main(int argc, char **argv)
 	{
 		while (argv[1][c])
 		{
-			if (ft_inter_check(argv[2], argv[1][c], ft_strlen(argv[2]))
-				&& !ft_inter_check(argv[1], argv[1][c], c))
+			if (!ft_inter_check(argv[1], argv[1][c], c))
 				write(1, &argv[1][c], 1);
+			c++;
+		}
+		while (argv[2][c])
+		{
+			if (!ft_inter_check(argv[1], argv[2][c], ft_strlen(argv[1]))
+				&& !ft_inter_check(argv[2], argv[2][c], c))
+				write (1, &argv[2][c], 1);
 			c++;
 		}
 	}

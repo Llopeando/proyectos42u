@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 14:12:11 by ullorent          #+#    #+#             */
-/*   Updated: 2021/11/30 18:11:16 by ullorent         ###   ########.fr       */
+/*   Updated: 2021/12/01 16:41:04 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,24 @@
 
 void	signhandler(int signum)
 {
-	ft_printf("The signal %d was found, exiting...\n", signum);
-	exit (1);
+	static char	c = 0xFF;
+	static int	bits = 0;
+
+	if (signum == SIGUSR1)
+	{
+		c ^= 0x80 >> bits;
+	}
+	if (signum == SIGUSR2)
+	{
+		c |= 0x80 >> bits;
+	}
+	bits++;
+	if (bits == 8)
+	{
+		ft_printf("%c\n", c);
+		bits = 0;
+		c = 0xFF;
+	}
 }
 
 int	main(int argc, char **argv)
@@ -36,10 +52,10 @@ int	main(int argc, char **argv)
 	ft_printf("PID: %d\n", pid);
 	sa.sa_handler = signhandler;
 	sa.sa_flags = 0;
+	signal(SIGUSR1, signhandler);
+	signal(SIGUSR2, signhandler);
 	while (1)
 	{
-		sigaction(SIGUSR1, &sa, NULL);
-		sigaction(SIGUSR2, &sa, NULL);
 		pause ();
 	}
 	return (0);

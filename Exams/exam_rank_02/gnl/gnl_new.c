@@ -1,43 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   gnl_new.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/18 16:37:21 by ullorent          #+#    #+#             */
-/*   Updated: 2021/11/23 17:40:49 by ullorent         ###   ########.fr       */
+/*   Created: 2021/12/01 17:26:56 by ullorent          #+#    #+#             */
+/*   Updated: 2021/12/01 18:03:48 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include <sys/stat.h>
 #include <fcntl.h>
-#include <stdio.h>
 
-int	ft_strlen(char *str)
+int	check_ch(char *str)
 {
 	int	c;
 
 	c = 0;
-	while (str[c])
-		c++;
-	return (c);
-}
-
-int	check_ch(char *str)
-{
-	int	i;
-
-	i = 0;
 	if (!str)
-		return (0);
-	while (str[i])
+		return (NULL);
+	while (str[c])
 	{
-		if (str[i] == '\n' || str[i] == '\0')
+		if (str[c] == '\n' || str[c] == '\0')
 			return (1);
-		i++;
+		c++;
 	}
 	return (0);
 }
@@ -45,24 +35,24 @@ int	check_ch(char *str)
 char	*ft_aux(char *line, char c)
 {
 	char	*str;
-	int		i;
+	int		c;
 
-	i = 0;
-	while (line[i])
-		i++;
-	str = (char *)malloc(2 + i);
+	c = 0;
+	while (line[c])
+		c++;
+	str = (char *)malloc(2 + c);
 	if (!str)
 		return (NULL);
-	i = 0;
-	while (line[i])
+	c = 0;
+	while (line[c])
 	{
-		str[i] = line[i];
-		i++;
+		str[c] = line[c];
+		c++;
 	}
-	str[i] = c;
-	str[i + 1] = '\0';
+	str[c] = c;
+	str[c + 1] = '\0';
 	free(line);
-	return (str);
+	return (line);
 }
 
 char	*get_next_line(int fd)
@@ -85,7 +75,7 @@ char	*get_next_line(int fd)
 		{
 			if (line[0] == '\0')
 			{
-				free(line);
+				free (line);
 				return (NULL);
 			}
 			return (line);
@@ -98,33 +88,4 @@ char	*get_next_line(int fd)
 		line = ft_aux(line, buff);
 	}
 	return (line);
-}
-
-int	main(void)
-{
-	int		fd;
-	int		line_count;
-	char	*line;
-
-	//printf("first: %p", line);
-	line_count = 1;
-	line = NULL;
-	fd = open("file.txt", O_RDONLY);
-	while (ft_strlen(line = get_next_line(fd)) > 0)
-	{
-		printf("  MAIN. Linea %d leída => %s", line_count, line);
-		line_count++;
-		//free(line);
-	}
-	//printf(" \n A line has been read #%d: %s", line_count++, line);
-	//printf("\n");
-	if (line == NULL)
-		printf("-----------\n ERROR\n");
-	else if (ft_strlen(line) == '0')
-	{
-		printf("-----------\n EOF has been reached\n");
-			//free(line);
-	}
-	close(fd);
-	return (0);
 }
