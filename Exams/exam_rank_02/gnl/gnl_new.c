@@ -6,15 +6,14 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 17:26:56 by ullorent          #+#    #+#             */
-/*   Updated: 2021/12/01 18:03:48 by ullorent         ###   ########.fr       */
+/*   Updated: 2021/12/02 17:18:24 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <stdio.h>
 #include <stdlib.h>
-#include <sys/stat.h>
 #include <fcntl.h>
+#include <stdio.h>
 
 int	check_ch(char *str)
 {
@@ -22,7 +21,7 @@ int	check_ch(char *str)
 
 	c = 0;
 	if (!str)
-		return (NULL);
+		return (0);
 	while (str[c])
 	{
 		if (str[c] == '\n' || str[c] == '\0')
@@ -32,7 +31,7 @@ int	check_ch(char *str)
 	return (0);
 }
 
-char	*ft_aux(char *line, char c)
+char	*ft_aux(char *line, char i)
 {
 	char	*str;
 	int		c;
@@ -40,7 +39,7 @@ char	*ft_aux(char *line, char c)
 	c = 0;
 	while (line[c])
 		c++;
-	str = (char *)malloc(2 + c);
+	str = (char *)malloc(c + 2);
 	if (!str)
 		return (NULL);
 	c = 0;
@@ -49,17 +48,17 @@ char	*ft_aux(char *line, char c)
 		str[c] = line[c];
 		c++;
 	}
-	str[c] = c;
+	str[c] = i;
 	str[c + 1] = '\0';
-	free(line);
-	return (line);
+	free (line);
+	return (str);
 }
 
 char	*get_next_line(int fd)
 {
 	char	*line;
-	char	buff;
 	int		filed;
+	char	buff;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
@@ -82,10 +81,27 @@ char	*get_next_line(int fd)
 		}
 		if (filed < 0)
 		{
-			free(line);
+			free (line);
 			return (NULL);
 		}
 		line = ft_aux(line, buff);
 	}
 	return (line);
+}
+
+int	main(void)
+{
+	char	*line;
+	int		fd;
+	int		boo;
+
+	boo = 0;
+	fd = open("file.txt", O_RDONLY);
+	while (boo < 6)
+	{
+		line = get_next_line(fd);
+		printf("%s", line);
+		boo++;
+	}
+	return (0);
 }

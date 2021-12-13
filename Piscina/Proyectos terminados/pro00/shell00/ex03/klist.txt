@@ -1,5 +1,0 @@
-Credentials cache: API:45CD243A-FE71-4E0F-B84F-8695532FA3B7
-        Principal: ullorent@42URDULIZ.COM
-
-  Issued                Expires             Flags    Principal
-Jun  7 20:01:17 2021  Jun  8 06:00:42 2021  FPIA   krbtgt/42URDULIZ.COM@42URDULIZ.COM

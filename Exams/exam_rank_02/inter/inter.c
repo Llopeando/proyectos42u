@@ -6,12 +6,12 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 18:29:53 by ullorent          #+#    #+#             */
-/*   Updated: 2021/12/01 18:39:01 by ullorent         ###   ########.fr       */
+/*   Updated: 2021/12/02 17:27:23 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include <stdio.h>
+#include <unistd.h>
 
 int	ft_strlen(char *str)
 {
@@ -23,7 +23,7 @@ int	ft_strlen(char *str)
 	return (c);
 }
 
-int	ft_inter_check(char *str, char str2, int c)
+int	ft_inter_checker(char *str, char str2, int c)
 {
 	int	counter;
 
@@ -46,15 +46,9 @@ int	main(int argc, char **argv)
 	{
 		while (argv[1][c])
 		{
-			if (!ft_inter_check(argv[1], argv[1][c], c))
-				write(1, &argv[1][c], 1);
-			c++;
-		}
-		while (argv[2][c])
-		{
-			if (!ft_inter_check(argv[1], argv[2][c], ft_strlen(argv[1]))
-				&& !ft_inter_check(argv[2], argv[2][c], c))
-				write (1, &argv[2][c], 1);
+			if (ft_inter_checker(argv[2], argv[1][c], ft_strlen(argv[2]))
+				&& !ft_inter_checker(argv[1], argv[1][c], c))
+				write (1, &argv[1][c], 1);
 			c++;
 		}
 	}
