@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 14:12:11 by ullorent          #+#    #+#             */
-/*   Updated: 2021/12/01 16:41:04 by ullorent         ###   ########.fr       */
+/*   Updated: 2021/12/13 14:01:34 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,21 @@
 
 void	signhandler(int signum)
 {
-	static char	c = 0xFF;
-	static int	bits = 0;
+	static char	c;
+	static int	bits;
 
+	if (!c)
+		c = 0xFF;
+	if (!bits)
+		bits = 0;
 	if (signum == SIGUSR1)
-	{
 		c ^= 0x80 >> bits;
-	}
 	if (signum == SIGUSR2)
-	{
 		c |= 0x80 >> bits;
-	}
 	bits++;
 	if (bits == 8)
 	{
-		ft_printf("%c\n", c);
+		ft_printf("%c", c);
 		bits = 0;
 		c = 0xFF;
 	}
@@ -55,8 +55,6 @@ int	main(int argc, char **argv)
 	signal(SIGUSR1, signhandler);
 	signal(SIGUSR2, signhandler);
 	while (1)
-	{
 		pause ();
-	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 14:12:18 by ullorent          #+#    #+#             */
-/*   Updated: 2021/12/01 16:41:45 by ullorent         ###   ########.fr       */
+/*   Updated: 2021/12/13 14:05:46 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,23 +20,17 @@ void	signal_sender(char *text, int signum)
 	int		ret;
 	int		c;
 
-	ret = -1;
 	c = 0;
 	while (text[c])
 	{
+		ret = -1;
 		while (++ret < 8)
 		{
 			if (text[c] & 0x80 >> ret)
-			{
-				if (kill(signum, SIGUSR2) == -1)
-					exit (1);
-			}
+				kill(signum, SIGUSR2);
 			else
-			{
-				if (kill(signum, SIGUSR1) == -1)
-					exit(1);
-			}
-			usleep(1000);
+				kill(signum, SIGUSR1);
+			usleep(200);
 		}
 		c++;
 	}
@@ -44,7 +38,7 @@ void	signal_sender(char *text, int signum)
 
 int	main(int argc, char **argv)
 {
-	int		pid_server;
+	int	pid_server;
 
 	if (argc == 3)
 	{
