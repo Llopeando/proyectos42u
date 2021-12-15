@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ullorent <ullorent@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 11:53:51 by ullorent          #+#    #+#             */
-/*   Updated: 2021/08/02 11:53:53 by ullorent         ###   ########.fr       */
+/*   Updated: 2021/12/15 16:16:56 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 int	ft_isprint(int c)
 {
 	if (c <= '~' && c >= ' ')
-	{
 		return (1);
-	}
 	return (0);
 }

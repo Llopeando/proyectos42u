@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ullorent <ullorent@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/03 11:59:21 by ullorent          #+#    #+#             */
-/*   Updated: 2021/09/16 12:58:04 by ullorent         ###   ########.fr       */
+/*   Updated: 2021/12/15 16:18:43 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 int	ft_tolower(int c)
 {
 	if (c <= 90 && c >= 65)
-	{
 		c = c + 32;
-	}
 	return (c);
 }
