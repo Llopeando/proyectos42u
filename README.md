@@ -7,19 +7,6 @@ Calidad del código (Code quality): [![CodeFactor](https://www.codefactor.io/rep
 
 -------
 
-## ✅ Testers para los proyectos (Proyects testers)
-Tester de libft (hecho por @alelievr): https://github.com/alelievr/libft-unit-test                    
-Tester de printf (hecho por @Tripouille): https://github.com/Tripouille/printfTester                    
-Tester de GNL (hecho por @Tripouille): https://github.com/Tripouille/gnlTester                       
-
--------
-
-## ⚖️ Uso correcto / justo de estos archivos (Fair use of this files)
-🇪🇸 Todos los proyectos, archivos individuales, documentos de texto e imágenes (y cualquier variante o similares de los mencionados) que se encuentran en este repositorio, pueden usarse solamente en caso de necesidad de comparar código o repasar algo en concreto. Por favor, no copies.              
-🇺🇸 All projects, individual files, text documents and images (and any variant or similar of those mentioned) found in this repository, can only be used in case of need to compare code or review something in particular. Please do not copy.
-
--------
-
 ## 📋 Lista de proyectos completados y en curso (list of completed proyects)
 | Proyectos | Número de círculo | Lenguaje de programación | | Fecha de entrega | Nota |
 | :-------------: | :-------------: | :-------------: | :-------------: | :-------------: | :-------------: |
@@ -34,3 +21,16 @@ Tester de GNL (hecho por @Tripouille): https://github.com/Tripouille/gnlTester
 | minitalk | 2️⃣ | **C** | | **14 de Diciembre (2021)**  | ✅ **115** (casi bonus) |
 | push_swap | 2️⃣ | **C** | | **En proceso**  | ❓❓❓ |
 | Exam_rank_02 (exámen) | 2️⃣ | **C** | | **En proceso** (3 intentos)  | ❓❓❓ |
+
+-------
+
+## ✅ Testers para los proyectos (Proyects testers)
+Tester de libft (hecho por @alelievr): https://github.com/alelievr/libft-unit-test                    
+Tester de printf (hecho por @Tripouille): https://github.com/Tripouille/printfTester                    
+Tester de GNL (hecho por @Tripouille): https://github.com/Tripouille/gnlTester                       
+
+-------
+
+## ⚖️ Uso correcto / justo de estos archivos (Fair use of this files)
+🇪🇸 Todos los proyectos, archivos individuales, documentos de texto e imágenes (y cualquier variante o similares de los mencionados) que se encuentran en este repositorio, pueden usarse solamente en caso de necesidad de comparar código o repasar algo en concreto. Por favor, no copies.              
+🇺🇸 All projects, individual files, text documents and images (and any variant or similar of those mentioned) found in this repository, can only be used in case of need to compare code or review something in particular. Please do not copy.
