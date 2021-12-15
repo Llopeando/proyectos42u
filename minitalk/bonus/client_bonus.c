@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   client_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/30 14:12:18 by ullorent          #+#    #+#             */
-/*   Updated: 2021/12/14 13:37:00 by ullorent         ###   ########.fr       */
+/*   Created: 2021/12/14 14:04:07 by ullorent          #+#    #+#             */
+/*   Updated: 2021/12/14 14:04:19 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <signal.h>
 #include <unistd.h>
 #include <stdlib.h>
-#include "libft/libft.h"
+#include "../libft/libft.h"
 
 void	signal_sender(char *text, int signum)
 {

@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   server_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/30 14:12:11 by ullorent          #+#    #+#             */
-/*   Updated: 2021/12/14 13:37:02 by ullorent         ###   ########.fr       */
+/*   Created: 2021/12/14 14:03:43 by ullorent          #+#    #+#             */
+/*   Updated: 2021/12/14 14:04:00 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <signal.h>
 #include <unistd.h>
 #include <stdlib.h>
-#include "libft/libft.h"
+#include "../libft/libft.h"
 
 void	signhandler(int signum)
 {
