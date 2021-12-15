@@ -17,3 +17,20 @@ Tester de GNL (hecho por @Tripouille): https://github.com/Tripouille/gnlTester
 ## ⚖️ Uso correcto / justo de estos archivos (Fair use of this files)
 🇪🇸 Todos los proyectos, archivos individuales, documentos de texto e imágenes (y cualquier variante o similares de los mencionados) que se encuentran en este repositorio, pueden usarse solamente en caso de necesidad de comparar código o repasar algo en concreto. Por favor, no copies.              
 🇺🇸 All projects, individual files, text documents and images (and any variant or similar of those mentioned) found in this repository, can only be used in case of need to compare code or review something in particular. Please do not copy.
+
+-------
+
+## 📋 Lista de proyectos completados y en curso (list of completed proyects)
+| Proyectos | Número de círculo | Lenguaje de programación | | Fecha de entrega | Nota |
+| :-------------: | :-------------: | :-------------: | :-------------: | :-------------: | :-------------: |
+| ⌨️ | ⭕ | 🧠 | | 📅 | 🖊️ |
+| Libft  | 0️⃣ | **C** | | **16 de Septiembre (2021)** | ✅ **100** |
+| --- | --- | --- | | --- | --- |
+| Born2beroot | 1️⃣ | **Administración de sistemas**  | | **22 de Septiembre (2021)**  | ✅ **125** (bonus) |
+| ft_printf | 1️⃣ | **C** | | **4 de Octubre (2021)**  | ✅ **100** |
+| get_next_line | 1️⃣ | **C** | | **22 de Octubre (2021)**  | ✅ **117** (casi bonus) |
+| --- | --- | --- | | --- | --- |
+| so_long | 2️⃣ | **C, Videojuego** | | **17 de Noviembre (2021)**  | ✅ **110** (casi bonus) |
+| minitalk | 2️⃣ | **C** | | **14 de Diciembre (2021)**  | ✅ **115** (casi bonus) |
+| push_swap | 2️⃣ | **C** | | **En proceso**  | ❓❓❓ |
+| Exam_rank_02 (exámen) | 2️⃣ | **C** | | **En proceso** (3 intentos)  | ❓❓❓ |
