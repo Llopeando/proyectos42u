@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 18:29:53 by ullorent          #+#    #+#             */
-/*   Updated: 2021/12/02 17:27:23 by ullorent         ###   ########.fr       */
+/*   Updated: 2021/12/15 17:20:20 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,16 @@ int	ft_strlen(char *str)
 	return (c);
 }
 
-int	ft_inter_checker(char *str, char str2, int c)
+int	ft_inter_checker(char *str, char str2, int counter)
 {
-	int	counter;
+	int	c;
 
-	counter = 0;
-	while (str[counter] && counter < c)
+	c = 0;
+	while (str[c] && c < counter)
 	{
-		if (str[counter] == str2)
+		if (str[c] == str2)
 			return (1);
-		counter++;
+		c++;
 	}
 	return (0);
 }
@@ -52,6 +52,6 @@ int	main(int argc, char **argv)
 			c++;
 		}
 	}
-	write(1, "\n", 1);
+	write (1, "\n", 1);
 	return (0);
 }

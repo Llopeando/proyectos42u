@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   gnl_new.c                                          :+:      :+:    :+:   */
+/*   gnl.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/01 17:26:56 by ullorent          #+#    #+#             */
-/*   Updated: 2021/12/02 17:18:24 by ullorent         ###   ########.fr       */
+/*   Created: 2021/12/15 16:15:10 by ullorent          #+#    #+#             */
+/*   Updated: 2021/12/15 17:05:56 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdlib.h>
-#include <fcntl.h>
-#include <stdio.h>
+#include "get_next_line.h"
 
-int	check_ch(char *str)
+int	ft_ch_check(char *line)
 {
 	int	c;
 
 	c = 0;
-	if (!str)
+	if (!line)
 		return (0);
-	while (str[c])
+	while (line[c])
 	{
-		if (str[c] == '\n' || str[c] == '\0')
+		if (line[c] == '\0' || line[c] == '\n')
 			return (1);
 		c++;
 	}
 	return (0);
 }
 
-char	*ft_aux(char *line, char i)
+char	*ft_aux(char *line, char buff)
 {
 	char	*str;
 	int		c;
@@ -48,7 +45,7 @@ char	*ft_aux(char *line, char i)
 		str[c] = line[c];
 		c++;
 	}
-	str[c] = i;
+	str[c] = buff;
 	str[c + 1] = '\0';
 	free (line);
 	return (str);
@@ -57,8 +54,8 @@ char	*ft_aux(char *line, char i)
 char	*get_next_line(int fd)
 {
 	char	*line;
-	int		filed;
 	char	buff;
+	int		filed;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
@@ -67,7 +64,7 @@ char	*get_next_line(int fd)
 		return (NULL);
 	line[0] = '\0';
 	filed = 1;
-	while (!(check_ch(line)) && filed != 0)
+	while (!(ft_ch_check(line) && filed != 0))
 	{
 		filed = read(fd, &buff, 1);
 		if (filed == 0)
@@ -93,15 +90,9 @@ int	main(void)
 {
 	char	*line;
 	int		fd;
-	int		boo;
 
-	boo = 0;
 	fd = open("file.txt", O_RDONLY);
-	while (boo < 6)
-	{
-		line = get_next_line(fd);
-		printf("%s", line);
-		boo++;
-	}
+	line = get_next_line(fd);
+	printf("line = %s\n", line);
 	return (0);
 }
