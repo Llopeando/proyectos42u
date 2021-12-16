@@ -20,7 +20,7 @@ Calidad del código (Code quality): [![CodeFactor](https://www.codefactor.io/rep
 | so_long | 2️⃣ | **C, Videojuego** | | **17 de Noviembre (2021)**  | ✅ **110** (casi bonus) |
 | minitalk | 2️⃣ | **C** | | **14 de Diciembre (2021)**  | ✅ **115** (casi bonus) |
 | push_swap | 2️⃣ | **C** | | **En proceso**  | ❓❓❓ |
-| Exam_rank_02 (examen) | 2️⃣ | **C** | | **En proceso** (3 intentos)  | ❓❓❓ |
+| Exam_rank_02 (examen) | 2️⃣ | **C** | | **16 de Diciembre (2021)** | ✅ **100** |
 
 -------
 
