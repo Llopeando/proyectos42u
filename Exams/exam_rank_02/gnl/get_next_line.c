@@ -6,13 +6,13 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 16:15:10 by ullorent          #+#    #+#             */
-/*   Updated: 2021/12/15 17:49:25 by ullorent         ###   ########.fr       */
+/*   Updated: 2021/12/16 13:53:55 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int	ft_ch_check(char *line)
+int	ft_gnl_checker(char *line)
 {
 	int	c;
 
@@ -64,7 +64,7 @@ char	*get_next_line(int fd)
 		return (NULL);
 	line[0] = '\0';
 	filed = 1;
-	while (!(ft_ch_check(line) && filed != 0))
+	while (!(ft_gnl_checker(line) && filed != 0))
 	{
 		filed = read(fd, &buff, 1);
 		if (filed == 0)
@@ -90,15 +90,9 @@ int	main(void)
 {
 	char	*line;
 	int		fd;
-	int		c;
 
-	c = 0;
 	fd = open("file.txt", O_RDONLY);
-	while (c < 10)
-	{
-		line = get_next_line(fd);
-		printf("line = %s", line);
-		c++;
-	}
+	line = get_next_line(fd);
+	printf("line = %s\n", line);
 	return (0);
 }
