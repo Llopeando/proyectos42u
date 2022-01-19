@@ -6,13 +6,13 @@
 #    By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/15 13:33:56 by ullorent          #+#    #+#              #
-#    Updated: 2021/12/15 13:39:47 by ullorent         ###   ########.fr        #
+#    Updated: 2022/01/19 16:34:56 by ullorent         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 PUSH_SWAP_EXE = push_swap
 
-CSRC = main.c
+CSRC = push_swap.c
 
 OSRC = $(CSRC:.c=.o)
 
