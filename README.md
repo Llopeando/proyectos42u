@@ -28,6 +28,7 @@ Calidad del código (Code quality): [![CodeFactor](https://www.codefactor.io/rep
 Tester de libft (hecho por @alelievr): https://github.com/alelievr/libft-unit-test                    
 Tester de printf (hecho por @Tripouille): https://github.com/Tripouille/printfTester                    
 Tester de GNL (hecho por @Tripouille): https://github.com/Tripouille/gnlTester                       
+Tester de push_swap (hecho por @lmalki-h): https://github.com/lmalki-h/push_swap_tester
 
 -------
 
