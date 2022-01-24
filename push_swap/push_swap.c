@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 16:23:02 by ullorent          #+#    #+#             */
-/*   Updated: 2022/01/24 13:40:16 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/01/24 15:34:55 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ft_numcheck(char **argv)
 			(argv[i][c] >= ':' && argv[i][c] <= '~')))
 			{
 				write(1, "Error\n", 6);
-				write(1, "is not int\n", 11);
+				write(1, "That character its not an int number.\n", 38);
 				exit (1);
 			}
 			c++;
