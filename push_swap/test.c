@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 16:37:46 by ullorent          #+#    #+#             */
-/*   Updated: 2022/01/25 19:40:52 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/01/25 19:49:30 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(int argc, char **argv)
 	/*elem2.data = 10; //elemento 2 */
 	node.next->data = 10; //elemento 2 mediante uso de malloc
 	/*elem2.next = NULL; //aqui acabaria la lista (ultimo elemento) */
-	node.next->next = NULL;
+	node.next->next = NULL; //aqui acabaria la lista con malloc (ultimo elemento) */
 	printf("Elemento 1: %d\n", node.data);
 	printf("Elemento 2: %d\n", node.next->data);
 	printf("Elemento 2 (diferente): %d\n", node.next->data);
