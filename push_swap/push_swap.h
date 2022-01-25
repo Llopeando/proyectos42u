@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:20:59 by ullorent          #+#    #+#             */
-/*   Updated: 2022/01/24 13:41:22 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/01/25 19:16:50 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,11 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-/* typedef struct psmain_data {
-	int	c;
-	int	i;
-}				t_mdata; */
+typedef struct Node
+{
+	int				data;
+	struct Node		*next;
+}			t_node;
 
 /* -- main functions -- */
 void	ft_numcheck(char **argv);
