@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_exam_edition.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 16:15:10 by ullorent          #+#    #+#             */
-/*   Updated: 2021/12/16 13:53:55 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/01/25 19:46:47 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_exam_edition.h"
 
 int	ft_gnl_checker(char *line)
 {
@@ -86,7 +86,8 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-int	main(void)
+/* Main for testing purposes */
+/* int	main(void)
 {
 	char	*line;
 	int		fd;
@@ -95,4 +96,4 @@ int	main(void)
 	line = get_next_line(fd);
 	printf("line = %s\n", line);
 	return (0);
-}
+} */

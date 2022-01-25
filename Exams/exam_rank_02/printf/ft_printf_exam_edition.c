@@ -1,18 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_printf_exam_edition.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/16 16:11:01 by ullorent          #+#    #+#             */
-/*   Updated: 2021/12/16 16:53:31 by ullorent         ###   ########.fr       */
+/*   Created: 2021/11/24 18:27:07 by ullorent          #+#    #+#             */
+/*   Updated: 2022/01/25 19:47:02 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include <stdio.h>
-#include <stdlib.h>
+#include <unistd.h>
 #include <stdarg.h>
 #include <limits.h>
 
@@ -32,21 +31,13 @@ void	ft_putchar_c(char c, int *num)
 	(*num)++;
 }
 
-void	ft_s_function(char *str, int *num)
+void	ft_d_func(int n, int *num)
 {
-	if (!str)
-		*num += write(1, "(null)", 6);
-	else
-		*num += write(1, str, ft_strlen(str));
-}
-
-void	ft_d_function(int n, int *num)
-{
-	if (n == -2147483647)
+	if (n == -2147483648)
 	{
 		ft_putchar_c('-', num);
 		ft_putchar_c('2', num);
-		n = 147483647;
+		n = 147483648;
 	}
 	if (n < 0)
 	{
@@ -59,32 +50,40 @@ void	ft_d_function(int n, int *num)
 		return ;
 	}
 	else
-		ft_d_function(n / 10, num);
-	ft_d_function(n % 10, num);
+		ft_d_func(n / 10, num);
+	ft_d_func(n % 10, num);
 }
 
-void	ft_x_function(unsigned long int n, int *num)
+void	ft_str_func(char *str, int *num)
+{
+	if (!str)
+		*num += write(1, "(null)", 6);
+	else
+		*num += write(1, str, ft_strlen(str));
+}
+
+void	ft_hexa_x(unsigned long int nbr, int *num)
 {
 	char	*base;
 
 	base = "0123456789abcdef";
-	if (n / 16 > 0)
+	if (nbr / 16 > 0)
 	{
-		ft_x_function(n / 16, num);
-		ft_putchar_c(base[n % 16], num);
+		ft_hexa_x(nbr / 16, num);
+		ft_putchar_c(base[nbr % 16], num);
 	}
 	else
-		ft_putchar_c(base[n], num);
+		ft_putchar_c(base[nbr], num);
 }
 
 void	ft_va(char let, va_list args, int *num)
 {
 	if (let == 's')
-		ft_s_function(va_arg(args, char *), num);
+		ft_str_func(va_arg(args, char *), num);
 	if (let == 'd')
-		ft_d_function(va_arg(args, int), num);
+		ft_d_func(va_arg(args, int), num);
 	if (let == 'x')
-		ft_x_function(va_arg(args, unsigned int), num);
+		ft_hexa_x(va_arg(args, unsigned int), num);
 }
 
 int	ft_printf(const char *str, ...)
@@ -95,7 +94,7 @@ int	ft_printf(const char *str, ...)
 
 	c = 0;
 	num = 0;
-	va_start(args, str);
+	va_start (args, str);
 	while (str[c] != '\0')
 	{
 		if (str[c] == '%')
@@ -107,19 +106,24 @@ int	ft_printf(const char *str, ...)
 		ft_putchar_c(str[c], &num);
 		c++;
 	}
+	va_end (args);
 	return (num);
 }
 
-int	main(void)
+/* Main for testing purposes */
+/* int	main(void)
 {
 	char	*str;
-	int		c;
+	int		num;
 
-	str = "Hola buenardos";
-	c = -2147483647;
-	ft_printf("Sies: %s\n", str);
-	ft_printf("Sies2: %d\n", c);
-	ft_printf("x (mio) -> %x\n", c);
-	printf("x -> %x\n", c);
+	str = "Unai";
+	num = 25353535;
+	ft_printf("Hola, me llamo %s\n", str);
+	printf("Real -> string: %s\n", str);
+	ft_printf("Hola, tu número es el %d\n", num);
+	ft_printf("Hola, tus símbolos de memoria son %x\n", num);
+	printf("Los números de memoria reales son %x\n", num);
+	// ft_printf("a\n");
+	// ft_printf(" ");
 	return (0);
-}
+} */
