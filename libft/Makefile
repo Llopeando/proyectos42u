@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ullorent <ullorent@student.42.fr>          +#+  +:+       +#+         #
+#    By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/19 10:41:19 by ullorent          #+#    #+#              #
-#    Updated: 2021/10/20 14:14:18 by ullorent         ###   ########.fr        #
+#    Updated: 2022/01/26 18:35:36 by ullorent         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,17 @@ ft_split.c \
 ft_strtrim.c \
 ft_bzero.c
 
+BCSRC = ft_lstnew.c \
+ft_lstadd_front.c \
+ft_lstsize.c \
+ft_lstlast.c \
+ft_lstadd_back.c \
+ft_lstdelone.c \
+ft_lstclear.c \
+ft_lstiter.c
+
 OSRC = $(CSRC:.c=.o)
+BOSRC = $(BCSRC:.c=.o)
 
 CFLAGS = -Werror -Wall -Wextra
 
@@ -61,10 +71,17 @@ $(NAME): $(OSRC)
 
 $(OSRC): $(CSRC) 
 	$(GCCCMD) $(CFLAGS) -c $(CSRC)
+
+bonus: $(BOSRC)
+	$(ARCMD) $(NAME) $^
+
 clean:
 	rm -f $(OSRC)
+	rm -f $(BOSRC)
 
 fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+.PHONY: all bonus clean fclean re

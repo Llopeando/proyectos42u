@@ -1,18 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/13 12:18:31 by ullorent          #+#    #+#             */
-/*   Updated: 2022/01/26 16:50:15 by ullorent         ###   ########.fr       */
+/*   Created: 2022/01/26 17:20:49 by ullorent          #+#    #+#             */
+/*   Updated: 2022/01/26 17:27:20 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar_fd(char c, int fd)
+int	ft_lstsize(t_list *lst)
 {
-	write(fd, &c, 1);
+	int	counter;
+
+	counter = 1;
+	if (lst)
+	{
+		while (lst->next != NULL)
+		{
+			lst = lst->next;
+			counter++;
+		}
+		return (counter);
+	}
+	return (0);
 }

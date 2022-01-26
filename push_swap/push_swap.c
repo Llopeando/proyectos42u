@@ -6,13 +6,13 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 16:23:02 by ullorent          #+#    #+#             */
-/*   Updated: 2022/01/24 15:34:55 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/01/26 13:54:22 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_numcheck(char **argv)
+int	ft_numcheck(char **argv)
 {
 	int	c;
 	int	i;
@@ -24,6 +24,8 @@ void	ft_numcheck(char **argv)
 		c = 0;
 		while (argv[i][c])
 		{
+			if ((int)((argv[i][c] == '-' && (argv[i][c + 1] >= '0' || argv[i][c + 1] <= '9'))))
+				return (0);
 			if ((int)((argv[i][c] >= ' ' && argv[i][c] <= '/') ||
 			(argv[i][c] >= ':' && argv[i][c] <= '~')))
 			{
@@ -35,6 +37,7 @@ void	ft_numcheck(char **argv)
 		}
 		i++;
 	}
+	return (0);
 }
 
 int	main(int argc, char **argv)
