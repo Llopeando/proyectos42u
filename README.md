@@ -11,7 +11,7 @@ Calidad del código (Code quality): [![CodeFactor](https://www.codefactor.io/rep
 | Proyectos | Número de círculo | Lenguaje de programación | | Fecha de entrega | Nota |
 | :-------------: | :-------------: | :-------------: | :-------------: | :-------------: | :-------------: |
 | ⌨️ | ⭕ | 🧠 | | 📅 | 🖊️ |
-| Libft  | 0️⃣ | **C** | | **16/09/2021 (2da; 26/01/22)** | ✅ **122** |
+| Libft  | 0️⃣ | **C** | | **16 de Septiembre (2021) (2da; 26/01/22)** | ✅ **122** |
 | --- | --- | --- | | --- | --- |
 | Born2beroot | 1️⃣ | **Administración de sistemas**  | | **22 de Septiembre (2021)**  | ✅ **125** |
 | ft_printf | 1️⃣ | **C** | | **4 de Octubre (2021)*  | ✅ **100** |
