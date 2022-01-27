@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_csp.c                                    :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/29 16:13:59 by ullorent          #+#    #+#             */
-/*   Updated: 2021/11/30 13:58:41 by ullorent         ###   ########.fr       */
+/*   Created: 2022/01/26 17:15:58 by ullorent          #+#    #+#             */
+/*   Updated: 2022/01/26 17:16:03 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar_c(char c, int *num)
+t_list	*ft_lstnew(void *content)
 {
-	write(1, &c, 1);
-	(*num)++;
-}
+	t_list	*node;
 
-void	ft_putstr_s(char *str, int *num)
-{
-	if (!str)
-		*num += write(1, "(null)", 6);
-	else
-		*num += write(1, str, ft_strlen(str));
+	node = (t_list *)malloc(sizeof(t_list));
+	if (!node)
+		return (0);
+	node->content = content;
+	node->next = NULL;
+	return (node);
 }

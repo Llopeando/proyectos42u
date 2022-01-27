@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_xx.c                                     :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/01 12:04:24 by ullorent          #+#    #+#             */
-/*   Updated: 2021/11/30 13:58:28 by ullorent         ###   ########.fr       */
+/*   Created: 2022/01/26 17:52:58 by ullorent          #+#    #+#             */
+/*   Updated: 2022/01/26 18:03:17 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_hexa_x(unsigned long int nbr, int boo, int *num)
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	char	*base;
+	t_list	*tmp;
 
-	if (boo == 0)
-		base = "0123456789abcdef";
-	else
-		base = "0123456789ABCDEF";
-	if (nbr / 16 > 0)
+	if (*lst && del)
 	{
-		ft_hexa_x(nbr / 16, boo, num);
-		ft_putchar_c(base[nbr % 16], num);
+		while (*lst)
+		{
+			del((*lst)->content);
+			tmp = (*lst)->next;
+			free(*lst);
+			*lst = tmp;
+		}
+		*lst = NULL;
 	}
-	else
-		ft_putchar_c(base[nbr], num);
 }

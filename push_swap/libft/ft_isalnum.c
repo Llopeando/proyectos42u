@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ullorent <ullorent@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 11:54:35 by ullorent          #+#    #+#             */
-/*   Updated: 2021/08/02 11:54:39 by ullorent         ###   ########.fr       */
+/*   Updated: 2021/12/15 16:16:42 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ int	ft_isalnum(int c)
 {
 	if ((c <= 'z' && c >= 'a') || (c <= 'Z' && c >= 'A')
 		|| (c >= '0' && c <= '9'))
-	{
 		return (1);
-	}
 	return (0);
 }

@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/02 11:54:27 by ullorent          #+#    #+#             */
-/*   Updated: 2021/12/15 16:16:45 by ullorent         ###   ########.fr       */
+/*   Created: 2022/01/26 17:50:04 by ullorent          #+#    #+#             */
+/*   Updated: 2022/01/26 17:52:31 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalpha(int c)
+void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	if ((c <= 'z' && c >= 'a') || (c <= 'Z' && c >= 'A'))
-		return (1);
-	return (0);
+	if (lst)
+	{
+		del((void *)lst->content);
+		free (lst);
+	}
 }

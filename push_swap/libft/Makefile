@@ -6,7 +6,7 @@
 #    By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/19 10:41:19 by ullorent          #+#    #+#              #
-#    Updated: 2021/11/30 14:25:50 by ullorent         ###   ########.fr        #
+#    Updated: 2022/01/27 13:27:20 by ullorent         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,14 +46,18 @@ ft_itoa.c \
 ft_split.c \
 ft_strtrim.c \
 ft_bzero.c \
-ft_printf.c \
-ft_printf_xx.c \
-ft_printf_diu.c \
-ft_printf_csp.c
+ft_lstnew.c \
+ft_lstadd_front.c \
+ft_lstsize.c \
+ft_lstlast.c \
+ft_lstadd_back.c \
+ft_lstdelone.c \
+ft_lstclear.c \
+ft_lstiter.c
 
 OSRC = $(CSRC:.c=.o)
 
-CFLAGS = -Werror -Wall -Wextra -D BUFFER_SIZE=4
+CFLAGS = -Werror -Wall -Wextra
 
 ARCMD = ar rc
 GCCCMD = gcc
@@ -63,8 +67,9 @@ all: $(NAME)
 $(NAME): $(OSRC)
 	$(ARCMD) $(NAME) $(OSRC)
 
-$(OSRC): $(CSRC) 
+$(OSRC): $(CSRC)
 	$(GCCCMD) $(CFLAGS) -c $(CSRC)
+
 clean:
 	rm -f $(OSRC)
 
@@ -72,3 +77,5 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+.PHONY: all bonus clean fclean re

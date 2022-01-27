@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 16:23:02 by ullorent          #+#    #+#             */
-/*   Updated: 2022/01/26 13:54:22 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/01/27 13:28:22 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ int	ft_numcheck(char **argv)
 		c = 0;
 		while (argv[i][c])
 		{
-			if ((int)((argv[i][c] == '-' && (argv[i][c + 1] >= '0' || argv[i][c + 1] <= '9'))))
-				return (0);
 			if ((int)((argv[i][c] >= ' ' && argv[i][c] <= '/') ||
 			(argv[i][c] >= ':' && argv[i][c] <= '~')))
 			{

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ullorent <ullorent@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 11:53:59 by ullorent          #+#    #+#             */
-/*   Updated: 2021/08/02 11:54:02 by ullorent         ###   ########.fr       */
+/*   Updated: 2021/12/15 16:16:53 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 int	ft_isdigit(int c)
 {
 	if (c <= '9' && c >= '0')
-	{
 		return (1);
-	}
 	return (0);
 }

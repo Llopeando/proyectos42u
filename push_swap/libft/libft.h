@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 11:54:48 by ullorent          #+#    #+#             */
-/*   Updated: 2021/11/30 14:25:29 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/01/26 18:09:05 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,12 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include <stdarg.h>
-# include <sys/stat.h>
-# include <fcntl.h>
+
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}	t_list;
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -60,15 +63,14 @@ size_t	ft_strlen(const char *str);
 size_t	ft_strlcpy(char *dst, const char *src, size_t n);
 size_t	ft_strlcat(char *dst, const char *src, size_t n);
 
-/* --- ft_printf functions --- */
-
-int		ft_printf(const char *str, ...);
-
-void	ft_va(char let, va_list args, int *num);
-void	ft_putstr_s(char *str, int *num);
-void	ft_putchar_c(char c, int *num);
-void	ft_putnbr_di(int n, int *num);
-void	ft_putnbr_u(unsigned int n, int *num);
-void	ft_hexa_x(unsigned long int nbr, int boo, int *num);
+/* --- bonus functions --- */
+t_list	*ft_lstnew(void *content);
+t_list	*ft_lstlast(t_list *lst);
+void	ft_lstdelone(t_list *lst, void (*del)(void*));
+void	ft_lstclear(t_list **lst, void (*del)(void*));
+void	ft_lstadd_front(t_list **lst, t_list *new);
+void	ft_lstadd_back(t_list **lst, t_list *new);
+void	ft_lstiter(t_list *lst, void (*f)(void *));
+int		ft_lstsize(t_list *lst);
 
 #endif
