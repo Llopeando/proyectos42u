@@ -11,16 +11,16 @@ Calidad del código (Code quality): [![CodeFactor](https://www.codefactor.io/rep
 | Proyectos | Número de círculo | Lenguaje de programación | | Fecha de entrega | Nota |
 | :-------------: | :-------------: | :-------------: | :-------------: | :-------------: | :-------------: |
 | ⌨️ | ⭕ | 🧠 | | 📅 | 🖊️ |
-| Libft  | 0️⃣ | **C** | | **16 de Septiembre (2021)** | ✅ **100** |
+| Libft  | 0️⃣ | **C** | | **16/09/2021 (2da; 26/01/22)** | ✅ **122** |
 | --- | --- | --- | | --- | --- |
-| Born2beroot | 1️⃣ | **Administración de sistemas**  | | **22 de Septiembre (2021)**  | ✅ **125** (bonus) |
-| ft_printf | 1️⃣ | **C** | | **4 de Octubre (2021)**  | ✅ **100** |
-| get_next_line | 1️⃣ | **C** | | **22 de Octubre (2021)**  | ✅ **117** (casi bonus) |
+| Born2beroot | 1️⃣ | **Administración de sistemas**  | | **22/09/2021**  | ✅ **125** |
+| ft_printf | 1️⃣ | **C** | | **4/10/2021**  | ✅ **100** |
+| get_next_line | 1️⃣ | **C** | | **22/10/2021**  | ✅ **117** |
 | --- | --- | --- | | --- | --- |
-| so_long | 2️⃣ | **C, Videojuego** | | **17 de Noviembre (2021)**  | ✅ **110** (casi bonus) |
-| minitalk | 2️⃣ | **C** | | **14 de Diciembre (2021)**  | ✅ **115** (casi bonus) |
+| so_long | 2️⃣ | **C, Videojuego** | | **17/12/2021**  | ✅ **110** |
+| minitalk | 2️⃣ | **C** | | **14/12/2021**  | ✅ **115** |
 | push_swap | 2️⃣ | **C** | | **En proceso**  | ❓❓❓ |
-| Exam_rank_02 (examen) | 2️⃣ | **C** | | **16 de Diciembre (2021)** | ✅ **100** |
+| Exam_rank_02 (examen) | 2️⃣ | **C** | | **16/12/2021** | ✅ **100** |
 
 -------
 
