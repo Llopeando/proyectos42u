@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:20:59 by ullorent          #+#    #+#             */
-/*   Updated: 2022/01/26 13:52:35 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/01/31 13:12:50 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 typedef struct Node
 {
 	int				data;
+	void			*new_node;
 	struct Node		*next;
 }			t_node;
 
