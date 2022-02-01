@@ -6,7 +6,7 @@
 #    By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/15 13:33:56 by ullorent          #+#    #+#              #
-#    Updated: 2022/01/19 16:34:56 by ullorent         ###   ########.fr        #
+#    Updated: 2022/02/01 19:48:50 by ullorent         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ OSRC = $(CSRC:.c=.o)
 LIBFT_LIB = libft/libft.a
 
 GCCCMD = gcc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g -fsanitize=address
 
 all: $(PUSH_SWAP_EXE)
 

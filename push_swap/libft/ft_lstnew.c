@@ -6,13 +6,13 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 17:15:58 by ullorent          #+#    #+#             */
-/*   Updated: 2022/01/31 13:50:14 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/02/01 13:00:26 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(int *content)
+t_list	*ft_lstnew(void *content)
 {
 	t_list	*node;
 

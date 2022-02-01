@@ -6,7 +6,7 @@
 #    By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/25 13:36:53 by ullorent          #+#    #+#              #
-#    Updated: 2021/11/11 12:49:05 by ullorent         ###   ########.fr        #
+#    Updated: 2022/02/01 19:17:40 by ullorent         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ sl_error_mng.c
 
 OSRC = $(CSRC:.c=.o)
 
-CFLAGS = -Wall -Werror -Wextra -g
+CFLAGS = -Wall -Werror -Wextra -g3
 GCCCMD = gcc
 
 all: $(NAME)
