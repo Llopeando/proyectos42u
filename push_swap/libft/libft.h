@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 11:54:48 by ullorent          #+#    #+#             */
-/*   Updated: 2022/02/01 13:34:47 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/02/02 12:44:15 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 typedef struct s_list
 {
 	void			*content;
+	int				chunk;
 	struct s_list	*next;
 }	t_list;
 

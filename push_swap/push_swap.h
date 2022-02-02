@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:20:59 by ullorent          #+#    #+#             */
-/*   Updated: 2022/02/01 17:08:43 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/02/02 17:10:46 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@
 typedef struct Node
 {
 	int				data;
-	void			*new_node;
 	struct Node		*next;
 }			t_node;
 
 /* -- main functions -- */
-int	ft_numcheck(char **argv);
+int		ft_numcheck(char **argv);
+void	ft_addnumbers(t_list **head_a, char **argv);
 
 /* -- errors checker -- */
 
