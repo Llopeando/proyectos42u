@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:20:59 by ullorent          #+#    #+#             */
-/*   Updated: 2022/02/02 17:10:46 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/02/03 18:11:18 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,15 @@ typedef struct Node
 }			t_node;
 
 /* -- main functions -- */
-int		ft_numcheck(char **argv);
 void	ft_addnumbers(t_list **head_a, char **argv);
 
+/* --- utils and other functions */
+t_list	*ft_lstnew_psw(int *content);
+
 /* -- errors checker -- */
+void	ft_errormsg(void);
+int		ft_numcheck(char *argv);
+void	ft_numcheck_norep(t_list **head_a);
 
 /* -- commands functions -- */
 
