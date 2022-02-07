@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 18:12:26 by ullorent          #+#    #+#             */
-/*   Updated: 2022/02/03 18:12:52 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/02/07 15:24:23 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,15 @@ int	ft_numcheck(char *argv)
 	i = 0;
 	if (!argv)
 		return (0);
+	if (((argv[i] == '-' || argv[i] == '+') && argv[i + 1]
+			&& (argv[i + 1] > '9' || argv[i + 1] < '0'))
+		|| ((argv[i] > '9' || argv[i] < '0')
+			&& (argv[i] != '+' && argv[i] != '-')))
+		return (0);
+	i++;
 	while (argv[i])
 	{
-		if (argv[i] == '-')
-		{
-			if (argv[i + 1] >= '9' && argv[i + 1] <= '0')
-				return (0);
-			else
-				i++;
-		}
-		if (argv[i] < '0' || argv[i] > '9')
+		if (argv[i] > '9' || argv[i] < '0')
 			return (0);
 		i++;
 	}

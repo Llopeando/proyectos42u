@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 16:23:02 by ullorent          #+#    #+#             */
-/*   Updated: 2022/02/03 18:12:47 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/02/07 15:14:52 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_addnumbers(t_list **head_a, char **argv)
 	c = 0;
 	while (argv[i] != NULL)
 	{
-		if ((ft_numcheck(argv[i]) == 0))
+		if (!ft_numcheck(argv[i]))
 			ft_errormsg();
 		numbers = ft_atoi(argv[i]);
 		ft_lstadd_back(head_a, ft_lstnew_psw(&numbers));
