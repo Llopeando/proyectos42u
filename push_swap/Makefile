@@ -6,7 +6,7 @@
 #    By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/15 13:33:56 by ullorent          #+#    #+#              #
-#    Updated: 2022/02/03 18:13:08 by ullorent         ###   ########.fr        #
+#    Updated: 2022/02/08 16:41:49 by ullorent         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ PUSH_SWAP_EXE = push_swap
 
 CSRC = push_swap.c \
 push_swap_utils.c \
-push_swap_errorschk.c
+push_swap_errorschk.c \
+push_swap_commands1.c
 
 OSRC = $(CSRC:.c=.o)
 

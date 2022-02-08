@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:20:59 by ullorent          #+#    #+#             */
-/*   Updated: 2022/02/08 13:54:02 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/02/08 18:57:24 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,8 @@ int		ft_numcheck(char *argv);
 void	ft_numcheck_norep(t_list **head_a);
 
 /* -- commands functions -- */
+void	ft_sa(t_list **head, int boo);
+void	ft_sb(t_list **head, int boo);
+void	ft_ss(t_list **head_a, t_list **head_b);
 
 #endif

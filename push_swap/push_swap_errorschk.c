@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 18:12:26 by ullorent          #+#    #+#             */
-/*   Updated: 2022/02/07 15:24:23 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/02/08 18:33:43 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	ft_numcheck_norep(t_list **head_a)
 		{
 			if (temp_1->content == temp_2->content)
 				ft_errormsg();
-			temp_2 = temp_1->next;
+			temp_2 = temp_2->next;
 		}
 		temp_1 = temp_1->next;
 	}
