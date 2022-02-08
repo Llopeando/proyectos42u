@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 16:37:46 by ullorent          #+#    #+#             */
-/*   Updated: 2022/01/25 19:49:30 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/02/08 13:41:53 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	main(int argc, char **argv)
 {
-	t_node	node;
-	/* t_node	elem2; */
+	t_list	node;
+	/* t_list	elem2; */
 	argc = 0;
 	argv = NULL;
 	node.data = 15; //elemento 1

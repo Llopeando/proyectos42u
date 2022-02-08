@@ -6,20 +6,20 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 18:09:57 by ullorent          #+#    #+#             */
-/*   Updated: 2022/02/03 18:10:35 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/02/08 13:53:40 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*ft_lstnew_psw(int *content)
+t_list	*ft_lstnew_psw(size_t content)
 {
 	t_list	*node;
 
 	node = (t_list *)malloc(sizeof(t_list));
 	if (!node)
 		return (0);
-	node->content = content;
+	node->content = (void *)content;
 	node->next = NULL;
 	return (node);
 }

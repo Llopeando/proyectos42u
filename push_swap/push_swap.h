@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:20:59 by ullorent          #+#    #+#             */
-/*   Updated: 2022/02/03 18:11:18 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/02/08 13:54:02 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,11 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef struct Node
-{
-	int				data;
-	struct Node		*next;
-}			t_node;
-
 /* -- main functions -- */
 void	ft_addnumbers(t_list **head_a, char **argv);
 
 /* --- utils and other functions */
-t_list	*ft_lstnew_psw(int *content);
+t_list	*ft_lstnew_psw(size_t content);
 
 /* -- errors checker -- */
 void	ft_errormsg(void);
