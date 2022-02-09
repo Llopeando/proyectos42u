@@ -6,7 +6,7 @@
 #    By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/15 13:33:56 by ullorent          #+#    #+#              #
-#    Updated: 2022/02/09 13:33:07 by ullorent         ###   ########.fr        #
+#    Updated: 2022/02/09 14:02:54 by ullorent         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ CSRC = push_swap.c \
 push_swap_utils.c \
 push_swap_errorschk.c \
 push_swap_cmd_sp.c \
-push_swap_cmd_r.c
+push_swap_cmd_r.c \
+push_swap_cmd_rr.c
 
 OSRC = $(CSRC:.c=.o)
 

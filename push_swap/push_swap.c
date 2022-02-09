@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 16:23:02 by ullorent          #+#    #+#             */
-/*   Updated: 2022/02/09 13:51:09 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/02/09 14:28:31 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,15 +84,19 @@ int	main(int argc, char **argv)
 	ft_numcheck_norep(&head_a);
 	if (ft_isinorder(&head_a))
 		exit (1);
-	ft_sa(&head_a, 1);
-	ft_sb(&head_b, 1);
-	ft_ss(&head_a, &head_b);
+	// ft_sa(&head_a, 1);
+	// ft_sb(&head_b, 1);
+	// ft_ss(&head_a, &head_b);
 	ft_pa(&head_a, &head_b);
 	ft_pb(&head_a, &head_b);
 	ft_pb(&head_a, &head_b);
-	ft_ra(&head_a, 1);
-	ft_rb(&head_b, 1);
-	ft_rr(&head_a, &head_b);
+	ft_pb(&head_a, &head_b);
+	// ft_ra(&head_a, 1);
+	// ft_rb(&head_b, 1);
+	// ft_rr(&head_a, &head_b);
+	ft_rra(&head_a, 1);
+	ft_rrb(&head_b, 1);
+	ft_rrr(&head_a, &head_b);
 	ft_imprimir(head_a, head_b);
 	printf("\n----------------------------------------------------\n");
 	write(1, "\n", 1);

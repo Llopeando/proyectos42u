@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:20:59 by ullorent          #+#    #+#             */
-/*   Updated: 2022/02/09 13:50:32 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/02/09 14:26:38 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,8 @@ void	ft_pb(t_list **head_a, t_list **head_b);
 void	ft_ra(t_list **head_a, int boo);
 void	ft_rb(t_list **head_b, int boo);
 void	ft_rr(t_list **head_a, t_list **head_b);
+void	ft_rra(t_list **head_a, int boo);
+void	ft_rrb(t_list **head_b, int boo);
+void	ft_rrr(t_list **head_a, t_list **head_b);
 
 #endif
