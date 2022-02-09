@@ -6,7 +6,7 @@
 #    By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/15 13:33:56 by ullorent          #+#    #+#              #
-#    Updated: 2022/02/09 14:02:54 by ullorent         ###   ########.fr        #
+#    Updated: 2022/02/09 14:31:49 by ullorent         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,7 @@ clean:
 
 fclean: clean
 	rm -f $(PUSH_SWAP_EXE)
+	make -C libft/ fclean
 
 re: fclean all
 

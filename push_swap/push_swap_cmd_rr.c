@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 14:02:20 by ullorent          #+#    #+#             */
-/*   Updated: 2022/02/09 14:29:19 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/02/09 14:31:18 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_rra(t_list **head_a, int boo)
 	t_list	*temp1;
 	t_list	*temp2;
 
-	if (head_a)
+	if (!*head_a)
 		return ;
 	temp1 = *head_a;
 	temp2 = *head_a;
@@ -36,7 +36,7 @@ void	ft_rrb(t_list **head_b, int boo)
 	t_list	*temp1;
 	t_list	*temp2;
 
-	if (head_b)
+	if (!*head_b)
 		return ;
 	temp1 = *head_b;
 	temp2 = *head_b;
