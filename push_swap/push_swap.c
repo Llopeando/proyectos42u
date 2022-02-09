@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 16:23:02 by ullorent          #+#    #+#             */
-/*   Updated: 2022/02/08 19:02:12 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/02/09 13:51:09 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	ft_addnumbers(t_list **head_a, char **argv)
 
 	i = 0;
 	c = 0;
+	if (!argv)
+		ft_errormsg();
 	while (argv[i] != NULL)
 	{
 		if (!ft_numcheck(argv[i]))
@@ -48,7 +50,7 @@ void	ft_imprimir(t_list *head_a, t_list *head_b)
 	while (head_a || head_b)
 	{
 		if (head_b && !head_a)
-			printf("%d   \t|             |\t| %11d |\n",
+			printf("%d   \t|             |\t| %11d   |\n",
 				i, (int)head_b->content);
 		else if (head_a && !head_b)
 			printf("%d   \t| %11d |\t|               |\n",
@@ -73,17 +75,26 @@ int	main(int argc, char **argv)
 
 	head_a = NULL;
 	head_b = NULL;
-	if (argc < 2)
+	if (argc < 2 || *argv[1] == '\0')
 		exit (1);
 	if (argc != 1 && argc != 2)
 		ft_addnumbers(&head_a, argv + 1);
 	else
 		ft_addnumbers(&head_a, ft_split(argv[1], ' '));
 	ft_numcheck_norep(&head_a);
+	if (ft_isinorder(&head_a))
+		exit (1);
 	ft_sa(&head_a, 1);
 	ft_sb(&head_b, 1);
 	ft_ss(&head_a, &head_b);
+	ft_pa(&head_a, &head_b);
+	ft_pb(&head_a, &head_b);
+	ft_pb(&head_a, &head_b);
+	ft_ra(&head_a, 1);
+	ft_rb(&head_b, 1);
+	ft_rr(&head_a, &head_b);
 	ft_imprimir(head_a, head_b);
+	printf("\n----------------------------------------------------\n");
 	write(1, "\n", 1);
 	write(1, "OK\n", 3);
 	return (0);

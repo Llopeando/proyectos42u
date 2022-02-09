@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 16:39:49 by ullorent          #+#    #+#             */
-/*   Updated: 2022/02/08 18:57:07 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/02/09 13:26:05 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_sa(t_list **head, int boo)
 		temp2->next = temp1;
 		*head = temp2;
 		if (boo == 1)
-			printf("sa\n");
+			write(1, "sa\n", 3);
 	}
 }
 
@@ -49,7 +49,7 @@ void	ft_sb(t_list **head, int boo)
 		temp2->next = temp1;
 		*head = temp2;
 		if (boo)
-			printf("sb\n");
+			write(1, "sb\n", 3);
 	}
 }
 
@@ -57,5 +57,37 @@ void	ft_ss(t_list **head_a, t_list **head_b)
 {
 	ft_sa(head_a, 0);
 	ft_sb(head_b, 0);
-	printf("ss\n");
+	write(1, "ss\n", 3);
+}
+
+void	ft_pa(t_list **head_a, t_list **head_b)
+{
+	t_list	*temp2;
+
+	temp2 = NULL;
+	if (*head_b == NULL)
+		return ;
+	temp2 = *head_b;
+	if (temp2->next != NULL)
+		*head_b = temp2->next;
+	else
+		*head_b = NULL;
+	ft_lstadd_front(head_a, temp2);
+	write(1, "pa\n", 3);
+}
+
+void	ft_pb(t_list **head_a, t_list **head_b)
+{
+	t_list	*temp1;
+
+	temp1 = NULL;
+	if (*head_a == NULL)
+		return ;
+	temp1 = *head_a;
+	if (temp1->next != NULL)
+		*head_a = temp1->next;
+	else
+		*head_a = NULL;
+	ft_lstadd_front(head_b, temp1);
+	write(1, "pb\n", 3);
 }
