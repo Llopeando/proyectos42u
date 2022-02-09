@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_commands1.c                              :+:      :+:    :+:   */
+/*   push_swap_cmd_sp.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 16:39:49 by ullorent          #+#    #+#             */
-/*   Updated: 2022/02/09 13:26:05 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/02/09 15:14:47 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	ft_pa(t_list **head_a, t_list **head_b)
 	t_list	*temp2;
 
 	temp2 = NULL;
-	if (*head_b == NULL)
+	if (!*head_b == NULL)
 		return ;
 	temp2 = *head_b;
 	if (temp2->next != NULL)
