@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 16:39:49 by ullorent          #+#    #+#             */
-/*   Updated: 2022/02/09 15:14:47 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/02/10 11:52:40 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	ft_sb(t_list **head, int boo)
 
 	temp1 = NULL;
 	temp2 = NULL;
-	if (*head != NULL)
+	if (!*head)
 		temp1 = *head;
 	else if (temp1 != NULL)
 	{
@@ -65,7 +65,7 @@ void	ft_pa(t_list **head_a, t_list **head_b)
 	t_list	*temp2;
 
 	temp2 = NULL;
-	if (!*head_b == NULL)
+	if (!*head_b)
 		return ;
 	temp2 = *head_b;
 	if (temp2->next != NULL)
@@ -81,7 +81,7 @@ void	ft_pb(t_list **head_a, t_list **head_b)
 	t_list	*temp1;
 
 	temp1 = NULL;
-	if (*head_a == NULL)
+	if (!*head_a)
 		return ;
 	temp1 = *head_a;
 	if (temp1->next != NULL)
