@@ -6,7 +6,7 @@
 #    By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/15 13:33:56 by ullorent          #+#    #+#              #
-#    Updated: 2022/02/09 15:13:36 by ullorent         ###   ########.fr        #
+#    Updated: 2022/02/15 18:25:43 by ullorent         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ push_swap_utils.c \
 push_swap_errorschk.c \
 push_swap_cmd_sp.c \
 push_swap_cmd_r.c \
-push_swap_cmd_rr.c
+push_swap_cmd_rr.c \
+push_swap_algo.c
 
 OSRC = $(CSRC:.c=.o)
 
@@ -28,7 +29,10 @@ CFLAGS = -Wall -Werror -Wextra -g -fsanitize=address
 
 all: $(PUSH_SWAP_EXE)
 
-$(PUSH_SWAP_EXE): $(LIBFT_LIB) $(CSRC)
+%.o: %.c
+	$(GCCCMD) $(CFLAGS) -c $^ -o $@
+
+$(PUSH_SWAP_EXE): $(LIBFT_LIB) $(OSRC)
 	$(GCCCMD) $(CFLAGS) $(CSRC) $(LIBFT_LIB) -o $(PUSH_SWAP_EXE)
 
 $(LIBFT_LIB): libft/*.c libft/libft.h

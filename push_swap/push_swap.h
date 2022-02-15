@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:20:59 by ullorent          #+#    #+#             */
-/*   Updated: 2022/02/09 14:26:38 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/02/15 16:46:08 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@
 
 /* -- main functions -- */
 void	ft_addnumbers(t_list **head_a, char **argv);
+
+/* -- algorithm functions -- */
+void	ft_sort(t_list **head_a, t_list **head_b);
+int		ft_getpivot(t_list *head);
 
 /* --- utils and other functions */
 t_list	*ft_lstnew_psw(size_t content);
