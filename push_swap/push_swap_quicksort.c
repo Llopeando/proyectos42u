@@ -1,26 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   push_swap_quicksort.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/26 17:20:49 by ullorent          #+#    #+#             */
-/*   Updated: 2022/02/16 16:16:44 by ullorent         ###   ########.fr       */
+/*   Created: 2022/02/16 14:49:28 by ullorent          #+#    #+#             */
+/*   Updated: 2022/02/16 16:16:58 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-int	ft_lstsize(t_list *lst)
+void	ft_swap(int *a, int *b)
 {
-	int	counter;
+	int	t;
 
-	counter = 0;
-	while (lst != NULL)
+	t = *a;
+	*a = *b;
+	*b = t;
+}
+
+int	ft_quicksort(int *arr, int max)
+{
+	int	i;
+	int	j;
+	int	len;
+
+	len = 0;
+	if (!arr)
+		return (0);
+	while (len < max)
 	{
-		lst = lst->next;
-		counter++;
+		i = 0;
+		j = 1;
+		while (j < max)
+		{
+			if (arr[j] < arr[i])
+				ft_swap(&arr[i], &arr[j]);
+			j++;
+			i++;
+		}
+		len++;
 	}
-	return (counter);
+	if (len % 2 == 0)
+		return (arr[max / 2 + 1]);
+	return (arr[max / 2]);
 }

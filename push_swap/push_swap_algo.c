@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 16:57:10 by ullorent          #+#    #+#             */
-/*   Updated: 2022/02/15 16:50:52 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/02/16 16:50:19 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ void	ft_sort(t_list **head_a, t_list **head_b)
 	t_list	*temp;
 
 	chunk_b = 1;
-	temp = *head_a;
 	while (!ft_isinorder(head_a) && !*head_b)
 	{
+		temp = *head_a;
 		while (ft_lstsize(temp) > 2)
 		{
 			pivot = ft_getpivot(*head_a);
@@ -38,8 +38,10 @@ void	ft_sort(t_list **head_a, t_list **head_b)
 				temp = temp->next;
 			}
 			chunk_b++;
+			temp = *head_a;
+			ft_imprimir(*head_a, *head_b);
 		}
-		if (ft_lstsize(*head_a) < 2 && !ft_isinorder(head_a))
+		if (ft_lstsize(*head_a) <= 2 && !ft_isinorder(head_a))
 			ft_sa(head_a, 1);
 		pivot = ft_getpivot(*head_b);
 		c = 0;

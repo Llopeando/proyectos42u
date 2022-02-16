@@ -6,7 +6,7 @@
 #    By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/15 13:33:56 by ullorent          #+#    #+#              #
-#    Updated: 2022/02/15 18:25:43 by ullorent         ###   ########.fr        #
+#    Updated: 2022/02/16 14:59:18 by ullorent         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ push_swap_errorschk.c \
 push_swap_cmd_sp.c \
 push_swap_cmd_r.c \
 push_swap_cmd_rr.c \
-push_swap_algo.c
+push_swap_algo.c \
+push_swap_quicksort.c
 
 OSRC = $(CSRC:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 16:23:02 by ullorent          #+#    #+#             */
-/*   Updated: 2022/02/15 18:17:22 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/02/16 16:27:39 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,8 @@ int	main(int argc, char **argv)
 	if (ft_isinorder(&head_a))
 		exit (1);
 	ft_sort(&head_a, &head_b);
-	ft_imprimir(head_a, head_b);
-	printf("\n----------------------------------------------------\n");
+	//ft_imprimir(head_a, head_b);
+	//printf("\n----------------------------------------------------\n");
 	write(1, "OK\n", 3);
 	return (0);
 }

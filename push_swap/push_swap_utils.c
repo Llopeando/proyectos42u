@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 18:09:57 by ullorent          #+#    #+#             */
-/*   Updated: 2022/02/15 18:26:07 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/02/16 16:16:55 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,25 +33,16 @@ void	ft_errormsg(void)
 
 int	ft_getpivot(t_list *head)
 {
-	t_list	*for_middlelist;
-	t_list	*for_endlist;
-	int		pivot;
+	int	*array;
+	int	i;
 
-	for_middlelist = head;
-	for_endlist = head;
-	pivot = 0;
-	if (head != NULL)
+	i = 0;
+	array = malloc((ft_lstsize(head) + 1) * sizeof(int));
+	while (head != NULL)
 	{
-		//ordenar todo
-		//if (ft_isinorder(head))
-		//else
-		//32
-		while (for_endlist != NULL && for_endlist->next != NULL)
-		{
-			for_endlist = for_endlist->next->next;
-			for_middlelist = for_middlelist->next;
-		}
-		pivot = (int)for_middlelist->content;
+		array[i] = (int)head->content;
+		head = head->next;
+		i++;
 	}
-	return (pivot);
+	return (ft_quicksort(array, ft_lstsize(head)));
 }
