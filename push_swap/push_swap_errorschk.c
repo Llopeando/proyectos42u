@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 18:12:26 by ullorent          #+#    #+#             */
-/*   Updated: 2022/02/09 13:00:52 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/02/17 16:28:13 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	ft_isinorder(t_list **head_a)
 	is_in_order = *head_a;
 	if (!is_in_order || is_in_order->next == NULL)
 		return (1);
-	else if (is_in_order->content < is_in_order->next->content
+	else if ((int)is_in_order->content < (int)is_in_order->next->content
 		&& ft_isinorder(&is_in_order->next))
 		return (1);
 	return (0);

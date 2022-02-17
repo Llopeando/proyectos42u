@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 14:49:28 by ullorent          #+#    #+#             */
-/*   Updated: 2022/02/16 16:16:58 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/02/17 15:52:25 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,5 @@ int	ft_quicksort(int *arr, int max)
 		}
 		len++;
 	}
-	if (len % 2 == 0)
-		return (arr[max / 2 + 1]);
 	return (arr[max / 2]);
 }

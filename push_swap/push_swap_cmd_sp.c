@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 16:39:49 by ullorent          #+#    #+#             */
-/*   Updated: 2022/02/10 11:52:40 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/02/17 15:06:21 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,10 @@ void	ft_sb(t_list **head, int boo)
 	temp1 = NULL;
 	temp2 = NULL;
 	if (!*head)
-		temp1 = *head;
+		return ;
+	temp1 = *head;
+	if (!temp1->next)
+		return ;
 	else if (temp1 != NULL)
 	{
 		temp2 = temp1->next;

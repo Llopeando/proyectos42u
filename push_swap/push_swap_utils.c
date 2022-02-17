@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 18:09:57 by ullorent          #+#    #+#             */
-/*   Updated: 2022/02/16 16:16:55 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/02/17 14:37:08 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,65 @@ int	ft_getpivot(t_list *head)
 {
 	int	*array;
 	int	i;
+	int	chunk;
 
 	i = 0;
-	array = malloc((ft_lstsize(head) + 1) * sizeof(int));
+	if (!head)
+		return (0);
+	array = malloc(ft_lstsize(head) * sizeof(int));
+	if (!array)
+		return (0);
+	chunk = head->chunk;
 	while (head != NULL)
 	{
+		if (head->chunk != chunk)
+			break ;
 		array[i] = (int)head->content;
 		head = head->next;
 		i++;
 	}
-	return (ft_quicksort(array, ft_lstsize(head)));
+	return (ft_quicksort(array, i));
+}
+
+int	ft_checkpivlim(t_list **head, int pivot, int boo)
+{
+	t_list	*temp;
+
+	temp = *head;
+	if (boo == 0)
+	{
+		while (temp != NULL)
+		{
+			if ((int)temp->content < pivot)
+				return (1);
+			temp = temp->next;
+		}
+	}
+	else if (boo == 1)
+	{
+		while (temp != NULL)
+		{
+			if ((int)temp->content > pivot)
+				return (1);
+			temp = temp->next;
+		}
+	}
+	return (0);
+}
+
+int	ft_chunksize(t_list *head)
+{
+	int	i;
+	int	chunk;
+
+	i = 0;
+	chunk = head->chunk;
+	while (head != NULL)
+	{
+		if (head->chunk != chunk)
+			break ;
+		head = head->next;
+		i++;
+	}
+	return (i);
 }
