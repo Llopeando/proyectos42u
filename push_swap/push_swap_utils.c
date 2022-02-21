@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 18:09:57 by ullorent          #+#    #+#             */
-/*   Updated: 2022/02/17 14:37:08 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/02/21 13:09:09 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,18 +81,18 @@ int	ft_checkpivlim(t_list **head, int pivot, int boo)
 	return (0);
 }
 
-int	ft_chunksize(t_list *head)
+int	ft_chunksize(t_list **head)
 {
-	int	i;
-	int	chunk;
+	int		i;
+	int		chunk;
+	t_list	*temp;
 
 	i = 0;
-	chunk = head->chunk;
-	while (head != NULL)
+	temp = *head;
+	chunk = temp->chunk;
+	while (temp != NULL && temp->chunk == chunk)
 	{
-		if (head->chunk != chunk)
-			break ;
-		head = head->next;
+		temp = temp->next;
 		i++;
 	}
 	return (i);
