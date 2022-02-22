@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 16:23:02 by ullorent          #+#    #+#             */
-/*   Updated: 2022/02/21 14:13:34 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/02/22 20:15:59 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_addnumbers(t_list **head_a, char **argv)
 	{
 		if (!ft_numcheck(argv[i]))
 			ft_errormsg();
-		numbers = ft_atoi(argv[i]);
+		numbers = ft_atoi_psw(argv[i]);
 		ft_lstadd_back(head_a, ft_lstnew_psw(numbers));
 		i++;
 	}
@@ -41,27 +41,31 @@ void	ft_addnumbers(t_list **head_a, char **argv)
 
 void	ft_imprimir(t_list *head_a, t_list *head_b)
 {
-    int i;
+	int	i;
 
-    i = 1;
-    printf("\n\n///////////////////////////////////////////////////\n\n");
-    printf("    \t       A       \t       B       \n");
-    printf("    \t|-------------|\t|---------------|\n");
-    while (head_a || head_b)
-    {
-        if ( head_b && !head_a)
-            printf("%d   \t|             |\t| %11d [%d] |\n", i, (int)head_b->content, head_b->chunk);
-        else if (head_a && !head_b)
-            printf("%d   \t| %11d [%d] |\t|             |\n", i, (int)head_a->content,head_a->chunk);
-        else
-            printf("%d   \t| %11d [%d] | %11d [%d] |\n", i, (int)head_a->content, head_a->chunk, (int)head_b->content, head_b->chunk);
-        if ( head_a != NULL)
-            head_a = head_a->next;
-        if (head_b != NULL)
-            head_b = head_b->next;
-        i++;
-    }
-    printf("    \t|-------------|\t|---------------|\n");
+	i = 1;
+	printf("\n\n///////////////////////////////////////////////////\n\n");
+	printf("    \t       A       \t       B       \n");
+	printf("    \t|-------------|\t|---------------|\n");
+	while (head_a || head_b)
+	{
+		if (head_b && !head_a)
+			printf("%d   \t|             |\t| %11d [%d] |\n", i,
+				(int)head_b->content, head_b->chunk);
+		else if (head_a && !head_b)
+			printf("%d   \t| %11d [%d] |\t|             |\n", i,
+				(int)head_a->content, head_a->chunk);
+		else
+			printf("%d   \t| %11d [%d] | %11d [%d] |\n", i,
+				(int)head_a->content, head_a->chunk,
+				(int)head_b->content, head_b->chunk);
+		if (head_a != NULL)
+			head_a = head_a->next;
+		if (head_b != NULL)
+			head_b = head_b->next;
+		i++;
+	}
+	printf("	\t|-------------|\t|---------------|\n");
 }
 
 int	main(int argc, char **argv)
@@ -79,7 +83,10 @@ int	main(int argc, char **argv)
 		ft_addnumbers(&head_a, ft_split(argv[1], ' '));
 	ft_numcheck_norep(&head_a);
 	if (ft_isinorder(&head_a))
-		exit (1);
+		exit(1);
+	if (ft_chunksize(&head_a) == 3)
+		ft_sort_three(&head_a);
+	ft_imprimir(head_a, head_b);
 	ft_sort(&head_a, &head_b);
 	//ft_imprimir(head_a, head_b);
 	return (0);

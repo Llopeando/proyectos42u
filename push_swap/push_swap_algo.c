@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 16:57:10 by ullorent          #+#    #+#             */
-/*   Updated: 2022/02/21 14:59:24 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/02/22 20:21:11 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,5 +107,19 @@ void	ft_sort(t_list **head_a, t_list **head_b)
 		}
 		i = 1;
 		//ft_imprimir(*head_a, *head_b);
+	}
+}
+
+void	ft_sort_three(t_list **head)
+{
+	t_list	*temp;
+
+	temp = *head;
+	if (!ft_isinorder(head))
+	{
+		if (temp->content < temp->next->next->content)
+			ft_ra(head, 1);
+		else
+			ft_sa(head, 1);
 	}
 }

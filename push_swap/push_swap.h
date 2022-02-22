@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:20:59 by ullorent          #+#    #+#             */
-/*   Updated: 2022/02/21 13:00:05 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/02/22 20:02:52 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,11 @@ int		ft_quicksort(int *arr, int max);
 void	ft_swap(int *a, int *b);
 int		ft_checkpivlim(t_list **head, int pivot, int boo);
 int		ft_chunksize(t_list **head);
+void	ft_sort_three(t_list **head_a);
 
 /* --- utils and other functions */
 t_list	*ft_lstnew_psw(size_t content);
+int		ft_atoi_psw(const char *str);
 void	ft_errormsg(void);
 
 /* -- errors checker -- */

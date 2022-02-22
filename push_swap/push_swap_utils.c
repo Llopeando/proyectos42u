@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 18:09:57 by ullorent          #+#    #+#             */
-/*   Updated: 2022/02/21 13:09:09 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/02/22 19:49:33 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,31 @@ t_list	*ft_lstnew_psw(size_t content)
 	return (node);
 }
 
-void	ft_errormsg(void)
+int	ft_atoi_psw(const char *str)
 {
-	write(1, "Error\n", 6);
-	write(1, "Check the list that you have introduced\n", 40);
-	exit (1);
+	unsigned int		c;
+	int					j;
+	unsigned long int	lint;
+
+	c = 0;
+	j = 1;
+	lint = 0;
+	while ((str[c] == ' ') || (str[c] >= 9 && str[c] <= 13))
+		c++;
+	if (str[c] == '+' || str[c] == '-')
+	{
+		if (str[c] == '-')
+			j = -1;
+		c++;
+	}
+	while (str[c] <= '9' && str[c] >= '0')
+	{
+		lint = (lint * 10) + (str[c] - '0');
+		c++;
+	}
+	if ((lint > 2147483648 && j == -1) || (lint > 2147483647 && j == 1))
+		ft_errormsg();
+	return (lint * j);
 }
 
 int	ft_getpivot(t_list *head)
