@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:20:59 by ullorent          #+#    #+#             */
-/*   Updated: 2022/02/23 19:26:56 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/02/24 11:55:15 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "libft/libft.h"
-# include <stdio.h>
 # include <stdlib.h>
-# include <unistd.h>
 
 /* -- main functions -- */
 void	ft_addnumbers(t_list **head_a, char **argv);
@@ -31,8 +29,9 @@ int		ft_chunksize(t_list **head);
 void	ft_sort_three(t_list **head_a);
 
 /* -- algorithm specific functions -- */
-void	ft_sort_aistwo(t_list **head_a);
+void	ft_sort_heada(t_list **head_a, t_list **head_b, int i, int chunk_b);
 void	ft_sort_arracheck(t_list **head_a, int c2, int i);
+void	ft_sort_aistwo(t_list **head_a);
 void	ft_sort_b(t_list **head_a, t_list **head_b);
 void	ft_sort_bistwo(t_list **head_a, t_list **head_b);
 
@@ -58,8 +57,5 @@ void	ft_rr(t_list **head_a, t_list **head_b);
 void	ft_rra(t_list **head_a, int boo);
 void	ft_rrb(t_list **head_b, int boo);
 void	ft_rrr(t_list **head_a, t_list **head_b);
-
-/* -- FUNCIONES TEMPORALES -- */
-void	ft_imprimir(t_list *head_a, t_list *head_b);
 
 #endif
