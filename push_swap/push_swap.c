@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 16:23:02 by ullorent          #+#    #+#             */
-/*   Updated: 2022/02/24 11:30:55 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/02/24 13:17:11 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,7 @@ int	main(int argc, char **argv)
 		exit (1);
 	}
 	ft_sort(&head_a, &head_b);
+	free (head_a);
+	free (head_b);
 	return (0);
 }
