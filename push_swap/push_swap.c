@@ -6,13 +6,13 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 16:23:02 by ullorent          #+#    #+#             */
-/*   Updated: 2022/02/24 13:17:11 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/03/01 17:52:44 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_addnumbers(t_list **head_a, char **argv)
+void	ft_addnumbers(t_list **head_a, char **argv, int boo)
 {
 	int		numbers;
 	int		i;
@@ -37,6 +37,8 @@ void	ft_addnumbers(t_list **head_a, char **argv)
 		temp->chunk = 0;
 		temp = temp->next;
 	}
+	if (boo == 1)
+		ft_freemem(temp, argv, 1);
 }
 
 int	main(int argc, char **argv)
@@ -46,22 +48,22 @@ int	main(int argc, char **argv)
 
 	head_a = NULL;
 	head_b = NULL;
-	if (argc < 2 || *argv[1] == '\0')
-		exit (1);
+	if (argc < 2)
+		exit (0);
 	if (argc != 1 && argc != 2)
-		ft_addnumbers(&head_a, argv + 1);
+		ft_addnumbers(&head_a, argv + 1, 0);
 	else
-		ft_addnumbers(&head_a, ft_split(argv[1], ' '));
+		ft_addnumbers(&head_a, ft_split(argv[1], ' '), 1);
 	ft_numcheck_norep(&head_a);
 	if (ft_isinorder(&head_a))
-		exit(1);
+		exit (1);
 	if (ft_chunksize(&head_a) == 3)
 	{
 		ft_sort_three(&head_a);
 		exit (1);
 	}
 	ft_sort(&head_a, &head_b);
-	free (head_a);
-	free (head_b);
+	ft_freemem(head_a, argv, 0);
+	ft_freemem(head_b, argv, 0);
 	return (0);
 }

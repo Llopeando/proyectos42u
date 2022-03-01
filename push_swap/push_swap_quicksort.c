@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 14:49:28 by ullorent          #+#    #+#             */
-/*   Updated: 2022/03/01 15:55:00 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/03/01 19:18:29 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	ft_quicksort(int *arr, int max)
 {
 	int	i;
 	int	j;
+	int	pivot;
 	int	len;
 
 	len = 0;
@@ -43,7 +44,9 @@ int	ft_quicksort(int *arr, int max)
 		}
 		len++;
 	}
-	return (arr[max / 2]);
+	pivot = arr[max / 2];
+	free (arr);
+	return (pivot);
 }
 
 void	ft_sort_three(t_list **head)

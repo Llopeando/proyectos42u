@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:20:59 by ullorent          #+#    #+#             */
-/*   Updated: 2022/03/01 15:04:16 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/03/01 17:52:07 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdlib.h>
 
 /* -- main functions -- */
-void	ft_addnumbers(t_list **head_a, char **argv);
+void	ft_addnumbers(t_list **head_a, char **argv, int boo);
 
 /* -- algorithm main functions -- */
 void	ft_sort(t_list **head_a, t_list **head_b);
@@ -40,6 +40,7 @@ void	ft_sort_bistwo(t_list **head_a, t_list **head_b);
 t_list	*ft_lstnew_psw(size_t content);
 int		ft_atoi_psw(const char *str);
 void	ft_errormsg(void);
+void	ft_freemem(t_list *head, char **argv, int boo);
 
 /* -- errors checker -- */
 int		ft_numcheck(char *argv);

@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 18:12:26 by ullorent          #+#    #+#             */
-/*   Updated: 2022/02/22 20:03:11 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/03/01 17:54:50 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,29 @@ void	ft_errormsg(void)
 {
 	write(1, "Error\n", 6);
 	exit (1);
+}
+
+void	ft_freemem(t_list *head, char **argv, int boo)
+{
+	t_list	*temp;
+	int		i;
+
+	if (boo == 0)
+	{
+		if (!head)
+			exit (0);
+		while (head)
+		{
+			temp = head;
+			head = head->next;
+			free (temp);
+		}
+	}
+	else if (boo == 1)
+	{
+		i = -1;
+		while (argv[++i])
+			free(argv[i]);
+		free(argv);
+	}
 }
