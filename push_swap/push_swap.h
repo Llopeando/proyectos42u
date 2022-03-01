@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:20:59 by ullorent          #+#    #+#             */
-/*   Updated: 2022/02/24 11:55:15 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/03/01 15:04:16 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	ft_sort_three(t_list **head_a);
 
 /* -- algorithm specific functions -- */
 void	ft_sort_heada(t_list **head_a, t_list **head_b, int i, int chunk_b);
+void	ft_sort_heada_five(t_list **head_a, int pivot);
 void	ft_sort_arracheck(t_list **head_a, int c2, int i);
 void	ft_sort_aistwo(t_list **head_a);
 void	ft_sort_b(t_list **head_a, t_list **head_b);

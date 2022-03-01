@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 16:57:10 by ullorent          #+#    #+#             */
-/*   Updated: 2022/02/24 11:46:56 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/03/01 15:08:16 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,16 @@ void	ft_sort_arracheck(t_list **head_a, int c2, int i)
 	}
 }
 
+void	ft_sort_heada_five(t_list **head_a, int pivot)
+{
+	t_list	*temp;
+
+	temp = *head_a;
+	if ((int)temp->content >= pivot)
+		ft_ra(head_a, 1);
+	temp = *head_a;
+}
+
 void	ft_sort_heada(t_list **head_a, t_list **head_b, int i, int chunk_b)
 {
 	int			pivot;
@@ -66,13 +76,16 @@ void	ft_sort_heada(t_list **head_a, t_list **head_b, int i, int chunk_b)
 		{
 			temp->chunk = chunk_b;
 			ft_pb(head_a, head_b);
+			continue ;
 		}
-		else
+		temp = ft_lstlast(*head_a);
+		if ((int)temp->content < pivot)
 		{
-			ft_ra(head_a, 1);
-				c2++;
+			ft_rra(head_a, 1);
+			continue ;
 		}
-		temp = *head_a;
+		ft_sort_heada_five(head_a, pivot);
+		c2++;
 	}
 	ft_sort_arracheck(head_a, c2, i);
 }
