@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:20:59 by ullorent          #+#    #+#             */
-/*   Updated: 2022/03/01 17:52:07 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/03/04 14:12:11 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void	ft_freemem(t_list *head, char **argv, int boo);
 
 /* -- errors checker -- */
 int		ft_numcheck(char *argv);
+void	ft_addnumbers_check(char **argv);
 void	ft_numcheck_norep(t_list **head_a);
 int		ft_isinorder(t_list **head_a);
 

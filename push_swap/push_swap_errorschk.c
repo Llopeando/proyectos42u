@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 18:12:26 by ullorent          #+#    #+#             */
-/*   Updated: 2022/03/03 18:19:07 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/03/04 13:53:14 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_numcheck(char *argv)
 {
-	int	i;
+	int		i;
 
 	i = 0;
 	if (!argv)
@@ -61,7 +61,9 @@ void	ft_numcheck_norep(t_list **head_a)
 int	ft_isinorder(t_list **head_a)
 {
 	t_list	*is_in_order;
+	char	**argv;
 
+	argv = NULL;
 	is_in_order = *head_a;
 	if (!is_in_order || is_in_order->next == NULL)
 		return (1);

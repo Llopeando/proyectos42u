@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 14:49:28 by ullorent          #+#    #+#             */
-/*   Updated: 2022/03/01 19:18:29 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/03/04 13:46:41 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 void	ft_swap(int *a, int *b)
 {
-	int	t;
+	int		t;
+	t_list	*temp;
 
+	temp = NULL;
 	t = *a;
 	*a = *b;
 	*b = t;
@@ -52,7 +54,9 @@ int	ft_quicksort(int *arr, int max)
 void	ft_sort_three(t_list **head)
 {
 	t_list	*temp;
+	char	**argv;
 
+	argv = NULL;
 	temp = *head;
 	if (!ft_isinorder(head))
 	{
@@ -66,6 +70,8 @@ void	ft_sort_three(t_list **head)
 		if ((int)temp->content > (int)temp->next->content)
 			ft_sa(head, 1);
 	}
+	ft_freemem(*head, argv, 0);
+	exit (1);
 }
 
 void	ft_sort_aistwo(t_list **head_a)
