@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 16:23:02 by ullorent          #+#    #+#             */
-/*   Updated: 2022/03/04 14:13:17 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/03/07 16:16:35 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_addnumbers_check(char **argv)
 {
 	int	i;
 
-	i = 1;
+	i = 0;
 	while (argv[i] != NULL)
 	{
 		if (!ft_numcheck(argv[i]))
@@ -32,6 +32,7 @@ void	ft_addnumbers(t_list **head_a, char **argv, int boo)
 	t_list	*temp;
 
 	i = 0;
+	temp = NULL;
 	if (!argv)
 		ft_errormsg();
 	ft_addnumbers_check(argv);
