@@ -8,7 +8,8 @@ Calidad del código (proyectos42u) (Code quality): [![CodeFactor](https://www.co
 ----------
 
 ## 📋 Lista de exámenes completados y en curso (list of completed exams)
-| Exámenes | Número de círculo | Lenguaje de programación | | Fecha del examen aprobado | Nota |
+| Exámenes | Número de círculo | Lenguaje de programación | | Fecha del examen aprobado | Nota final |
 | :-------------: | :-------------: | :-------------: | :-------------: | :-------------: | :-------------: |
 | ⌨️ | ⭕ | 🧠 | | 📅 | 🖊️ |
 | Exam_rank_02 (examen) | 2️⃣ | **C** | | **16 de Diciembre (2021)** | ✅ **100** |
+| Exam_rank_03 (examen) | 3️⃣ | **C** | | **En proceso** | ❓❓❓ |
