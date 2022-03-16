@@ -8,7 +8,7 @@ Calidad del código (Code quality): [![CodeFactor](https://www.codefactor.io/rep
 -------
 
 ## 📋 Lista de proyectos completados y en curso (list of completed proyects)
-| Proyectos | Número de círculo | Lenguaje de programación | | Fecha de entrega | Nota |
+| Proyectos | Número de círculo | Lenguaje de programación | | Fecha de entrega | Nota final |
 | :-------------: | :-------------: | :-------------: | :-------------: | :-------------: | :-------------: |
 | ⌨️ | ⭕ | 🧠 | | 📅 | 🖊️ |
 | Libft  | 0️⃣ | **C** | | **16 de Septiembre (2021) (2da; 26/01/22)** | ✅ **122** |
@@ -18,9 +18,12 @@ Calidad del código (Code quality): [![CodeFactor](https://www.codefactor.io/rep
 | get_next_line | 1️⃣ | **C** | | **22 de Octubre (2021)**  | ✅ **117** |
 | --- | --- | --- | | --- | --- |
 | so_long | 2️⃣ | **C, Videojuego** | | **17 de Diciembre (2021)**  | ✅ **110** |
-| minitalk | 2️⃣ | **C** | | **14 de Diciembre (2021)**  | ✅ **115** |
-| push_swap | 2️⃣ | **C** | | **8 de Marzo (2022)** | ✅ **90** |
+| minitalk | 2️⃣ | **C, Signals** | | **14 de Diciembre (2021)**  | ✅ **115** |
+| push_swap | 2️⃣ | **C, Algorithm** | | **8 de Marzo (2022)** | ✅ **90** |
 | Exam_rank_02 (examen) | 2️⃣ | **C** | | **16 de Diciembre (2021)** | ✅ **100** |
+| --- | --- | --- | | --- | --- |
+| Philosophers | 3️⃣ | **C, Mutex, Threads** | | **En proceso**  | ❓❓❓ |
+| Exam_rank_03 (examen) | 3️⃣ | **C** | | **En proceso** | ❓❓❓ |
 
 -------
 
