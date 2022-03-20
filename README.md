@@ -23,7 +23,7 @@ Calidad del código (Code quality): [![CodeFactor](https://www.codefactor.io/rep
 | Exam_rank_02 (examen) | 2️⃣ | **C** | | **16 de Diciembre (2021)** | ✅ **100** |
 | --- | --- | --- | | --- | --- |
 | Philosophers | 3️⃣ | **C, Mutex, Threads** | | **En proceso**  | ❓❓❓ |
-| minishell | 3️⃣ | **C, Unix logic, Threads** | | **En proceso**  | ❓❓❓ |
+| [minishell](https://github.com/AllPlayed/minishell42u) | 3️⃣ | **C, Unix logic, Threads** | | **En proceso**  | ❓❓❓ |
 | Exam_rank_03 (examen) | 3️⃣ | **C** | | **En proceso** | ❓❓❓ |
 
 -------
