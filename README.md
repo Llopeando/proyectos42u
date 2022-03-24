@@ -17,7 +17,7 @@ Calidad del código (Code quality): [![CodeFactor](https://www.codefactor.io/rep
 | ft_printf | 1️⃣ | **C** | | **4 de Octubre (2021)**  | ✅ **100** |
 | get_next_line | 1️⃣ | **C** | | **22 de Octubre (2021)**  | ✅ **117** |
 | --- | --- | --- | | --- | --- |
-| so_long [compatible with Linux here](https://github.com/AllPlayed/so_long_for_linux42u) | 2️⃣ | **C, Videojuego** | | **17 de Diciembre (2021)**  | ✅ **110** |
+| so_long [(Linux comp.)](https://github.com/AllPlayed/so_long_for_linux42u) | 2️⃣ | **C, Videojuego** | | **17 de Diciembre (2021)**  | ✅ **110** |
 | minitalk | 2️⃣ | **C, Signals** | | **14 de Diciembre (2021)**  | ✅ **115** |
 | push_swap | 2️⃣ | **C, Algorithm** | | **8 de Marzo (2022)** | ✅ **90** |
 | Exam_rank_02 (examen) | 2️⃣ | **C** | | **16 de Diciembre (2021)** | ✅ **100** |
