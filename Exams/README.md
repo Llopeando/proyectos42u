@@ -12,4 +12,4 @@ Calidad del código (proyectos42u) (Code quality): [![CodeFactor](https://www.co
 | :-------------: | :-------------: | :-------------: | :-------------: | :-------------: | :-------------: |
 | ⌨️ | ⭕ | 🧠 | | 📅 | 🖊️ |
 | Exam_rank_02 (examen) | 2️⃣ | **C** | | **16 de Diciembre (2021)** | ✅ **100** |
-| Exam_rank_03 (examen) | 3️⃣ | **C** | | **En proceso** | ❓❓❓ |
+| Exam_rank_03 (examen) | 3️⃣ | **C** | | **24 de Marzo** | ✅ **100** |

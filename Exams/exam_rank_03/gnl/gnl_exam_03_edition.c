@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   gnl_exam_edition.c                                 :+:      :+:    :+:   */
+/*   gnl_exam_03_edition.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/17 17:18:58 by ullorent          #+#    #+#             */
-/*   Updated: 2022/03/17 17:51:16 by ullorent         ###   ########.fr       */
+/*   Created: 2022/03/24 17:22:38 by ullorent          #+#    #+#             */
+/*   Updated: 2022/03/24 17:38:14 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "gnl_exam_edition.h"
+#include "gnl_exam_03_edition.h"
 
-int	ft_gnl_checker(char *str)
+int		ft_gnl_checker(char *line)
 {
 	int	c;
 
 	c = 0;
-	if (!str)
+	if (!line)
 		return (0);
-	while (str[c])
+	while (line[c])
 	{
-		if (str[c] == '\0' || str[c] == '\n')
+		if (line[c] == '\0' || line[c] == '\n')
 			return (1);
 		c++;
 	}
@@ -39,7 +39,6 @@ char	*ft_aux(char *line, char buff)
 	str = (char *)malloc(c + 2);
 	if (!str)
 		return (NULL);
-	str[0] = '\0';
 	c = 0;
 	while (line[c])
 	{
@@ -70,7 +69,7 @@ char	*get_next_line(int fd)
 		filed = read(fd, &buff, 1);
 		if (filed == 0)
 		{
-			if (line[0] != '\0')
+			if (line[0] == '\0')
 			{
 				free (line);
 				return (NULL);
@@ -89,8 +88,8 @@ char	*get_next_line(int fd)
 
 int	main(void)
 {
-	int		fd;
 	char	*line;
+	int		fd;
 
 	fd = open("file.txt", O_RDONLY);
 	line = get_next_line(fd);
