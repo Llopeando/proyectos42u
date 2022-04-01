@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 19:11:19 by ullorent          #+#    #+#             */
-/*   Updated: 2022/03/30 19:14:49 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/04/01 14:23:45 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,36 +36,31 @@ void	ft_groups(char **argv, t_core *core)
 		core->num_aphiloeats);
 }
 
-int	ft_philo_creator(int p, t_core *core)
+int	ft_philo_creator(t_core *core, char **argv)
 {
 	int	c;
 
 	c = 0;
-	core->philos = malloc(sizeof(pthread_t) * p);
-	while (c < p)
+	ft_groups(argv, core);
+	core->philos = malloc(sizeof(pthread_t) * core->n_philos);
+	while (c < core->n_philos)
 	{
 		if (pthread_create(core->philos + c, NULL,
 				(void *)ft_return, NULL) != 0)
-		{
-			printf("Error creating a thread\n");
 			return (1);
-		}
 		core->philo_id = c + 1;
 		printf("El filósofo %d se ha creado\n", core->philo_id);
 		c++;
 	}
 	printf("\n");
 	c = 0;
-	while (c < p)
+	while (c < core->n_philos)
 	{
 		if (pthread_join(core->philos[c], NULL) != 0)
-		{
-			printf("Error executing the thread\n");
 			return (1);
-		}
 		sleep(1);
 		printf("El filósofo %d ha finalizado\n", (int)core->philos[c]);
 		c++;
 	}
-	return (p);
+	return (0);
 }
