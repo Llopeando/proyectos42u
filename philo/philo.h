@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 20:05:26 by ullorent          #+#    #+#             */
-/*   Updated: 2022/04/01 14:24:36 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/04/04 16:12:01 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int		ft_atoi(const char *str);
 
 /* ----- main functions ----- */
 int		ft_philo_creator(t_core *core, char **argv);
-void	ft_groups(char **argv, t_core *core);
+int		ft_groups(char **argv, t_core *core);
 
 /* ----- errors checker ----- */
 int		ft_args_checker(char **argv);
