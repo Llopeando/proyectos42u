@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 20:03:17 by ullorent          #+#    #+#             */
-/*   Updated: 2022/04/04 16:08:58 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/04/05 15:19:05 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,13 @@ int	ft_error_msg(int boo)
 int	main(int argc, char **argv)
 {
 	t_core		core;
+	t_philos	philos;
 
 	if (argc != 5 && argc != 6)
 		return (ft_error_msg(1));
 	if (ft_args_checker(argv))
 		return (ft_error_msg(2));
-	if (ft_philo_creator(&core, argv))
+	if (ft_philo_creator(&core, argv, &philos))
 		return (ft_error_msg(3));
 	//free (core);
 	return (0);

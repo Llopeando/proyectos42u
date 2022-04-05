@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 20:05:26 by ullorent          #+#    #+#             */
-/*   Updated: 2022/04/04 16:12:01 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/04/05 15:21:56 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,18 @@ typedef struct s_philos
 	int			t_toeat;
 	int			t_tosleep;
 	int			num_aphiloeats;
+	int			philo_id;
 }	t_philos;
 
 typedef struct s_core
 {
-	pthread_t	*philos;
+	pthread_t	*thread;
+	t_philos	*philos;
 	int			n_philos;
 	int			t_todie;
 	int			t_toeat;
 	int			t_tosleep;
 	int			num_aphiloeats;
-	int			philo_id;
 }	t_core;
 
 /* ----- utils ----- */
@@ -44,8 +45,14 @@ int		ft_isdigit(int c);
 int		ft_atoi(const char *str);
 
 /* ----- main functions ----- */
-int		ft_philo_creator(t_core *core, char **argv);
-int		ft_groups(char **argv, t_core *core);
+int		ft_philo_creator(t_core *core, char **argv, t_philos *philos);
+int		ft_groups(char **argv, t_core *core, t_philos *philos);
+
+void	*ft_process(void *philos);
+void	ft_tasks(t_philos *philos);
+
+/* ----- tasks functions ----- */
+void	ft_sleep(t_philos *philos);
 
 /* ----- errors checker ----- */
 int		ft_args_checker(char **argv);

@@ -6,7 +6,7 @@
 #    By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/24 19:56:18 by ullorent          #+#    #+#              #
-#    Updated: 2022/03/30 19:14:25 by ullorent         ###   ########.fr        #
+#    Updated: 2022/04/05 15:04:48 by ullorent         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ NAME = philo
 
 CSRC = 	src/philo.c 		\
 		src/philo_main.c	\
-		src/philo_utils.c
+		src/philo_utils.c	\
+		src/philo_tasks.c
 OSRC = $(CSRC:.c=.o)
 
 CFLAGS = -Wall -Werror -Wextra -fsanitize=address -g3
