@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 19:11:19 by ullorent          #+#    #+#             */
-/*   Updated: 2022/04/07 16:18:40 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/04/08 16:44:06 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,33 @@
 
 void	*ft_process(void *philos)
 {
-	t_philos	*temp;
+	t_philos	temp;
+	int			i;
 
-	temp = (t_philos *)philos;
-	pthread_mutex_lock(temp->has_died);
-	while (1)
+	i = 0;
+	temp = *(t_philos *)philos;
+	if (ft_mutex_init(&temp) != 0)
+		return (0);
+	pthread_mutex_lock(&temp.has_died);
+	while (i < 15)
 	{
-		pthread_mutex_unlock(temp->has_died);
-		ft_sleep(philos);
+		pthread_mutex_unlock(&temp.has_died);
 		ft_eat(philos);
-		pthread_mutex_lock(temp->has_died);
+		ft_sleep(philos);
+		ft_think(philos);
+		pthread_mutex_lock(&temp.has_died);
+		i++;
 	}
+	pthread_mutex_unlock(&temp.has_died);
+	free (philos);
+	return (0);
+}
+
+int	ft_mutex_init(t_philos *philos)
+{
+	philos->forks = malloc(sizeof(pthread_mutex_init) * d)
+	if (pthread_mutex_init(&philos->has_died, NULL) != 0)
+		return (1);
 	return (0);
 }
 
@@ -47,7 +63,6 @@ int	ft_groups(char **argv, t_core *core)
 	printf("time_to_sleep: %d\n", core->t_tosleep);
 	printf("numbers_of_times_each_philosopher_must_eat: %d\n\n",
 		core->num_aphiloeats);
-	pthread_mutex_init(core->philos->has_died, NULL);
 	return (0);
 }
 
