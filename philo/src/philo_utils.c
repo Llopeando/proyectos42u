@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 16:15:11 by ullorent          #+#    #+#             */
-/*   Updated: 2022/03/30 18:18:06 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/04/11 17:26:01 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,24 @@ int	ft_atoi(const char *str)
 	return (lint * j);
 }
 
-int	ft_isdigit(int c)
+void	ft_philo_dataparser(t_core *core, int c)
 {
-	if (c <= '9' && c >= '0')
-		return (1);
-	return (0);
+	core->philos[c].t_tosleep = core->t_tosleep;
+	core->philos[c].t_todie = core->t_todie;
+	core->philos[c].t_toeat = core->t_toeat;
+	core->philos[c].num_aphiloeats = core->num_aphiloeats;
+	core->forks[c].fork = 1;
+}
+
+int	ft_error_msg(int boo)
+{
+	if (boo == 1)
+		printf("Error: There are too many or insufficient arguments\n");
+	if (boo == 2)
+		printf("Error: Check your arguments\n");
+	if (boo == 3)
+		printf("Error: An error ocurred with the threads\n");
+	if (boo == 4)
+		printf("Error: An error ocurred with the joins\n");
+	return (1);
 }

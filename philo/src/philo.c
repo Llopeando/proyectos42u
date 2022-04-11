@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 20:03:17 by ullorent          #+#    #+#             */
-/*   Updated: 2022/04/07 13:24:16 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/04/11 13:22:55 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,6 @@ int	ft_args_checker(char **argv)
 	return (0);
 }
 
-int	ft_error_msg(int boo)
-{
-	if (boo == 1)
-		printf("Error: There are too many or insufficient arguments\n");
-	if (boo == 2)
-		printf("Error: Check your arguments\n");
-	if (boo == 3)
-		printf("Error: An error ocurred with the threads\n");
-	return (1);
-}
-
 int	main(int argc, char **argv)
 {
 	t_core		core;
@@ -49,6 +38,8 @@ int	main(int argc, char **argv)
 		return (ft_error_msg(2));
 	if (ft_philo_creator(&core, argv))
 		return (ft_error_msg(3));
+	if (ft_philo_join(&core))
+		return (ft_error_msg(4));
 	//free (core);
 	return (0);
 }

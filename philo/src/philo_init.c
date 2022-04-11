@@ -1,31 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo_tasks.c                                      :+:      :+:    :+:   */
+/*   philo_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/05 14:52:02 by ullorent          #+#    #+#             */
-/*   Updated: 2022/04/11 16:52:19 by ullorent         ###   ########.fr       */
+/*   Created: 2022/04/11 13:22:32 by ullorent          #+#    #+#             */
+/*   Updated: 2022/04/11 13:22:43 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
 
-void	ft_eat(t_philos *philos)
+int	ft_mutex_init(t_philos *philos)
 {
-	printf("%d %d is eating\n", ft_gettime(philos), philos->philo_id);
-	usleep(philos->t_toeat);
-}
-
-void	ft_think(t_philos *philos)
-{
-	printf("%d %d is thinking\n", philos->t_toeat, philos->philo_id);
-	usleep(philos->t_toeat);
-}
-
-void	ft_sleep(t_philos *philos)
-{
-	printf("%d %d is sleeping\n", philos->t_tosleep, philos->philo_id);
-	usleep(philos->t_tosleep);
+	if (pthread_mutex_init(&philos->has_died, NULL) != 0)
+		return (1);
+	return (0);
 }

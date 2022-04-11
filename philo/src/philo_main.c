@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 19:11:19 by ullorent          #+#    #+#             */
-/*   Updated: 2022/04/08 16:44:06 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/04/11 17:33:32 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,26 +25,24 @@ void	*ft_process(void *philos)
 	while (i < 15)
 	{
 		pthread_mutex_unlock(&temp.has_died);
+		// if (ft_death_check(temp))
+		// 	break ;
 		ft_eat(philos);
+		// if (ft_death_check(temp))
+		// 	break ;
 		ft_sleep(philos);
+		// if (ft_death_check(temp))
+		// 	break ;
 		ft_think(philos);
 		pthread_mutex_lock(&temp.has_died);
 		i++;
 	}
 	pthread_mutex_unlock(&temp.has_died);
-	free (philos);
+	//free (&temp);
 	return (0);
 }
 
-int	ft_mutex_init(t_philos *philos)
-{
-	philos->forks = malloc(sizeof(pthread_mutex_init) * d)
-	if (pthread_mutex_init(&philos->has_died, NULL) != 0)
-		return (1);
-	return (0);
-}
-
-int	ft_groups(char **argv, t_core *core)
+int	ft_philo_groups(char **argv, t_core *core)
 {
 	core->n_philos = ft_atoi(argv[1]);
 	core->t_todie = ft_atoi(argv[2]);
@@ -66,24 +64,31 @@ int	ft_groups(char **argv, t_core *core)
 	return (0);
 }
 
-void	ft_philo_dataparser(t_core *core, int c)
-{
-	core->philos[c].t_tosleep = core->t_tosleep;
-	core->philos[c].t_todie = core->t_todie;
-	core->philos[c].t_toeat = core->t_toeat;
-	core->philos[c].num_aphiloeats = core->num_aphiloeats;
-}
-
-int	ft_philo_creator(t_core *core, char **argv)
+int	ft_philo_join(t_core *core)
 {
 	int	c;
 
 	c = 0;
-	if (ft_groups(argv, core))
+	while (c < core->n_philos)
+	{
+		if (pthread_join(core->thread[c], NULL) != 0)
+			return (1);
+		c++;
+	}
+	return (0);
+}
+
+int	ft_philo_creator(t_core *core, char **argv)
+{
+	int		c;
+
+	c = 0;
+	if (ft_philo_groups(argv, core))
 		return (1);
 	core->thread = malloc(sizeof(pthread_t) * core->n_philos);
 	core->philos = malloc(sizeof(t_philos) * core->n_philos);
-	if (!core->thread || !core->philos)
+	core->forks = malloc(sizeof(t_forks) * core->n_philos);
+	if (!core->thread || !core->philos || !core->forks)
 		return (1);
 	while (c < core->n_philos)
 	{
@@ -92,12 +97,7 @@ int	ft_philo_creator(t_core *core, char **argv)
 		if (pthread_create(&core->thread[c], NULL,
 				ft_process, &core->philos[c]) != 0)
 			return (1);
-		c++;
-	}
-	c = 0;
-	while (c < core->n_philos)
-	{
-		if (pthread_join(core->thread[c], NULL) != 0)
+		if (pthread_mutex_init(&core->forks[c].forks, NULL) != 0)
 			return (1);
 		c++;
 	}
