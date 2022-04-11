@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 20:05:26 by ullorent          #+#    #+#             */
-/*   Updated: 2022/04/11 16:56:35 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/04/11 17:35:47 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,6 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <sys/time.h>
-
-typedef struct s_time
-{
-	struct timeval	time;
-}	t_time;
 
 typedef struct s_forks
 {
