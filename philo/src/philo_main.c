@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 19:11:19 by ullorent          #+#    #+#             */
-/*   Updated: 2022/04/11 17:33:32 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/04/12 17:05:49 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,12 @@ void	*ft_process(void *philos)
 
 	i = 0;
 	temp = *(t_philos *)philos;
-	if (ft_mutex_init(&temp) != 0)
+	if (pthread_mutex_init(&temp.has_died, NULL) != 0)
 		return (0);
+	// while (!temp.start_time.tv_sec && !temp.start_time.tv_usec)
+	// 	usleep(1);
 	pthread_mutex_lock(&temp.has_died);
-	while (i < 15)
+	while (i < 5)
 	{
 		pthread_mutex_unlock(&temp.has_died);
 		// if (ft_death_check(temp))
@@ -99,6 +101,14 @@ int	ft_philo_creator(t_core *core, char **argv)
 			return (1);
 		if (pthread_mutex_init(&core->forks[c].forks, NULL) != 0)
 			return (1);
+		core->philos[c].start_time.tv_sec = 0;
+		core->philos[c].start_time.tv_usec = 0;
+		c++;
+	}
+	c = 0;
+	while (c <= core->n_philos)
+	{
+		gettimeofday(&core->philos[c].start_time, NULL);
 		c++;
 	}
 	return (0);

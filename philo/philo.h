@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 20:05:26 by ullorent          #+#    #+#             */
-/*   Updated: 2022/04/11 17:35:47 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/04/12 14:46:30 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_philos
 	int				t_tosleep;
 	int				num_aphiloeats;
 	int				philo_id;
+	int				wait;
 	pthread_mutex_t	has_died;
 	struct timeval	philo_time;
 	struct timeval	start_time;
@@ -55,6 +56,8 @@ typedef struct s_core
 void	ft_philo_dataparser(t_core *core, int c);
 int		ft_mutex_init(t_philos *philos);
 int		ft_atoi(const char *str);
+int		ft_time_to_ms(struct timeval start_time);
+int		ft_my_usleep(t_philos *philo, int time);
 
 /* ----- main functions ----- */
 int		ft_philo_creator(t_core *core, char **argv);
