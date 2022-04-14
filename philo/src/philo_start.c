@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 19:11:19 by ullorent          #+#    #+#             */
-/*   Updated: 2022/04/13 19:08:42 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/04/14 13:37:23 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,16 @@ void	*ft_process(void *philos)
 	pthread_mutex_unlock(&temp.has_died);
 	//free (&temp);
 	return (0);
+}
+
+int	ft_philo_tasks(t_philo *philo, int philo_id, int group)
+{
+	/* aquí van las tareas que hay ahora en process pero basandome en los grupos */
+}
+
+int	ft_philo_groups()
+{
+	/* aquí hay que hacer una función para darle un grupo a los filosofos impares y pares */
 }
 
 int	ft_philo_coreparser(t_core *core, char **argv)
