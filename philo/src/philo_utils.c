@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 16:15:11 by ullorent          #+#    #+#             */
-/*   Updated: 2022/04/13 19:19:55 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/04/15 13:42:36 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,6 @@ int	ft_atoi(const char *str)
 	if (lint > 9223372036854775807 && j == 1)
 		return (-1);
 	return (lint * j);
-}
-
-void	ft_philo_philosparser(t_core *core, int c)
-{
-	core->philos[c].t_tosleep = core->t_tosleep;
-	core->philos[c].t_todie = core->t_todie;
-	core->philos[c].t_toeat = core->t_toeat;
-	core->philos[c].num_aphiloeats = core->num_aphiloeats;
-	core->forks[c].fork = 1;
-	core->philos[c].philo_id = c + 1;
-	core->philos[c].time = ft_gettime(core->philos);
 }
 
 int	ft_error_msg(int boo)

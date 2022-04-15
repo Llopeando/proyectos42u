@@ -6,20 +6,19 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 17:25:51 by ullorent          #+#    #+#             */
-/*   Updated: 2022/04/13 13:21:28 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/04/15 13:33:05 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
 
-int	ft_gettime(t_philos *philo)
+int	ft_gettime(void)
 {
 	struct timeval	time;
 	long int		timenow;
 
 	gettimeofday(&time, NULL);
-	timenow = (time.tv_sec * 1000 + time.tv_usec / 1000)
-		- (philo->start_time.tv_sec * 1000 + philo->start_time.tv_usec / 1000);
+	timenow = (time.tv_sec * 1000) + (time.tv_usec / 1000);
 	return (timenow);
 }
 

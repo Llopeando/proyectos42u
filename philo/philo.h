@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 20:05:26 by ullorent          #+#    #+#             */
-/*   Updated: 2022/04/13 19:07:05 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/04/15 13:33:13 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	ft_sleep(t_philos *philos);
 void	ft_think(t_philos *philos);
 
 /* ----- time calculation functions ----- */
-int		ft_gettime(t_philos *philo);
+int		ft_gettime(void);
 int		ft_time_to_ms(struct timeval start_time);
 int		ft_my_usleep(t_philos *philo, int time);
 

@@ -6,7 +6,7 @@
 #    By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/24 19:56:18 by ullorent          #+#    #+#              #
-#    Updated: 2022/04/13 19:09:53 by ullorent         ###   ########.fr        #
+#    Updated: 2022/04/15 13:44:48 by ullorent         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,13 +17,17 @@ CSRC = 	src/philo.c 		\
 		src/philo_utils.c	\
 		src/philo_tasks.c	\
 		src/philo_mem.c		\
-		src/philo_time.c
+		src/philo_time.c	\
+		src/philo_parsers.c
 OSRC = $(CSRC:.c=.o)
 
 CFLAGS = -Wall -Werror -Wextra -fsanitize=address -g3
 GCCCMD = gcc
 
 all: $(NAME)
+
+%.o: %.c
+	@$(GCCCMD) $(CFLAGS) -c $^ -o $@
 
 $(NAME): $(OSRC)
 	@echo "\033[33mCompiling philo project...\033[0m"
