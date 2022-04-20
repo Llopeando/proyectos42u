@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 16:15:11 by ullorent          #+#    #+#             */
-/*   Updated: 2022/04/15 13:42:36 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/04/20 12:44:01 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,12 @@ int	ft_error_msg(int boo)
 	if (boo == 2)
 		printf("Error: Check your arguments\n");
 	if (boo == 3)
-		printf("Error: An error ocurred parsing items to the core");
+		printf("Error: An error ocurred parsing items to the core\n");
 	if (boo == 4)
-		printf("Error: An error ocurred with the threads\n");
+		printf("Error: An error ocurred starting the program\n");
 	if (boo == 5)
+		printf("Error: An error ocurred with the threads\n");
+	if (boo == 6)
 		printf("Error: An error ocurred with the joins\n");
 	return (1);
 }

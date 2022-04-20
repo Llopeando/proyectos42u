@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 19:11:19 by ullorent          #+#    #+#             */
-/*   Updated: 2022/04/19 18:54:30 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/04/20 17:15:19 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,22 +59,35 @@ void	ft_philo_tasks(t_philos *philos, int group)
 int	ft_philo_creator(t_core *core)
 {
 	int		c;
-	t_forks	*forks;
 
 	c = 0;
-	core->thread = malloc(sizeof(pthread_t) * core->n_philos);
-	core->philos = malloc(sizeof(t_philos) * core->n_philos);
-	forks = malloc(sizeof(t_forks) * core->n_philos);
-	if (!core->thread || !core->philos || !forks)
-		return (1);
-	core->forks = forks;
 	while (c < core->n_philos)
 	{
 		ft_philo_philosparser(core, c);
 		if (pthread_create(&core->thread[c], NULL,
 				ft_process, &core->philos[c]) != 0)
 			return (1);
-		if (ft_philo_forksparser(forks, c))
+		c++;
+	}
+	return (0);
+}
+
+int	ft_philo_mainstarter(t_core *core)
+{
+	int		c;
+
+	c = 0;
+	core->thread = malloc(sizeof(pthread_t) * core->n_philos);
+	core->philos = malloc(sizeof(t_philos) * core->n_philos);
+	core->philos->fork = (int *)malloc(sizeof(int) * core->n_philos);
+	core->philos->mutex = (pthread_mutex_t *)malloc(sizeof(pthread_mutex_t) * core->n_philos);
+	if (!core->thread || !core->philos || !core->philos->fork)
+		return (1);
+	c = 0;
+	while (c < core->n_philos)
+	{
+		core->philos->fork[c] = 1;
+		if (pthread_mutex_init(&core->philos->mutex[c], NULL) != 0)
 			return (1);
 		c++;
 	}

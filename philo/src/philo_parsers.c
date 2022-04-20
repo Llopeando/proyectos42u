@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 13:42:16 by ullorent          #+#    #+#             */
-/*   Updated: 2022/04/19 18:54:38 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/04/20 17:17:23 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int	ft_philo_coreparser(t_core *core, char **argv)
 
 void	ft_philo_philosparser(t_core *core, int c)
 {
+	core->philos[c].n_philos = core->n_philos;
 	core->philos[c].t_tosleep = core->t_tosleep;
 	core->philos[c].t_todie = core->t_todie;
 	core->philos[c].t_toeat = core->t_toeat;
@@ -55,10 +56,7 @@ int	ft_philo_groupsparser(int n_philos, int philo_id)
 	return (0);
 }
 
-int	ft_philo_forksparser(t_forks *forks, int c)
-{
-	forks[c].fork = 1;
-	if (pthread_mutex_init(&forks[c].mutex, NULL) != 0)
-		return (1);
-	return (0);
-}
+// int	ft_philo_forksparser(t_forks *forks, int c)
+// {
+// 	return (0);
+// }
