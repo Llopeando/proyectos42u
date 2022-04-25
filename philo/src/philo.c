@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 20:03:17 by ullorent          #+#    #+#             */
-/*   Updated: 2022/04/20 12:43:05 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/04/25 16:10:43 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	ft_args_checker(char **argv)
 int	main(int argc, char **argv)
 {
 	t_core		core;
+	t_forks		*forks;
 
 	if (argc != 5 && argc != 6)
 		return (ft_error_msg(1));
@@ -38,7 +39,7 @@ int	main(int argc, char **argv)
 		return (ft_error_msg(2));
 	if (ft_philo_coreparser(&core, argv))
 		return (ft_error_msg(3));
-	if (ft_philo_mainstarter(&core))
+	if (ft_philo_mainstarter(&core, &forks))
 		return (ft_error_msg(4));
 	if (ft_philo_creator(&core))
 		return (ft_error_msg(5));

@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 20:05:26 by ullorent          #+#    #+#             */
-/*   Updated: 2022/04/20 14:23:48 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/04/25 16:12:28 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,17 @@
 # include <sys/time.h>
 # include <string.h>
 
-// typedef struct s_forks
-// {
-// }	t_forks;
+typedef struct s_forks
+{
+	int				fork;
+	pthread_mutex_t	mutex;
+}	t_forks;
 
 typedef struct s_philos
 {
 	pthread_mutex_t	has_died;
 	struct timeval	start_time;
-	//t_forks			**forks;
-	int				*fork;
-	pthread_mutex_t	*mutex;
+	t_forks			*forks;
 	int				n_philos;
 	int				t_todie;
 	int				t_toeat;
@@ -52,7 +52,7 @@ typedef struct s_core
 }	t_core;
 
 /* ----- main functions ----- */
-int		ft_philo_mainstarter(t_core *core);
+int		ft_philo_mainstarter(t_core *core, t_forks **forks);
 int		ft_philo_creator(t_core *core);
 int		ft_philo_join(t_core *core);
 

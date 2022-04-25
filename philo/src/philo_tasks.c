@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 14:52:02 by ullorent          #+#    #+#             */
-/*   Updated: 2022/04/20 17:11:39 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/04/25 16:18:31 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	ft_eat(t_philos *philos)
 {
 	int	left_fork;
 
+	printf("entro\n");
 	left_fork = ft_forks_leftfork(philos->n_philos, philos->philo_id);
 	if (ft_forks_handler(philos, left_fork, 0))
 		return (1);
@@ -25,6 +26,7 @@ int	ft_eat(t_philos *philos)
 	if (ft_my_usleep(philos, philos->t_toeat))
 		return (1);
 	ft_forks_handler(philos, left_fork, 1);
+	printf("ended eating = %d\n", philos->philo_id);
 	return (0);
 }
 
