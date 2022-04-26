@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 20:05:26 by ullorent          #+#    #+#             */
-/*   Updated: 2022/04/25 16:12:28 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/04/26 19:02:14 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct s_philos
 	int				num_aphiloeats;
 	int				philo_id;
 	int				time;
+	int				has_eated;
 }	t_philos;
 
 typedef struct s_core
@@ -63,7 +64,6 @@ void	ft_philo_tasks(t_philos *philo, int group);
 int		ft_philo_coreparser(t_core *core, char **argv);
 void	ft_philo_philosparser(t_core *core, int c);
 int		ft_philo_groupsparser(int n_philos, int philo_id);
-//int		ft_philo_forksparser(t_forks *forks, int c);
 
 /* ----- tasks functions ----- */
 int		ft_eat(t_philos *philos);
@@ -71,9 +71,10 @@ void	ft_sleep(t_philos *philos);
 void	ft_think(t_philos *philos);
 
 /* ----- forks functions ----- */
-int		ft_forks_leftfork(int n_philos, int philo_id);
-
 int		ft_forks_handler(t_philos *philos, int left_fork, int boo);
+int		ft_forks_leftfork(int n_philos, int philo_id);
+int		ft_forks_takeforkleft(t_philos *philos, int left_fork, int boo);
+int		ft_forks_takeforkright(t_philos *philos, int right_fork, int boo);
 
 /* ----- time calculation functions ----- */
 int		ft_gettime(void);

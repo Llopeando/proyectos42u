@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 20:03:17 by ullorent          #+#    #+#             */
-/*   Updated: 2022/04/25 16:10:43 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/04/26 18:58:06 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int	main(int argc, char **argv)
 	t_core		core;
 	t_forks		*forks;
 
+	memset(&core, 0, sizeof(t_core));
 	if (argc != 5 && argc != 6)
 		return (ft_error_msg(1));
 	if (ft_args_checker(argv))

@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 13:42:16 by ullorent          #+#    #+#             */
-/*   Updated: 2022/04/25 12:48:58 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/04/26 19:02:23 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,16 +47,14 @@ void	ft_philo_philosparser(t_core *core, int c)
 
 int	ft_philo_groupsparser(int n_philos, int philo_id)
 {
-	if (n_philos == philo_id || n_philos % 2 != 0)
-		return (2);
-	if (philo_id % 2 == 0)
-		return (1);
-	if (philo_id % 2 != 0)
-		return (3);
-	return (0);
-}
+	int	group;
 
-// int	ft_philo_forksparser(t_forks *forks, int c)
-// {
-// 	return (0);
-// }
+	group = 0;
+	if (n_philos == philo_id || n_philos % 2 != 0)
+		group = 2;
+	if (philo_id % 2 == 0)
+		group = 1;
+	if (philo_id % 2 != 0)
+		group = 3;
+	return (group);
+}
