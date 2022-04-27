@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 19:11:19 by ullorent          #+#    #+#             */
-/*   Updated: 2022/04/26 19:03:41 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/04/27 18:41:10 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,57 +21,69 @@ void	*ft_process(void *philos)
 	i = 0;
 	temp = *(t_philos *)philos;
 	temp.has_eated = 0;
-	if (pthread_mutex_init(&temp.has_died, NULL) != 0)
-		return (0);
+	while (!temp.wait->wait)
+		usleep(10);
+	temp.time = ft_gettime(&temp, 0);
+	temp.start_time = temp.time;
+	//printf("temp.start_time = %ld\n", temp.start_time);
+	//printf("temp.gettime = %ld\n", ft_gettime(&temp, 1));
+	//printf("\n");
 	group = ft_philo_groupsparser(temp.n_philos, temp.philo_id);
-	while (!ft_gettime())
-		usleep(1);
-	//printf("\ngroup = %d\n", group);
-	ft_philo_tasks(philos, group);
-	return (0);
+	ft_philo_tasks(&temp, group);
+	return (NULL);
 }
 
 void	ft_philo_tasks(t_philos *philos, int group)
 {
-	pthread_mutex_lock(&philos->has_died);
-	while (1)
+	while (!philos->die->die)
 	{
-		pthread_mutex_unlock(&philos->has_died);
 		if (group == 2)
 		{
-			group = 3;
-			ft_sleep(philos);
+			group = 1;
+			if (ft_sleep(philos))
+				break ;
 		}
 		if (group == 1)
 		{
 			group = 3;
-			ft_think(philos);
+			if (ft_think(philos))
+				break ;
 		}
 		if (group == 3)
 		{
 			group = 2;
-			ft_eat(philos);
-			philos->has_eated++;
+			//printf("salgo de aqui\n");
+			if (ft_eat(philos))
+				break ;
+			// philos->has_eated++;
+			//printf("philos->has_eated = %d\n", philos->has_eated);
+			//printf("philos->num_aphiloeats = %d\n", philos->num_aphiloeats);
+			// if (philos->num_aphiloeats != 0 && philos->has_eated >= philos->num_aphiloeats)
+			// 	break ;
 		}
-		pthread_mutex_lock(&philos->has_died);
 	}
-	pthread_mutex_unlock(&philos->has_died);
 }
 
 int	ft_philo_creator(t_core *core)
 {
 	int		c;
+	t_die	die;
+	t_wait	wait;
 
 	c = 0;
+	wait.wait = 0;
+	pthread_mutex_init(&die.mutex, NULL);
 	while (c < core->n_philos)
 	{
-		ft_philo_philosparser(core, c);
+		ft_philo_philosparser(core, &die, &wait, c);
+		core->philos->start_time = ft_gettime(core->philos, 0);
 		core->philos[c].forks = malloc(sizeof(t_forks) * core->n_philos);
 		if (pthread_create(&core->thread[c], NULL,
 				ft_process, &core->philos[c]) != 0)
 			return (1);
 		c++;
 	}
+	wait.wait = 1;
 	return (0);
 }
 

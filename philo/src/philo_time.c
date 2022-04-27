@@ -6,25 +6,62 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 17:25:51 by ullorent          #+#    #+#             */
-/*   Updated: 2022/04/15 13:33:05 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/04/27 18:37:57 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
 
-int	ft_gettime(void)
+long int	ft_gettime(t_philos *philos, int boo)
 {
 	struct timeval	time;
 	long int		timenow;
 
 	gettimeofday(&time, NULL);
 	timenow = (time.tv_sec * 1000) + (time.tv_usec / 1000);
+	//printf("\n%ld\n%ld\n", timenow, philos->start_time);
+	if (boo == 1)
+		return (timenow - philos->start_time);
 	return (timenow);
 }
 
-int	ft_time_to_ms(struct timeval start_time)
+long int	ft_time_to_ms(struct timeval start_time)
 {
 	return (start_time.tv_sec * 1000 + start_time.tv_usec / 1000);
+}
+
+int	ft_death_check(t_philos *philos)
+{
+	struct timeval	time;
+	long int		time_now;
+
+	gettimeofday(&time, NULL);
+	time_now = ft_gettime(philos, 0) - philos->time;
+	// time_now = ((time.tv_sec * 1000) + (time.tv_usec / 1000))
+	// 	- ft_gettime(philos, 0);
+	if ((int)time_now > philos->t_todie)
+		return (1);
+	return (0);
+}
+
+int	ft_dying_check(t_philos *philos)
+{
+	pthread_mutex_lock(&philos->die->mutex);
+	if (philos->die->die)
+	{
+		pthread_mutex_unlock(&philos->die->mutex);
+		return (1);
+	}
+	if (ft_death_check(philos))
+	{
+		philos->die->die = 1;
+		printf("%ld %d died\n", ft_gettime(philos, 0)
+			- philos->time, philos->philo_id);
+		pthread_mutex_unlock(&philos->die->mutex);
+		return (1);
+	}
+	pthread_mutex_unlock(&philos->die->mutex);
+	return (0);
 }
 
 int	ft_my_usleep(t_philos *philo, int time)
@@ -34,24 +71,20 @@ int	ft_my_usleep(t_philos *philo, int time)
 	int				c;
 
 	c = 0;
-	(void)philo;
 	gettimeofday(&start, NULL);
 	gettimeofday(&end, NULL);
-	while ((end.tv_sec * 1000 + end.tv_usec / 1000)
-		- (start.tv_sec * 1000 + start.tv_usec / 1000) < time)
+	while (ft_time_to_ms(end) - ft_time_to_ms(start) < time)
 	{
-		usleep(5);
+		usleep(100);
 		gettimeofday(&end, NULL);
-		if ((end.tv_sec * 1000 + end.tv_usec / 1000)
-			- (start.tv_sec * 1000 + start.tv_usec) - c > 10)
+		if (ft_time_to_ms(end) - ft_time_to_ms(start) - c < 10)
 		{
 			c += 10;
-			// if (ft_death_check(philo))
-			// 	return (1);
+			if (ft_dying_check(philo))
+				return (1);
 		}
-		c++;
 	}
-	// if (ft_death_check(philo))
-	// 	return (1);
+	if (ft_dying_check(philo))
+		return (1);
 	return (0);
 }
