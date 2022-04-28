@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 17:25:51 by ullorent          #+#    #+#             */
-/*   Updated: 2022/04/27 18:37:57 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/04/28 19:17:41 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,13 @@ long int	ft_gettime(t_philos *philos, int boo)
 	struct timeval	time;
 	long int		timenow;
 
+	boo = 0;
 	gettimeofday(&time, NULL);
-	timenow = (time.tv_sec * 1000) + (time.tv_usec / 1000);
-	//printf("\n%ld\n%ld\n", timenow, philos->start_time);
-	if (boo == 1)
-		return (timenow - philos->start_time);
+	//timenow = (time.tv_sec * 1000) + (time.tv_usec / 1000);
+	timenow = (time.tv_sec * 1000 + time.tv_usec / 1000)
+			- (philos->start_to_time.tv_sec * 1000 + philos->start_to_time.tv_usec / 1000);
+	//if (boo == 1)
+	//	return (timenow - philos->start_time);
 	return (timenow);
 }
 
@@ -36,31 +38,33 @@ int	ft_death_check(t_philos *philos)
 	long int		time_now;
 
 	gettimeofday(&time, NULL);
-	time_now = ft_gettime(philos, 0) - philos->time;
-	// time_now = ((time.tv_sec * 1000) + (time.tv_usec / 1000))
-	// 	- ft_gettime(philos, 0);
-	if ((int)time_now > philos->t_todie)
+	//time_now = ft_gettime(philos, 0) - philos->time;
+	time_now = (time.tv_sec * 1000 + time.tv_usec / 1000)
+			- (philos->eat_time.tv_sec * 1000 + philos->eat_time.tv_usec / 1000);
+	printf("time_now = %ld\n", time_now);
+	printf("philos->t_todie = %d\n", philos->t_todie);
+	if (time_now > philos->t_todie)
 		return (1);
 	return (0);
 }
 
 int	ft_dying_check(t_philos *philos)
 {
-	pthread_mutex_lock(&philos->die->mutex);
+	pthread_mutex_lock(philos->has_prob_died);
 	if (philos->die->die)
 	{
-		pthread_mutex_unlock(&philos->die->mutex);
+		pthread_mutex_unlock(philos->has_prob_died);
 		return (1);
 	}
 	if (ft_death_check(philos))
 	{
 		philos->die->die = 1;
+		pthread_mutex_unlock(philos->has_prob_died);
 		printf("%ld %d died\n", ft_gettime(philos, 0)
 			- philos->time, philos->philo_id);
-		pthread_mutex_unlock(&philos->die->mutex);
 		return (1);
 	}
-	pthread_mutex_unlock(&philos->die->mutex);
+	pthread_mutex_unlock(philos->has_prob_died);
 	return (0);
 }
 
@@ -77,7 +81,7 @@ int	ft_my_usleep(t_philos *philo, int time)
 	{
 		usleep(100);
 		gettimeofday(&end, NULL);
-		if (ft_time_to_ms(end) - ft_time_to_ms(start) - c < 10)
+		if (ft_time_to_ms(end) - ft_time_to_ms(start) - c > 10)
 		{
 			c += 10;
 			if (ft_dying_check(philo))

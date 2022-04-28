@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 13:42:16 by ullorent          #+#    #+#             */
-/*   Updated: 2022/04/27 18:08:15 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/04/28 19:19:31 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ int	ft_philo_coreparser(t_core *core, char **argv)
 	if (core->n_philos <= 0 || core->t_todie <= 0
 		|| core->t_toeat <= 0 || core->t_tosleep <= 0)
 		return (1);
-	core->has_died_boo = 0;
 	return (0);
 }
 
@@ -37,9 +36,14 @@ void	ft_philo_philosparser(t_core *core, t_die *die, t_wait *wait, int c)
 	core->philos[c].t_toeat = core->t_toeat;
 	core->philos[c].num_aphiloeats = core->num_aphiloeats;
 	core->philos[c].has_died_boo = core->has_died;
+	core->philos[c].has_prob_died = (pthread_mutex_t *)malloc(sizeof(pthread_mutex_t));
 	core->philos[c].die = die;
 	core->philos[c].wait = wait;
 	core->philos[c].philo_id = c + 1;
+	core->philos[c].forks = malloc(sizeof(t_forks) * core->n_philos);
+	core->philos[c].start_to_time.tv_sec = 0;
+	core->philos[c].start_to_time.tv_usec = 0;
+	pthread_mutex_init(core->philos->has_prob_died, NULL);
 }
 
 int	ft_philo_groupsparser(int n_philos, int philo_id)
@@ -47,11 +51,11 @@ int	ft_philo_groupsparser(int n_philos, int philo_id)
 	int	group;
 
 	group = 0;
-	if (philo_id % 2 == 0)
-		group = 1;
-	if (philo_id % 2 != 0)
-		group = 2;
 	if (n_philos == philo_id && n_philos % 2 != 0)
 		group = 3;
+	else if (philo_id % 2 != 0)
+		group = 1;
+	else if (philo_id % 2 == 0)
+		group = 2;
 	return (group);
 }

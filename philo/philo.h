@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 20:05:26 by ullorent          #+#    #+#             */
-/*   Updated: 2022/04/27 18:15:34 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/04/28 19:17:24 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,12 @@ typedef struct s_wait
 	int				wait;
 }	t_wait;
 
+typedef struct s_time
+{
+	struct timeval	eat_time;
+	struct timeval	start_to_time;
+}	t_time;
+
 typedef struct s_die
 {
 	int				die;
@@ -40,11 +46,14 @@ typedef struct s_forks
 typedef struct s_philos
 {
 	pthread_mutex_t	has_died;
+	pthread_mutex_t	*has_prob_died;
 	int				has_died_boo;
 	long int		start_time;
 	t_forks			*forks;
 	t_die			*die;
 	t_wait			*wait;
+	struct timeval	eat_time;
+	struct timeval	start_to_time;
 	int				n_philos;
 	int				t_todie;
 	int				t_toeat;
@@ -59,7 +68,6 @@ typedef struct s_core
 {
 	pthread_t		*thread;
 	t_philos		*philos;
-	int				has_died_boo;
 	int				n_philos;
 	int				t_todie;
 	int				t_toeat;
@@ -88,10 +96,10 @@ int			ft_sleep(t_philos *philos);
 int			ft_think(t_philos *philos);
 
 /* ----- forks functions ----- */
-int			ft_forks_handler(t_philos *philos, int left_fork, int boo);
+int			ft_forks_handler(t_philos *philos, int forkboo, int boo);
 int			ft_forks_leftfork(int n_philos, int philo_id);
 int			ft_forks_takeforkleft(t_philos *philos, int left_fork, int boo);
-int			ft_forks_takeforkright(t_philos *philos, int right_fork, int boo);
+int			ft_forks_takeforkright(t_philos *philos, int boo);
 
 /* ----- time calculation functions ----- */
 long int	ft_gettime(t_philos *philos, int boo);
