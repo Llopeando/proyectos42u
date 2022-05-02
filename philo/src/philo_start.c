@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 19:11:19 by ullorent          #+#    #+#             */
-/*   Updated: 2022/04/28 19:18:28 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/05/02 16:22:03 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_process(void *philos)
 {
 	t_philos	temp;
 	int			i;
-	int			group;
+	//int			group;
 
 	i = 0;
 	temp = *(t_philos *)philos;
@@ -25,32 +25,31 @@ void	*ft_process(void *philos)
 		usleep(10);
 	temp.time = ft_gettime(&temp, 0);
 	temp.start_time = temp.time;
-	temp.eat_time = temp.start_to_time;
-		printf("core->philos->time_two.start_to_time = %ld\n", temp.eat_time.tv_sec);
-	group = ft_philo_groupsparser(temp.n_philos, temp.philo_id);
-	ft_philo_tasks(&temp, group);
+	temp.group = ft_philo_groupsparser(&temp);
+	ft_philo_tasks(&temp);
 	return (NULL);
 }
 
-void	ft_philo_tasks(t_philos *philos, int group)
+void	ft_philo_tasks(t_philos *philos)
 {
+	//printf("philo_id = %d\n", philos->philo_id);
 	while (!ft_dying_check(philos))
 	{
-		if (group == 2)
+		if (philos->group == 2)
 		{
-			group = 3;
+			philos->group = 3;
 			if (ft_sleep(philos))
 				break ;
 		}
-		if (group == 3)
+		if (philos->group == 3)
 		{
-			group = 1;
+			philos->group = 1;
 			if (ft_think(philos))
 				break ;
 		}
-		if (group == 1)
+		if (philos->group == 1)
 		{
-			group = 2;
+			philos->group = 2;
 			if (ft_eat(philos))
 				break ;
 			philos->has_eated++;
@@ -72,13 +71,14 @@ int	ft_philo_creator(t_core *core)
 	while (c < core->n_philos)
 	{
 		ft_philo_philosparser(core, &die, &wait, c);
-		//core->philos->start_time = ft_gettime(core->philos, 0);
+		core->philos[c].philo_id = c + 1;
+		core->philos->start_time = ft_gettime(core->philos, 0);
+		core->philos[c].forks = malloc(sizeof(t_forks) * core->n_philos);
 		if (pthread_create(&core->thread[c], NULL,
 				ft_process, &core->philos[c]) != 0)
 			return (1);
 		c++;
 	}
-	gettimeofday(&core->philos->start_to_time, NULL);
 	wait.wait = 1;
 	return (0);
 }
@@ -93,13 +93,12 @@ int	ft_philo_mainstarter(t_core *core, t_forks **forks)
 	*forks = (t_forks *)malloc(sizeof(t_forks) * core->n_philos);
 	if (!core->thread || !core->philos || !forks)
 		return (1);
-	c = 0;
-	while (c < core->n_philos)
+	c = -1;
+	while (++c < core->n_philos)
 	{
 		(*forks + c)->fork = 1;
-		if (pthread_mutex_init(&(*forks)->mutex, NULL) != 0)
+		if (pthread_mutex_init(&(*forks + c)->mutex, NULL) != 0)
 			return (1);
-		c++;
 	}
 	return (0);
 }

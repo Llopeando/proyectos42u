@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 18:57:39 by ullorent          #+#    #+#             */
-/*   Updated: 2022/04/28 18:25:14 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/05/02 16:22:13 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,23 @@ int	ft_forks_takeforkright(t_philos *philos, int boo)
 
 int	ft_forks_handler(t_philos *philos, int forkboo, int boo)
 {
+	//printf("boo = %d\n", boo);
+	//printf("philos->philo_id - 1 = %d\n", philos->philo_id - 1);
+	//printf("forkboo = %d\n", forkboo);
+	printf("philos->forks[philos->philo_id - 1].fork = %d\n", philos->forks[philos->philo_id - 1].fork);
+	// if (philos->forks[philos->philo_id - 1].fork != boo)
+	// 	exit (0);
 	while (forkboo == 0)
 	{
 		pthread_mutex_lock(&philos->forks[philos->philo_id - 1].mutex);
 		if (philos->forks[philos->philo_id - 1].fork != boo)
 		{
 			ft_forks_takeforkleft(philos, philos->philo_id - 1, boo);
+			if (boo == 0)
+			{
+				printf("%ld %d has taken a fork\n",
+					ft_gettime(philos, 1), philos->philo_id);
+			}
 			if (philos->n_philos != 1)
 			{
 				ft_forks_takeforkright(philos, boo);

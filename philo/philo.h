@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 20:05:26 by ullorent          #+#    #+#             */
-/*   Updated: 2022/04/28 19:17:24 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/05/02 16:08:34 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,8 @@
 typedef struct s_wait
 {
 	int				wait;
+	pthread_mutex_t	*mutex;
 }	t_wait;
-
-typedef struct s_time
-{
-	struct timeval	eat_time;
-	struct timeval	start_to_time;
-}	t_time;
 
 typedef struct s_die
 {
@@ -52,8 +47,7 @@ typedef struct s_philos
 	t_forks			*forks;
 	t_die			*die;
 	t_wait			*wait;
-	struct timeval	eat_time;
-	struct timeval	start_to_time;
+	long int		start_to_time;
 	int				n_philos;
 	int				t_todie;
 	int				t_toeat;
@@ -62,11 +56,13 @@ typedef struct s_philos
 	int				philo_id;
 	long int		time;
 	int				has_eated;
+	int				group;
 }	t_philos;
 
 typedef struct s_core
 {
 	pthread_t		*thread;
+	pthread_mutex_t	*mutex;
 	t_philos		*philos;
 	int				n_philos;
 	int				t_todie;
@@ -82,13 +78,13 @@ int			ft_philo_creator(t_core *core);
 int			ft_philo_join(t_core *core);
 
 void		*ft_process(void *philos);
-void		ft_philo_tasks(t_philos *philo, int group);
+void		ft_philo_tasks(t_philos *philo );
 
 /* ----- data parsers ----- */
 int			ft_philo_coreparser(t_core *core, char **argv);
 void		ft_philo_philosparser(t_core *core, t_die *die,
 				t_wait *wait, int c);
-int			ft_philo_groupsparser(int n_philos, int philo_id);
+int			ft_philo_groupsparser(t_philos *philos);
 
 /* ----- tasks functions ----- */
 int			ft_eat(t_philos *philos);

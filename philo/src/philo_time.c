@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 17:25:51 by ullorent          #+#    #+#             */
-/*   Updated: 2022/04/28 19:17:41 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/05/02 15:37:37 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,10 @@ long int	ft_gettime(t_philos *philos, int boo)
 	struct timeval	time;
 	long int		timenow;
 
-	boo = 0;
 	gettimeofday(&time, NULL);
-	//timenow = (time.tv_sec * 1000) + (time.tv_usec / 1000);
-	timenow = (time.tv_sec * 1000 + time.tv_usec / 1000)
-			- (philos->start_to_time.tv_sec * 1000 + philos->start_to_time.tv_usec / 1000);
-	//if (boo == 1)
-	//	return (timenow - philos->start_time);
+	timenow = time.tv_sec * 1000 + time.tv_usec / 1000;
+	if (boo == 1)
+		return (timenow - philos->start_time);
 	return (timenow);
 }
 
@@ -39,10 +36,9 @@ int	ft_death_check(t_philos *philos)
 
 	gettimeofday(&time, NULL);
 	//time_now = ft_gettime(philos, 0) - philos->time;
-	time_now = (time.tv_sec * 1000 + time.tv_usec / 1000)
-			- (philos->eat_time.tv_sec * 1000 + philos->eat_time.tv_usec / 1000);
-	printf("time_now = %ld\n", time_now);
-	printf("philos->t_todie = %d\n", philos->t_todie);
+	time_now = ft_time_to_ms(time) - philos->time;
+	//printf("time_now = %ld\n", time_now);
+	//printf("philos->t_todie = %d\n", philos->t_todie);
 	if (time_now > philos->t_todie)
 		return (1);
 	return (0);
@@ -60,8 +56,7 @@ int	ft_dying_check(t_philos *philos)
 	{
 		philos->die->die = 1;
 		pthread_mutex_unlock(philos->has_prob_died);
-		printf("%ld %d died\n", ft_gettime(philos, 0)
-			- philos->time, philos->philo_id);
+		printf("%ld %d died\n", ft_gettime(philos, 1), philos->philo_id);
 		return (1);
 	}
 	pthread_mutex_unlock(philos->has_prob_died);
