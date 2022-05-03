@@ -6,39 +6,33 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 18:57:39 by ullorent          #+#    #+#             */
-/*   Updated: 2022/05/02 16:22:13 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/05/03 17:05:01 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
 
-int	ft_forks_leftfork(int n_philos, int philo_id)
+int	ft_forks_rightforkid(t_philos *philos)
 {
-	if (philo_id == 1)
-		return (n_philos - 1);
-	return (philo_id - 2);
-}
+	int	right_fork;
 
-int	ft_forks_takeforkleft(t_philos *philos, int left_fork, int boo)
-{
-	philos->forks[left_fork].fork = boo;
-	pthread_mutex_unlock(&philos->forks[left_fork].mutex);
-	if (boo == 0)
+	if (philos->philo_id == 1)
 	{
-		printf("%ld %d has taken a fork\n",
-			ft_gettime(philos, 1), philos->philo_id);
+		right_fork = philos->n_philos - 1;
+		return (right_fork);
 	}
-	return (0);
+	else
+	{
+		right_fork = philos->philo_id - 2;
+		return (right_fork);
+	}
 }
 
 int	ft_forks_takeforkright(t_philos *philos, int boo)
 {
 	int	right_fork;
 
-	if (philos->philo_id == 1)
-		right_fork = philos->n_philos - 1;
-	else
-		right_fork = philos->philo_id - 2;
+	right_fork = ft_forks_rightforkid(philos);
 	if (philos->forks[right_fork].fork != boo)
 	{
 		pthread_mutex_lock(&philos->forks[right_fork].mutex);
@@ -56,18 +50,13 @@ int	ft_forks_takeforkright(t_philos *philos, int boo)
 
 int	ft_forks_handler(t_philos *philos, int forkboo, int boo)
 {
-	//printf("boo = %d\n", boo);
-	//printf("philos->philo_id - 1 = %d\n", philos->philo_id - 1);
-	//printf("forkboo = %d\n", forkboo);
-	printf("philos->forks[philos->philo_id - 1].fork = %d\n", philos->forks[philos->philo_id - 1].fork);
-	// if (philos->forks[philos->philo_id - 1].fork != boo)
-	// 	exit (0);
 	while (forkboo == 0)
 	{
 		pthread_mutex_lock(&philos->forks[philos->philo_id - 1].mutex);
 		if (philos->forks[philos->philo_id - 1].fork != boo)
 		{
-			ft_forks_takeforkleft(philos, philos->philo_id - 1, boo);
+			philos->forks[philos->philo_id - 1].fork = boo;
+			pthread_mutex_unlock(&philos->forks[philos->philo_id - 1].mutex);
 			if (boo == 0)
 			{
 				printf("%ld %d has taken a fork\n",

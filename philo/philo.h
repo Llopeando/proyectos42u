@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 20:05:26 by ullorent          #+#    #+#             */
-/*   Updated: 2022/05/02 16:08:34 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/05/03 17:46:29 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ typedef struct s_philos
 {
 	pthread_mutex_t	has_died;
 	pthread_mutex_t	*has_prob_died;
+	struct timeval	startingtime;
 	int				has_died_boo;
 	long int		start_time;
 	t_forks			*forks;
@@ -64,6 +65,7 @@ typedef struct s_core
 	pthread_t		*thread;
 	pthread_mutex_t	*mutex;
 	t_philos		*philos;
+	struct timeval	startingtime;
 	int				n_philos;
 	int				t_todie;
 	int				t_toeat;
@@ -97,6 +99,8 @@ int			ft_forks_leftfork(int n_philos, int philo_id);
 int			ft_forks_takeforkleft(t_philos *philos, int left_fork, int boo);
 int			ft_forks_takeforkright(t_philos *philos, int boo);
 
+int			ft_forks_rightforkid(t_philos *philos);
+
 /* ----- time calculation functions ----- */
 long int	ft_gettime(t_philos *philos, int boo);
 long int	ft_time_to_ms(struct timeval start_time);
@@ -108,6 +112,7 @@ int			ft_death_check(t_philos *philos);
 
 /* ----- utils ----- */
 int			ft_mutex_init(t_philos *philos);
+void		ft_philo_freemem(t_core *core, t_forks *forks);
 int			ft_atoi(const char *str);
 
 /* ----- errors checker ----- */

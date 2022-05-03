@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 17:25:51 by ullorent          #+#    #+#             */
-/*   Updated: 2022/05/02 15:37:37 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/05/03 17:13:43 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,7 @@ int	ft_death_check(t_philos *philos)
 	long int		time_now;
 
 	gettimeofday(&time, NULL);
-	//time_now = ft_gettime(philos, 0) - philos->time;
 	time_now = ft_time_to_ms(time) - philos->time;
-	//printf("time_now = %ld\n", time_now);
-	//printf("philos->t_todie = %d\n", philos->t_todie);
 	if (time_now > philos->t_todie)
 		return (1);
 	return (0);
