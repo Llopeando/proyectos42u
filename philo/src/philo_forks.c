@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 18:57:39 by ullorent          #+#    #+#             */
-/*   Updated: 2022/05/03 17:05:01 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/05/04 14:00:05 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_forks_rightforkid(t_philos *philos)
 
 	if (philos->philo_id == 1)
 	{
-		right_fork = philos->n_philos - 1;
+		right_fork = philos->core->n_philos - 1;
 		return (right_fork);
 	}
 	else
@@ -26,6 +26,18 @@ int	ft_forks_rightforkid(t_philos *philos)
 		right_fork = philos->philo_id - 2;
 		return (right_fork);
 	}
+}
+
+int	ft_forks_takeforkleft(t_philos *philos, int boo)
+{
+	philos->forks[philos->philo_id - 1].fork = boo;
+	pthread_mutex_unlock(&philos->forks[philos->philo_id - 1].mutex);
+	if (boo == 0)
+	{
+		printf("%ld %d has taken a fork\n",
+			ft_gettime(philos, 1), philos->philo_id);
+	}
+	return (0);
 }
 
 int	ft_forks_takeforkright(t_philos *philos, int boo)
@@ -55,14 +67,8 @@ int	ft_forks_handler(t_philos *philos, int forkboo, int boo)
 		pthread_mutex_lock(&philos->forks[philos->philo_id - 1].mutex);
 		if (philos->forks[philos->philo_id - 1].fork != boo)
 		{
-			philos->forks[philos->philo_id - 1].fork = boo;
-			pthread_mutex_unlock(&philos->forks[philos->philo_id - 1].mutex);
-			if (boo == 0)
-			{
-				printf("%ld %d has taken a fork\n",
-					ft_gettime(philos, 1), philos->philo_id);
-			}
-			if (philos->n_philos != 1)
+			ft_forks_takeforkleft(philos, boo);
+			if (philos->core->n_philos != 1)
 			{
 				ft_forks_takeforkright(philos, boo);
 				forkboo = 1;

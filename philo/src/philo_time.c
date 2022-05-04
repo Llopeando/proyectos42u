@@ -6,7 +6,7 @@
 /*   By: ullorent <ullorent@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 17:25:51 by ullorent          #+#    #+#             */
-/*   Updated: 2022/05/03 17:13:43 by ullorent         ###   ########.fr       */
+/*   Updated: 2022/05/04 13:39:54 by ullorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,27 +36,27 @@ int	ft_death_check(t_philos *philos)
 
 	gettimeofday(&time, NULL);
 	time_now = ft_time_to_ms(time) - philos->time;
-	if (time_now > philos->t_todie)
+	if (time_now > philos->core->t_todie)
 		return (1);
 	return (0);
 }
 
 int	ft_dying_check(t_philos *philos)
 {
-	pthread_mutex_lock(philos->has_prob_died);
-	if (philos->die->die)
+	pthread_mutex_lock(philos->core->has_prob_died);
+	if (philos->core->has_died)
 	{
-		pthread_mutex_unlock(philos->has_prob_died);
+		pthread_mutex_unlock(philos->core->has_prob_died);
 		return (1);
 	}
 	if (ft_death_check(philos))
 	{
-		philos->die->die = 1;
-		pthread_mutex_unlock(philos->has_prob_died);
+		philos->core->has_died = 1;
+		pthread_mutex_unlock(philos->core->has_prob_died);
 		printf("%ld %d died\n", ft_gettime(philos, 1), philos->philo_id);
 		return (1);
 	}
-	pthread_mutex_unlock(philos->has_prob_died);
+	pthread_mutex_unlock(philos->core->has_prob_died);
 	return (0);
 }
 
