@@ -1,8 +1,5 @@
-#Other files
-.DS_Store
-./so_long/so_long_map_generator
-./Piscina
-./.vscode
+#Este archivo .gitignore, ha sido generado de manera
+#automática por GitHub (.gitignore para proyectos en C)
 
 # Prerequisites
 *.d
@@ -56,4 +53,3 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
-so_long/so_long_map_generator

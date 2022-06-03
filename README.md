@@ -8,23 +8,23 @@ Calidad del código (Code quality): [![CodeFactor](https://www.codefactor.io/rep
 -------
 
 ## 📋 Lista de proyectos completados y en curso (list of completed proyects)
-| Proyectos | Número de círculo | Lenguaje de programación | | Fecha de entrega | Nota final |
-| :-------------: | :-------------: | :-------------: | :-------------: | :-------------: | :-------------: |
+| Proyectos | Número de círculo | Lenguaje de programación | | Nota final |
+| :-------------: | :-------------: | :-------------: | :-------------: | :-------------: |
 | ⌨️ | ⭕ | 🧠 | | 📅 | 🖊️ |
-| Libft  | 0️⃣ | **C** | | **16 de Septiembre (2021) (2da; 26/01/22)** | ✅ **122** |
+| Libft  | 0️⃣ | **C** | | ✅ **122** |
 | --- | --- | --- | | --- | --- |
-| Born2beroot | 1️⃣ | **Administración de sistemas**  | | **22 de Septiembre (2021)**  | ✅ **125** |
-| ft_printf | 1️⃣ | **C** | | **4 de Octubre (2021)**  | ✅ **100** |
-| get_next_line | 1️⃣ | **C** | | **22 de Octubre (2021)**  | ✅ **117** |
+| Born2beroot | 1️⃣ | **Administración de sistemas**  | | ✅ **125** |
+| ft_printf | 1️⃣ | **C** | | ✅ **100** |
+| get_next_line | 1️⃣ | **C** | | ✅ **117** |
 | --- | --- | --- | | --- | --- |
-| so_long [(Linux comp.)](https://github.com/AllPlayed/so_long_for_linux42u) | 2️⃣ | **C, Videojuego** | | **17 de Diciembre (2021)**  | ✅ **110** |
-| minitalk | 2️⃣ | **C, Signals** | | **14 de Diciembre (2021)**  | ✅ **115** |
-| push_swap | 2️⃣ | **C, Algorithm** | | **8 de Marzo (2022)** | ✅ **90** |
-| Exam_rank_02 (examen) | 2️⃣ | **C** | | **16 de Diciembre (2021)** | ✅ **100** |
+| so_long [(Linux comp.)](https://github.com/AllPlayed/so_long_for_linux42u) | 2️⃣ | **C, Videojuego** | | ✅ **110** |
+| minitalk | 2️⃣ | **C, Signals** | | ✅ **115** |
+| push_swap | 2️⃣ | **C, Algorithm** | | ✅ **90** |
+| Exam_rank_02 (examen) | 2️⃣ | **C** | | ✅ **100** |
 | --- | --- | --- | | --- | --- |
-| Philosophers | 3️⃣ | **C, Mutex, Threads** | | **En proceso**  | ❓❓❓ |
-| [minishell](https://github.com/AllPlayed/minishell42u) | 3️⃣ | **C, Unix logic, Threads** | | **En proceso**  | ❓❓❓ |
-| Exam_rank_03 (examen) | 3️⃣ | **C** | | **24 de Marzo** | ✅ **100** |
+| Philosophers | 3️⃣ | **C, Mutex, Threads** | | ✅ **100** |
+| [minishell (por parejas)](https://github.com/AllPlayed/minishell42u) | 3️⃣ | **C, Unix logic, Threads** | | ❓❓❓ |
+| Exam_rank_03 (examen) | 3️⃣ | **C** | | ✅ **100** |
 
 -------
 
