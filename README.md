@@ -10,7 +10,7 @@ Calidad del código (Code quality): [![CodeFactor](https://www.codefactor.io/rep
 ## 📋 Lista de proyectos completados y en curso (list of completed proyects)
 | Proyectos | Número de círculo | Lenguaje de programación | | Nota final |
 | :-------------: | :-------------: | :-------------: | :-------------: | :-------------: |
-| ⌨️ | ⭕ | 🧠 | | 📅 | 🖊️ |
+| ⌨️ | ⭕ | 🧠 | | 🖊️ |
 | Libft  | 0️⃣ | **C** | | ✅ **122** |
 | --- | --- | --- | | --- | --- |
 | Born2beroot | 1️⃣ | **Administración de sistemas**  | | ✅ **125** |
@@ -23,8 +23,13 @@ Calidad del código (Code quality): [![CodeFactor](https://www.codefactor.io/rep
 | Exam_rank_02 (examen) | 2️⃣ | **C** | | ✅ **100** |
 | --- | --- | --- | | --- | --- |
 | Philosophers | 3️⃣ | **C, Mutex, Threads** | | ✅ **100** |
-| [minishell (por parejas)](https://github.com/AllPlayed/minishell42u) | 3️⃣ | **C, Unix logic, Threads** | | ❓❓❓ |
+| [minishell (por parejas)](https://github.com/AllPlayed/minishell42u) | 3️⃣ | **C, Unix logic, Threads** | | ✅ **90** |
 | Exam_rank_03 (examen) | 3️⃣ | **C** | | ✅ **100** |
+| --- | --- | --- | | --- | --- |
+| NetPractice | 4️⃣ | **Redes (Adm. de Sist.)** | | ✅ **100** |
+| cub3d | 4️⃣ | **C, Algorithm, Graphics, Game** | | ❓❓❓ |
+| C++ (del 00 al 08) | 4️⃣ | **C++** | | ❓❓❓ |
+| Exam_rank_04 (examen) | 4️⃣ | **C** | | ❓❓❓ |
 
 -------
 
