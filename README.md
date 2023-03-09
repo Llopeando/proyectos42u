@@ -1,6 +1,6 @@
 # proyectos42u
 
-Calidad del código (Code quality): [![CodeFactor](https://www.codefactor.io/repository/github/allplayed/proyectos42u/badge?s=78de944f4586421d1953b3a1ca590ed1e74c1c01)](https://www.codefactor.io/repository/github/allplayed/proyectos42u)
+Calidad del código (Code quality): [![CodeFactor](https://www.codefactor.io/repository/github/llopeando/proyectos42u/badge?s=78de944f4586421d1953b3a1ca590ed1e74c1c01)](https://www.codefactor.io/repository/github/llopeando/proyectos42u)
 
 🇪🇸 Este repositorio incluye todos los proyectos y trabajos que estoy haciendo como estudiante en **42 Urduliz**.           
 🇺🇸 This repository contains all the proyects and assignments that I am doing as a student at **42 Urduliz**.
