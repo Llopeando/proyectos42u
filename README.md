@@ -28,16 +28,20 @@ Calidad del código (Code quality): [![CodeFactor](https://www.codefactor.io/rep
 | --- | --- | --- | | --- | --- |
 | NetPractice | 4️⃣ | **Redes (Adm. de Sist.)** | | ✅ **100** |
 | cub3d | 4️⃣ | **C, Algorithm, Graphics, Game** | | ❓❓❓ |
-| [C++(del 00 al 08)](https://github.com/AllPlayed/cpp42u) | 4️⃣ | **C++** | | ❓❓❓ |
+| [C++(del 00 al 09)](https://github.com/AllPlayed/cpp42u) | 4️⃣ | **C++** | | ❓❓❓ |
 | Exam_rank_04 (examen) | 4️⃣ | **C** | | ✅ **100** |
 
 -------
 
-## ✅ Testers para los proyectos (Proyects testers)
+## 📚 Testers y guías para los proyectos (Proyects testers and guides)
 Tester de libft (hecho por @alelievr): https://github.com/alelievr/libft-unit-test                    
 Tester de printf (hecho por @Tripouille): https://github.com/Tripouille/printfTester                    
 Tester de GNL (hecho por @Tripouille): https://github.com/Tripouille/gnlTester                       
 Tester de push_swap (hecho por @lmalki-h): https://github.com/lmalki-h/push_swap_tester
+
+Guía de NetPractice (hecho por @lpaube): https://github.com/lpaube/NetPractice
+
+Pequeño programa para estudiar exámenes (hecho por @JCluzet): https://github.com/JCluzet/42_GradeMe
 
 -------
 
