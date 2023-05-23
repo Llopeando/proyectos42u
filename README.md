@@ -27,7 +27,7 @@ Calidad del código (Code quality): [![CodeFactor](https://www.codefactor.io/rep
 | Exam_rank_03 (examen) | 3️⃣ | **C** | | ✅ **100** |
 | --- | --- | --- | | --- | --- |
 | NetPractice | 4️⃣ | **Redes (Adm. de Sist.)** | | ✅ **100** |
-| cub3d | 4️⃣ | **C, Algorithm, Graphics, Game** | | ❓❓❓ |
+| [cub3d](https://github.com/ualcibar/cub3d) | 4️⃣ | **C, Algorithm, Graphics, Game** | | ✅ **110** |
 | [C++(del 00 al 09)](https://github.com/AllPlayed/cpp42u) | 4️⃣ | **C++** | | ❓❓❓ |
 | Exam_rank_04 (examen) | 4️⃣ | **C** | | ✅ **100** |
 
