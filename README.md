@@ -7,7 +7,7 @@ Calidad del código (Code quality): [![CodeFactor](https://www.codefactor.io/rep
 
 -------
 
-## 📋 Lista de proyectos completados y en curso (list of completed proyects)
+## 📋 Proyectos completados y en proceso del curso (list of completed projects)
 | Proyectos | Número de círculo | Lenguaje de programación | | Nota final |
 | :-------------: | :-------------: | :-------------: | :-------------: | :-------------: |
 | ⌨️ | ⭕ | 🧠 | | 🖊️ |
