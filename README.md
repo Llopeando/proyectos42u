@@ -32,7 +32,7 @@ Calidad del código (Code quality): [![CodeFactor](https://www.codefactor.io/rep
 | Exam_rank_04 (examen) | 4️⃣ | **C** | | ✅ **100** |
 | --- | --- | --- | | --- | --- |
 | [Inception](https://github.com/Llopeando/inception42u) | 5️⃣ | **Docker, Adm. de Sist.** | | ✅ **100** |
-| [ft_irc](https://github.com/Llopeando/irc42u) | 5️⃣ | **C++, IRC Server, Trabajo en Equipo**  | | ❓❓❓ |
+| [ft_irc](https://github.com/Llopeando/irc42u) | 5️⃣ | **C++, IRC Server, Trabajo en Equipo**  | | ✅ **100** |
 | [C++(del 05 al 09)](https://github.com/AllPlayed/cpp42u) | 5️⃣ | **C++** | | ❓❓❓ |
 | Exam_rank_05 (examen) | 5️⃣ | **C++** | | ❓❓❓ |
 
