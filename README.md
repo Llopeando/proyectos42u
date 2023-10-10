@@ -8,33 +8,31 @@ Calidad del código (Code quality): [![CodeFactor](https://www.codefactor.io/rep
 -------
 
 ## 📋 Proyectos completados y en proceso del curso (list of completed projects)
-| Proyectos | Número de círculo | Lenguaje de programación | | Nota final |
-| :-------------: | :-------------: | :-------------: | :-------------: | :-------------: |
-| ⌨️ | ⭕ | 🧠 | | 🖊️ |
-| Libft  | 0️⃣ | **C** | | ✅ **122** |
-| --- | --- | --- | | --- | --- |
-| Born2beroot | 1️⃣ | **Administración de sistemas**  | | ✅ **125** |
-| ft_printf | 1️⃣ | **C** | | ✅ **100** |
-| get_next_line | 1️⃣ | **C** | | ✅ **117** |
-| --- | --- | --- | | --- | --- |
-| so_long [(Linux comp.)](https://github.com/AllPlayed/so_long_for_linux42u) | 2️⃣ | **C, Videojuego** | | ✅ **110** |
-| minitalk | 2️⃣ | **C, Signals** | | ✅ **115** |
-| push_swap | 2️⃣ | **C, Algorithm** | | ✅ **90** |
-| Exam_rank_02 (examen) | 2️⃣ | **C** | | ✅ **100** |
-| --- | --- | --- | | --- | --- |
-| Philosophers | 3️⃣ | **C, Mutex, Threads** | | ✅ **100** |
-| [minishell (por parejas)](https://github.com/AllPlayed/minishell42u) | 3️⃣ | **C, Unix logic, Threads** | | ✅ **90** |
-| Exam_rank_03 (examen) | 3️⃣ | **C** | | ✅ **100** |
-| --- | --- | --- | | --- | --- |
-| NetPractice | 4️⃣ | **Redes (Adm. de Sist.)** | | ✅ **100** |
-| [cub3d](https://github.com/ualcibar/cub3d) | 4️⃣ | **C, Algorithm, Graphics, Game** | | ✅ **110** |
-| [C++(del 00 al 04)](https://github.com/AllPlayed/cpp42u) | 4️⃣ | **C++** | | ✅ **100** |
-| Exam_rank_04 (examen) | 4️⃣ | **C** | | ✅ **100** |
-| --- | --- | --- | | --- | --- |
-| [Inception](https://github.com/Llopeando/inception42u) | 5️⃣ | **Docker, Adm. de Sist.** | | ✅ **100** |
-| [ft_irc](https://github.com/Llopeando/irc42u) | 5️⃣ | **C++, IRC Server, Trabajo en Equipo**  | | ✅ **100** |
-| [C++(del 05 al 09)](https://github.com/AllPlayed/cpp42u) | 5️⃣ | **C++** | | ❓❓❓ |
-| Exam_rank_05 (examen) | 5️⃣ | **C++** | | ❓❓❓ |
+
+| Proyecto | Aprendizaje | Nota |
+| --- | :---: | --- |
+| ⌨️ | 🧠 | 🖊️ |
+| Libft | **C** | ✅ **122** |
+| Born2beroot | **Administración de sistemas**  | ✅ **125** |
+| ft_printf | **C** | ✅ **100** |
+| get_next_line | **C** | ✅ **117** |
+| so_long [(Linux comp.)](https://github.com/AllPlayed/so_long_for_linux42u) | **C, Videojuego** | ✅ **110** |
+| minitalk | **C, Signals** | ✅ **115** |
+| push_swap | **C, Algorithm** | ✅ **90** |
+| Exam_rank_02 (examen) | **C** | ✅ **100** |
+| Philosophers | **C, Mutex, Threads** | ✅ **100** |
+| [minishell (por parejas)](https://github.com/AllPlayed/minishell42u) | **C, Unix logic, Threads** | ✅ **90** |
+| Exam_rank_03 (examen) | **C** | ✅ **100** |
+| NetPractice | **Redes (Adm. de Sist.)** | ✅ **100** |
+| [cub3d](https://github.com/ualcibar/cub3d) | **C, Algorithm, Graphics, Game** | ✅ **110** |
+| [C++(del 00 al 04)](https://github.com/AllPlayed/cpp42u) | **C++** | ✅ **100** |
+| Exam_rank_04 (examen) | **C** | ✅ **100** |
+| [Inception](https://github.com/Llopeando/inception42u) | **Docker, Adm. de Sist.** | ✅ **100** |
+| [ft_irc](https://github.com/Llopeando/irc42u) | **C++, IRC Server, Trabajo en Equipo** | ✅ **100** |
+| [C++(del 05 al 09)](https://github.com/AllPlayed/cpp42u) | **C++** | ✅ **100** |
+| Exam_rank_05 (examen) | **C++** | ❓❓❓ |
+| ft_transcendence | **C++, Docker, TypeScript, Full Stack** | ❓❓❓ |
+| Exam_rank_06 (examen) | **C++, Sockets** | ❓❓❓ |
 
 -------
 
