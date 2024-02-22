@@ -31,7 +31,7 @@ Calidad del código (Code quality): [![CodeFactor](https://www.codefactor.io/rep
 | [ft_irc](https://github.com/Llopeando/irc42u) | **C++, IRC Server, Trabajo en Equipo** | ✅ **100** |
 | [C++(del 05 al 09)](https://github.com/AllPlayed/cpp42u) | **C++** | ✅ **100** |
 | Exam_rank_05 (examen) | **C++** | ✅ **100** |
-| ft_transcendence | **Python, HTML, TailwindCSS, TypeScript (Angular)** | ❓❓❓ |
+| [ft_transcendence](https://github.com/ualcibar/trancendence) | **Python, HTML, TailwindCSS, TypeScript (Angular)** | ❓❓❓ |
 | Exam_rank_06 (examen) | **C++, Sockets** | ❓❓❓ |
 
 -------
